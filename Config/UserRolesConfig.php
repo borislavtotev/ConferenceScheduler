@@ -10,6 +10,7 @@ namespace SoftUni\Application\Config;
 
 define('ROLES', serialize(array(
     'User' => 0,
-    'Editor' => 1,
-    'Admin' => 2
+    'ConferenceOwner' => 1,
+    'ConferenceAdministrator' => 2,
+    'Administrator' => 3
 )));

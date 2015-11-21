@@ -1,4 +1,6 @@
 <?php
+namespace SoftUni\Config;
+
 /* Add custom routes
  * You can use regex with named groups <controller>, <action>, <params>
  * to create specific routing

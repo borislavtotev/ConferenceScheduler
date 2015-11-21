@@ -12,6 +12,9 @@ class Annotations
 {
     public static $allAnnotations;
 
+
+
+
     /**
      * Returns array with annotations for controllers in Areas part of the project
      * Each array for controller contains classAnnotations and methodAnnotations
