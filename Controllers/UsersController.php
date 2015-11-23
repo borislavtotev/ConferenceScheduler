@@ -8,6 +8,7 @@ use SoftUni\ViewModels\UserViewModel;
 use SoftUni\FrameworkCore\View;
 use SoftUni\ViewModels\LoginInformation;
 use SoftUni\ViewModels\RegisterInformation;
+use SoftUni\FrameworkCore\Database;
 
 /**
  * @Route("user")
@@ -48,13 +49,36 @@ class UsersController extends Controller
 
         if (isset($_POST['username'], $_POST['password'])) {
             try {
-                $user = $_POST['username'];
-                $pass = $_POST['password'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
 
-                $userModel = new User();
-                $userModel->register($user, $pass);
+                $userModel = new User($username, $password);
+                $db = Database::getInstance('app');
 
-                $this->initLogin($user, $pass);
+//                if ($this->exists($username)) {
+//                    throw new \Exception("User already registered");
+//                }
+
+                self::createModelTable();
+                $result = $db->prepare("
+                        INSERT INTO users (username, password)
+                        VALUES (?, ?);
+                    ");
+
+                $result->execute(
+                    [
+                        $username,
+                        password_hash($password, PASSWORD_DEFAULT),
+                    ]
+                );
+
+                if ($result->rowCount() > 0) {
+                    return true;
+                }
+
+                throw new \Exception('Cannot register user');;
+
+                $this->initLogin($username, $password);
             } catch (\Exception $e) {
                 $viewModel->error = $e->getMessage();
                 return new View($viewModel);
@@ -114,11 +138,38 @@ class UsersController extends Controller
 
     private function initLogin($user, $pass)
     {
-        $userModel = new User();
+        $userModel = new User($user, $pass);
 
         $userId = $userModel->login($user, $pass);
         $_SESSION['id'] = $userId;
         header("Location: profile");
+    }
+
+    private function createModelTable()
+    {
+        $db = Database::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE Users (
+                            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                            username VARCHAR(30) NOT NULL,
+                            password VARCHAR(30) NOT NULL,
+                            reg_date TIMESTAMP
+                            )
+                    ");
+
+        $result->execute(
+            [
+                0,
+                $username,
+                password_hash($password, PASSWORD_DEFAULT),
+                ''
+            ]
+        );
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
     }
 }
 
@@ -127,38 +178,7 @@ class UsersController extends Controller
 //
 //public function register($username, $password)
 //{
-//    $db = Database::getInstance('app');
-//
-//    if ($this->exists($username)) {
-//        throw new \Exception("User already registered");
-//    }
-//
-//    $result = $db->prepare("
-//            INSERT INTO users (username, password, gold, food)
-//            VALUES (?, ?, ?, ?);
-//        ");
-//
-//    $result->execute(
-//        [
-//            $username,
-//            password_hash($password, PASSWORD_DEFAULT),
-//            self::GOLD_DEFAULT,
-//            self::FOOD_DEFAULT
-//        ]
-//    );
-//
-//    if ($result->rowCount() > 0) {
-//        $userId = $db->lastId();
-//
-//        $db->query("
-//                INSERT INTO user_buildings (user_id, building_id, level_id)
-//                SELECT $userId, id, 0 FROM buildings
-//            ");
-//
-//        return true;
-//    }
-//
-//    throw new \Exception('Cannot register user');
+
 //}
 
 //public function exists($username)
