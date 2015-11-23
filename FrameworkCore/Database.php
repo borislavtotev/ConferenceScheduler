@@ -1,8 +1,8 @@
 <?php
 
-namespace SoftUni\Core;
+namespace SoftUni\FrameworkCore;
 
-use SoftUni\Core\Drivers\DriverFactory;
+use SoftUni\FrameworkCore\Drivers;
 
 class Database
 {
@@ -39,7 +39,7 @@ class Database
         $dbName,
         $host = null
     ) {
-        $driver = DriverFactory::create($driver, $user, $pass, $dbName, $host);
+        $driver = \SoftUni\FrameworkCore\Drivers\DriverFactory::create($driver, $user, $pass, $dbName, $host);
 
         $pdo = new \PDO(
             $driver->getDsn(),

@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 10/3/2015
- * Time: 5:45 PM
- */
 
-namespace SoftUni\Core;
+namespace SoftUni\FrameworkCore;
 
 use SoftUni\Application\Config;
 

@@ -1,6 +1,8 @@
 <?php
 
-namespace SoftUni;
+namespace SoftUni\FrameworkCore;
+
+use SoftUni\Config;
 
 class Router
 {
@@ -9,31 +11,11 @@ class Router
 
     public static function readAllRoutes()
     {
-        $filePaths = \SoftUni\Core\Annotations::getDirContents($_SERVER['DOCUMENT_ROOT']);
-        $routeConfigFilePaths = self::getAllRouteConfigFilePaths($filePaths);
+        self::$routes['DefaultConfig'] = Config\RouteConfig::DefaultFrameworkRouteConfigs;
 
-        self::$routes = [];
-        foreach ($routeConfigFilePaths as $routeConfigFilePath) {
-            //var_dump($routeConfigFilePath);
-            $routePath = array_pop($routeConfigFilePath);
-            //var_dump($routePath);
-            require_once $routePath;
-            if (preg_match('/Areas(.*?)Config/i', $routePath, $match)) {
-                $area = str_replace('\\','',$match[1]);
-                $area = str_replace('/','',$area);
-                self::$routes['Area'] = array($area => $routes);
-            };
+        self::$routes['CustomConfig'] = Config\RouteConfig::CustomRouteConfigs;
 
-            if (preg_match('#(Application)[\\\/]Config#i', $routePath, $match)) {
-                self::$routes['Application'] = $routes;
-            };
-
-            if (preg_match('#(Framework)[\\\/]Config#i', $routePath, $match)) {
-                self::$routes['Framework'] = $routes;
-            };
-        }
-
-        $routesFromAnnotations = \SoftUni\Core\Annotations::$allAnnotations['Routes'];
+        $routesFromAnnotations = Annotations\AnnotationParser::$allAnnotations['Routes'];
         self::$routes['Annotations'] = $routesFromAnnotations;
     }
 
@@ -76,64 +58,6 @@ class Router
         }
 
         return $findRoute;
-    }
-
-    private function getAllRouteConfigFilePaths($filePaths) {
-        $routeConfigFilePaths = [];
-        $routeConfigFilePaths[] = self::getRouteConfigAreasFilePaths($filePaths);
-        $routeConfigFilePaths[] = self::getRouteConfigApplicationFilePaths($filePaths);
-        $routeConfigFilePaths[] = self::getRouteConfigFrameworkFilePaths($filePaths);
-
-        return $routeConfigFilePaths;
-    }
-
-    private function getRouteConfigAreasFilePaths($filePaths) {
-        return array_filter($filePaths, function($filePath) {
-            $pattern = '/Application\\' . DIRECTORY_SEPARATOR . 'Areas\\' . DIRECTORY_SEPARATOR
-                . '(.*?)\\' . DIRECTORY_SEPARATOR. 'Config\\' . DIRECTORY_SEPARATOR . 'RouteConfig.php/';
-            if (preg_match($pattern, $filePath, $match)) {
-                return $filePath;
-            }
-        });
-    }
-
-    private function getRouteConfigApplicationFilePaths($filePaths) {
-        return array_filter($filePaths, function($filePath) {
-            $pattern = '/Application\\' . DIRECTORY_SEPARATOR . 'Config\\' . DIRECTORY_SEPARATOR . 'RouteConfig.php/';
-            if (preg_match($pattern, $filePath, $match)) {
-                return $filePath;
-            }
-        });
-    }
-
-    private function getRouteConfigFrameworkFilePaths($filePaths) {
-        return array_filter($filePaths, function($filePath) {
-            $pattern = '/Framework\\' . DIRECTORY_SEPARATOR . 'Config\\' . DIRECTORY_SEPARATOR
-                . 'RouteConfig.php/';
-            if (preg_match($pattern, $filePath, $match)) {
-                return $filePath;
-            }
-        });
-    }
-
-    private function checkAreaRoutes() {
-        $areaRoutes = self::$routes['Area'];
-        $uriParams = [];
-
-        If (isset($areaRoutes)) {
-            foreach ($areaRoutes as $area => $routePatterns) {
-                foreach ($routePatterns as $routePattern) {
-                    if (preg_match($routePattern, self::$uri, $match)) {
-                        $uriParams['area'] = $area;
-                        $uriParams['controller'] = $match['controller'];
-                        $uriParams['action'] = $match['action'];
-                        $uriParams['params'] = $match['params'];
-
-                        return $uriParams;
-                    }
-                }
-            }
-        }
     }
 
     private function checkApplicationOrFrameworkRoutes($whatToCheck) {

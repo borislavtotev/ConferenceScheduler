@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 10/3/2015
- * Time: 4:47 PM
- */
-
-namespace SoftUni\Application\Config;
+namespace SoftUni\Config;
 
 define('ROLES', serialize(array(
     'User' => 0,

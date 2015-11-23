@@ -6,17 +6,21 @@ namespace SoftUni\Config;
  * to create specific routing
  *
  * Example:
- * To match the creation of a new product/user/promotion, you can use this route
+ * To match the creation of a new product/user/promotion, you can add this route
  *
- * $customRoutes = array(
-    array(
-        'regex' => '/^new(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i',
-    )
- *  );
+ *  '/^new\/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i'
  *
  * matched uri will be:
  *    "newProduct/Create/Cake/With3Eggs"
  *    "newUser/CreateProfile/FromFacebook"
  * */
 
-$routes = array('/^users\/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i');
+class RouteConfig {
+    const CustomRouteConfigs = array(
+        '/^users\/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i',
+    );
+
+    const DefaultFrameworkRouteConfigs = array(
+        '/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i'
+    );
+}

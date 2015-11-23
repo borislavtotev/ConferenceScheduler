@@ -1,18 +1,19 @@
 <?php
-namespace SoftUni\Application\Areas\Users\Controllers;
+namespace SoftUni\Controllers;
 
-include_once('Framework' . DIRECTORY_SEPARATOR . 'Controllers' . DIRECTORY_SEPARATOR . 'Controller.php');
+include_once('Controllers' . DIRECTORY_SEPARATOR . 'Controller.php');
 
-use SoftUni\Application\Areas\Users\Models\User;
-use SoftUni\Application\Areas\Users\ViewModels\UserViewModel;
-use SoftUni\View;
-use SoftUni\Controllers\Controller;
-use SoftUni\Application\Areas\Users\ViewModels\LoginInformation;
-use SoftUni\Application\Areas\Users\ViewModels\RegisterInformation;
+use SoftUni\Models\User;
+use SoftUni\ViewModels\UserViewModel;
+use SoftUni\FrameworkCore\View;
+use SoftUni\ViewModels\LoginInformation;
+use SoftUni\ViewModels\RegisterInformation;
 
 /**
  * @Route("user")
  * @User
+ * @Admin
+ * @Route("user/login/{id:integer}")
  */
 class UsersController extends Controller
 {

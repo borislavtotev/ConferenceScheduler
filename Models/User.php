@@ -1,5 +1,5 @@
 <?php
-namespace SoftUni\Application\Areas\Users\Models;
+namespace SoftUni\Models;
 
 use SoftUni\Core\Database;
 

@@ -2,14 +2,17 @@
 echo "alalaa";
 session_start();
 
-include_once('Framework' . DIRECTORY_SEPARATOR . 'Autoloader.php');
-include_once('Framework' . DIRECTORY_SEPARATOR . 'Application.php');
-include_once('Framework' . DIRECTORY_SEPARATOR . 'FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-\SoftUni\Autoloader::init();
-\SoftUni\Core\Annotations::getAnnotations();
+include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Autoloader.php');
+include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Application.php');
+include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_SEPARATOR . 'AnnotationParser.php');
 
-\SoftUni\Core\Database::setInstance(
+\SoftUni\FrameworkCore\Autoloader::init();
+\SoftUni\FrameworkCore\Annotations\AnnotationParser::getAnnotations();
+
+\SoftUni\FrameworkCore\Database::setInstance(
     \SoftUni\Config\DatabaseConfig::DB_INSTANCE,
     \SoftUni\Config\DatabaseConfig::DB_DRIVER,
     \SoftUni\Config\DatabaseConfig::DB_USER,
@@ -18,8 +21,5 @@ include_once('Framework' . DIRECTORY_SEPARATOR . 'FrameworkCore' . DIRECTORY_SEP
     \SoftUni\Config\DatabaseConfig::DB_HOST
 );
 
-$app = new \SoftUni\Application();
+$app = new \SoftUni\FrameworkCore\Application();
 $app->start();
-?>
-
-

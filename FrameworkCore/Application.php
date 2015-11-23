@@ -1,5 +1,5 @@
 <?php
-namespace SoftUni;
+namespace SoftUni\FrameworkCore;
 
 
 class Application
@@ -11,7 +11,7 @@ class Application
 
     public function start()
     {
-        \Softuni\Router::readAllRoutes();
+        Router::readAllRoutes();
 
         $uri = Router::make_uri();
         $params = Router::match_uri($uri);

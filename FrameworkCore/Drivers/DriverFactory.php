@@ -1,6 +1,6 @@
 <?php
 
-namespace SoftUni\Core\Drivers;
+namespace SoftUni\FrameworkCore\Drivers;
 
 class DriverFactory
 {

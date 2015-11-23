@@ -1,7 +1,5 @@
 <?php
-namespace SoftUni;
-
-use SoftUni\Core\Annotations;
+namespace SoftUni\FrameworkCore;
 
 class Autoloader
 {
@@ -14,7 +12,8 @@ class Autoloader
             $class = str_replace('\\', '\\\\', $class);
 
             // find proper file for this class
-            $dirs = Annotations::getDirContents($_SERVER['DOCUMENT_ROOT']);
+            require_once 'CommonFunction.php';
+            $dirs = CommonFunction::getDirContents($_SERVER['DOCUMENT_ROOT']);
             $classFile = array_filter($dirs, function($dir) use($class) {
                 $pattern = '/'.$class.'/';
                 if (preg_match($pattern, $dir)) {
