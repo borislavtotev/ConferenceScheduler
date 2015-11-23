@@ -11,9 +11,7 @@ use SoftUni\ViewModels\RegisterInformation;
 
 /**
  * @Route("user")
- * @User
- * @Admin
- * @Route("user/login/{id:integer}")
+ * @Authorize(Roles="Administrator")
  */
 class UsersController extends Controller
 {

@@ -5,6 +5,7 @@
  * Date: 10/2/2015
  * Time: 12:48 PM
  */
+declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore\Annotations;
 
@@ -27,6 +28,9 @@ class AnnotationParser
     public static function getAnnotations() {
         $controllersFilePaths = CommonFunction::getDirContents($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'Controllers');
         $annotations = [];
+        $annotations['byType'] = [];
+        $annotations['byController'] = [];
+
         foreach ($controllersFilePaths as $controllersFilePath) {
             if (preg_match('/Controllers\\'.DIRECTORY_SEPARATOR.'(.*?).php/',
                             $controllersFilePath, $match)) {
@@ -36,59 +40,43 @@ class AnnotationParser
                 require_once 'Controllers'.DIRECTORY_SEPARATOR.$fileName;
 
                 //echo "class:".$className;
+
+                // Get  Class Annotations
                 if (class_exists('SoftUni\\Controllers\\'.$className)) {
-                    $annotations[$className] = [];
                     $classAnnotations = [];
                     $reflectionClass = new \ReflectionClass('SoftUni\\Controllers\\'.$className);
                     $doc = $reflectionClass->getDocComment();
-                    echo "test:".json_encode($doc, JSON_PRETTY_PRINT);
-                    $annotationRows = explode("\n", $doc);
-
-                    foreach ($annotationRows as $annotationRow) {
-                        echo $annotationRow."<br/>";
-                        if (preg_match_all("#@([^\\(\\)]*)\((.*)\)?#", $annotationRow, $newAnnotation)) {
-                            echo "machna class annotation:" . json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br/>";
-                            echo "new class with:".$newAnnotation[1][0]."with parameters".$newAnnotation[2][0]."<br/>";
-                            $annotationClassName = __NAMESPACE__."\\".$newAnnotation[1][0]."Annotation";
-                            try {
-                                $annotation = new $annotationClassName();
-                                $fullAnnotation = $annotation->onInitialize($newAnnotation[0][0]);
-                                echo "full annotation:".$fullAnnotation."<br/>";
-                            }
-                            catch (\Exception $e) {
-                                echo $e;
-                                echo "There is no annotation class with this name: ".$newAnnotation[1][0]."<br/>";
-                            }
-
-
-                            //syzdai class s imeto i params
-
-
-                            //foreach ($newAnnotations[0] as $newAnnotation) {
-                                // echo (json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br />");
-                                //                            if (preg_match('/Route\((.*?)\)/', $newAnnotation, $matches)) {
-                                //                                $classRouteAnnotation = $matches[1];
-                                //                            }
-                                //
-                                //                            $userRoles = UserRoles::getAllRoles();
-                                //                            $pattern = join("|", $userRoles);
-                                //                            if (preg_match('/'.$pattern.'/', $newAnnotation, $matches)) {
-                                //                                $classAccessAnnotation = $matches[0];
-                                //                            }
-                            //}
-                        } else {
-                            if (preg_match("#@(\\w*)#", $annotationRow, $annotationMatch)) {
-                                echo "new class with:".$annotationMatch[1]."<br/>";
-                            } else {
-                                //throw new \Exception("Invlaid Annotation: ".$annotationRow);
-                            }
-                        }
+                    if ($doc) {
+                        $classAnnotations = self::extractAnnotations($doc, $classAnnotations);
+                        echo "<br/><br/>".json_encode($classAnnotations, JSON_PRETTY_PRINT)."<br/>";
                     }
-//                    $methods = $reflectionClass->getMethods();
-//                    foreach ($methods as $method) {
-//                        $methodName = $method->getName();
-//                        $methodAccessAnnotation = '';
-//                        $methodDoc = $method->getDocComment();
+
+                    // Get Method Annotations
+                    $methods = $reflectionClass->getMethods();
+                    foreach ($methods as $method) {
+                        $methodName = $method->getName();
+                        $methodAccessAnnotation = '';
+                        $methodDoc = $method->getDocComment();
+
+                        if ($methodDoc) {
+                            $methodAnnotations = self::extractAnnotations($methodDoc, $classAnnotations);
+                            echo $methodName.": ".json_encode($methodAnnotations, JSON_PRETTY_PRINT)."<br/>";
+                        } else {
+                            $methodAnnotations = $classAnnotations;
+                        }
+
+                        // Add extracted annotaions to all Annotations
+                        foreach ($methodAnnotations as $methodAnnotationType => $methodAnnotationProperty) {
+                            $annotations['byType'][$methodAnnotationType][] = array(
+                                property => $methodAnnotationProperty,
+                                controller => $className,
+                                action => $methodName
+                            );
+                            $annotations['byController'][$className][$methodName][$methodAnnotationType] = $methodAnnotationProperty;
+                        }
+
+                        echo "<br/>All Annotations:<br/>".json_encode($annotations, JSON_PRETTY_PRINT)."<br/>";
+                    }
 //                        if (preg_match_all('#@(.*?)\n#s', $methodDoc, $newMethodAnnotations)) {
 //                            foreach ($newMethodAnnotations[1] as $newMethodAnnotation) {
 //                                $annotations['Routes'][$fullRouteAnnotation] = [$className, $methodName];
@@ -131,5 +119,65 @@ class AnnotationParser
 
         self::$allAnnotations = $annotations;
     }
+
+    private static function extractAnnotations(string $comments, $classAnnotations) :array {
+        $extractedAnnotations = [];
+        echo "test:".json_encode($comments, JSON_PRETTY_PRINT);
+        $annotationRows = explode("\n", $comments);
+
+        foreach ($annotationRows as $annotationRow) {
+            echo $annotationRow."<br/>";
+            if (preg_match_all("#@([^\\(\\)]*)\((.*)\)?#", $annotationRow, $newAnnotation)) {
+                echo "machna class annotation:" . json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br/>";
+                echo "new class with:".$newAnnotation[1][0]."with parameters".$newAnnotation[2][0]."<br/>";
+                $annotationType = $newAnnotation[1][0]; // Route, Authorization, etc.
+                $annotationParams = $newAnnotation[0][0];
+            } else if (preg_match("#@(\\w*)#", $annotationRow, $annotationMatch)) {
+                $annotationType = $annotationMatch[1]; // Route, Authorization, etc.
+                $annotationParams = null;
+                echo "new class with:".$annotationMatch[1]."<br/>";
+            } else {
+                continue;
+            }
+
+            $annotationClassName = __NAMESPACE__."\\".$annotationType."Annotation";
+
+            if (class_exists($annotationClassName)) {
+                $annotation = new $annotationClassName();
+                if (array_key_exists($annotationType, $classAnnotations)) {
+                    $fullAnnotation = $annotation->onInitialize($annotationParams, $classAnnotations[$annotationType]);
+                } else {
+                    $fullAnnotation = $annotation->onInitialize($annotationParams, null);
+                }
+
+                $extractedAnnotations[$annotationType] = $fullAnnotation;
+                echo "full annotation:".$fullAnnotation."<br/>";
+            } else {
+                echo "There is no annotation class with this name: ".$annotationType."<br/>";
+            }
+        }
+
+        return $extractedAnnotations;
+    }
 }
+
+
+//syzdai class s imeto i params
+
+
+//foreach ($newAnnotations[0] as $newAnnotation) {
+// echo (json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br />");
+//                            if (preg_match('/Route\((.*?)\)/', $newAnnotation, $matches)) {
+//                                $classRouteAnnotation = $matches[1];
+//                            }
+//
+//                            $userRoles = UserRoles::getAllRoles();
+//                            $pattern = join("|", $userRoles);
+//                            if (preg_match('/'.$pattern.'/', $newAnnotation, $matches)) {
+//                                $classAccessAnnotation = $matches[0];
+//                            }
+//}
 ?>
+
+
+
