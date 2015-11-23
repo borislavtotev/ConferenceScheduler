@@ -7,7 +7,7 @@ class DatabaseConfig
     const DB_HOST = '127.0.0.1:3306';
     const DB_USER = 'root';
     const DB_PASS = 'praskovka';
-    const DB_NAME = 'test';
+    const DB_NAME = 'ConferenceScheduler';
     const DB_INSTANCE = 'app';
 }
 

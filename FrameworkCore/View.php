@@ -32,13 +32,7 @@ class View
 
     private function initModelOnly($model)
     {
-        require 'Application'
-                . DIRECTORY_SEPARATOR
-                . 'Areas'
-                . DIRECTORY_SEPARATOR
-                . self::$area
-                . DIRECTORY_SEPARATOR
-                . 'Views'
+        require 'Views'
                 . DIRECTORY_SEPARATOR
                 . self::$actionName
                 . self::VIEW_EXTENSION;
@@ -46,13 +40,7 @@ class View
 
     private function initModelView($view, $model)
     {
-        require 'Application'
-                . DIRECTORY_SEPARATOR
-                . 'Areas'
-                . DIRECTORY_SEPARATOR
-                . self::$area
-                . DIRECTORY_SEPARATOR
-                . 'Views'
+        require 'Views'
                 . DIRECTORY_SEPARATOR
                 . $view
                 . self::VIEW_EXTENSION;

@@ -39,13 +39,28 @@ class Database
         $dbName,
         $host = null
     ) {
-        $driver = \SoftUni\FrameworkCore\Drivers\DriverFactory::create($driver, $user, $pass, $dbName, $host);
+        $driver = Drivers\DriverFactory::create($driver, $user, $pass, $dbName, $host);
 
-        $pdo = new \PDO(
-            $driver->getDsn(),
-            $user,
-            $pass
-        );
+        try {
+            $pdo = new \PDO(
+                $driver->getDsn(),
+                $user,
+                $pass
+            );
+        }
+        catch(\PDOException $e) {
+            self::initializeDb($host, $user, $pass, $dbName);
+            try {
+                $pdo = new \PDO(
+                    $driver->getDsn(),
+                    $user,
+                    $pass
+                );
+            }
+            catch(\PDOException $e1) {
+                throw new \Exception("Unable to build the database.");
+            }
+        }
 
         self::$inst[$instanceName] = new self($pdo);
     }
@@ -70,6 +85,15 @@ class Database
     public function lastId($name = null)
     {
         return $this->db->lastInsertId($name);
+    }
+
+    private function initializeDb($host, $user, $pass, $dbName) {
+        $connection = mysqli_connect($host, $user, $pass);
+        if (!mysqli_select_db($connection, $dbName)) {
+            echo("creating database!\n");
+            mysqli_query($connection, "CREATE DATABASE $dbName");
+            mysqli_close($connection);
+        }
     }
 
 }

@@ -1,7 +1,8 @@
 <?php
-namespace SoftUni\Models;
 
-class User
+namespace SoftUni\ViewModels;
+
+class UserViewModel
 {
     private $id;
     private $username;

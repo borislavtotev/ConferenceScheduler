@@ -68,9 +68,9 @@ class AnnotationParser
                         // Add extracted annotaions to all Annotations
                         foreach ($methodAnnotations as $methodAnnotationType => $methodAnnotationProperty) {
                             $annotations['byType'][$methodAnnotationType][] = array(
-                                property => $methodAnnotationProperty,
-                                controller => $className,
-                                action => $methodName
+                                "property" => $methodAnnotationProperty,
+                                "controller" => $className,
+                                "action" => $methodName
                             );
                             $annotations['byController'][$className][$methodName][$methodAnnotationType] = $methodAnnotationProperty;
                         }

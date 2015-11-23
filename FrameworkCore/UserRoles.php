@@ -2,7 +2,7 @@
 
 namespace SoftUni\FrameworkCore;
 
-use SoftUni\Application\Config;
+use SoftUni\Config;
 
 class UserRoles
 {
@@ -24,8 +24,7 @@ class UserRoles
     }
 
     private function checkUserRoleFile() {
-        $filePath = 'Application'.DIRECTORY_SEPARATOR.'Config'
-            .DIRECTORY_SEPARATOR.'UserRolesConfig.php';
+        $filePath = 'Config'.DIRECTORY_SEPARATOR.'UserRolesConfig.php';
 
         if (file_exists($filePath)) {
             require_once $filePath;

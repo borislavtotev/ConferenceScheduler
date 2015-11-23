@@ -15,7 +15,7 @@ class Application
 
         $uri = Router::make_uri();
         $params = Router::match_uri($uri);
-        //var_dump($params);
+        var_dump($params);
         if ($params)
         {
             $controller = ucwords($params['controller']);
@@ -40,10 +40,6 @@ class Application
                 foreach ($filteredClasses as $filteredClass) {
                     //var_dump($filteredClass);
                     if (method_exists($filteredClass, $this->actionName)) {
-                        if (preg_match('/Areas\\\\(.*?)\\\\/', $filteredClass, $match)) {
-                            View::$area = $match[1];
-                        }
-
                         $this->controller = new $filteredClass;
                         View::$controllerName = $this->controllerName;
                         View::$actionName = $this->actionName;

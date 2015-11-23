@@ -15,7 +15,7 @@ class Router
 
         self::$routes['CustomConfig'] = Config\RouteConfig::CustomRouteConfigs;
 
-        $routesFromAnnotations = Annotations\AnnotationParser::$allAnnotations['Routes'];
+        $routesFromAnnotations = Annotations\AnnotationParser::$allAnnotations['byType']['Route'];
         self::$routes['Annotations'] = $routesFromAnnotations;
     }
 
@@ -50,22 +50,22 @@ class Router
         $findRoute = self::checkAnnotationRoutes();
 
         if (is_null($findRoute)) {
-            $findRoute = self::checkApplicationOrFrameworkRoutes("Application");
+            $findRoute = self::checkConfigRoutes("CustomConfig");
         }
 
         if (is_null($findRoute)) {
-            $findRoute = self::checkApplicationOrFrameworkRoutes("Framework");
+            $findRoute = self::checkConfigRoutes("DefaultConfig");
         }
 
         return $findRoute;
     }
 
-    private function checkApplicationOrFrameworkRoutes($whatToCheck) {
-        $applicationRoutes = self::$routes[$whatToCheck];
+    private static function checkConfigRoutes($whatToCheck) {
+        $routes = self::$routes[$whatToCheck];
         $uriParams = [];
 
-        If (isset($applicationRoutes)) {
-            foreach ($applicationRoutes as $routePattern) {
+        If (isset($routes)) {
+            foreach ($routes as $routePattern) {
                 if (preg_match($routePattern, self::$uri, $match)) {
                     $uriParams['controller'] = $match['controller'];
                     $uriParams['action'] = $match['action'];
@@ -79,37 +79,15 @@ class Router
         return $uriParams;
     }
 
-    private function checkAnnotationRoutes() {
+    private static function checkAnnotationRoutes() {
         $annotationRoutes = self::$routes['Annotations'];
         $uriParams = [];
         //var_dump($annotationRoutes);
         foreach ($annotationRoutes as $route => $properties) {
-            $controller = $properties[0];
-            $action = $properties[1];
-
-            // set proper regex for variables
-            if (preg_match_all('#{(.*?):?(integer|string|double)}#', $route, $match)) {
-                for ($i = 0; $i < count($match[0]); $i++) {
-                    $parameter = $match[1][$i];
-                    $variableType = $match[2][$i];
-                    switch ($variableType) {
-                        case "integer":
-                            $regex = '(?<'.$parameter.'>\d+)';
-                            break;
-                        case "string":
-                            $regex = '(?<'.$parameter.'>[A-Za-z]+)';
-                            break;
-                        case "double":
-                            $regex=  '(?<'.$parameter.'>\d+(\.\d+)?)';
-                            break;
-                        default:
-                            throw new \Exception("Invalid type of variable.");
-                            break;
-                    }
-
-                    $route = str_replace($match[0][$i], $regex, $route);
-                }
-            }
+            $controller = $properties['controller'];
+            $action = $properties['action'];
+            $route = $properties['property'];
+            echo "<br/>$route<br/>";
 
             // check whether the current uri match the route
             if (preg_match('#'.$route.'#', self::$uri, $match)) {
@@ -129,6 +107,7 @@ class Router
                 break;
             }
         }
+
         return $uriParams;
     }
 }
