@@ -1,7 +1,7 @@
 <?php
 namespace SoftUni\Models;
 
-class User
+class IdentityUser
 {
     private $id;
     private $username;
@@ -11,7 +11,7 @@ class User
     {
         $this->setId($id)
             ->setUsername($username)
-            ->setPass($password);
+            ->setPassword($password);
     }
 
 
@@ -27,7 +27,7 @@ class User
      * @param mixed $id
      * @return $this
      */
-    private function setId($id)
+    public function setId($id)
     {
         $this->id = $id;
         return $this;
@@ -54,7 +54,7 @@ class User
     /**
      * @return mixed
      */
-    public function getPass()
+    public function getPassword()
     {
         return $this->password;
     }
@@ -63,9 +63,9 @@ class User
      * @param mixed $password
      * @return $this
      */
-    public function setPass($password)
+    public function setPassword($password)
     {
-        $this->pass = $password;
+        $this->password = $password;
         return $this;
     }
 }

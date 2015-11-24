@@ -9,13 +9,38 @@ class Application
 
     private $controller;
 
+    private $dbContext;
+
+    public function __construct(DatabaseContext $dbContext)
+    {
+        $this->dbContext = $dbContext;
+    }
+
+    /**
+    * @return DatabaseContext
+    */
+    public function getDbContext()
+    {
+        return $this->dbContext;
+    }
+
+    /**
+     * @param DatabaseContext $dbContext
+     * @return $this
+     */
+    public function setDbContext($dbContext)
+    {
+        $this->dbContext = $dbContext;
+        return $this;
+    }
+
     public function start()
     {
         Router::readAllRoutes();
 
         $uri = Router::make_uri();
         $params = Router::match_uri($uri);
-        var_dump($params);
+        //var_dump($params);
         if ($params)
         {
             $controller = ucwords($params['controller']);
@@ -40,7 +65,7 @@ class Application
                 foreach ($filteredClasses as $filteredClass) {
                     //var_dump($filteredClass);
                     if (method_exists($filteredClass, $this->actionName)) {
-                        $this->controller = new $filteredClass;
+                        $this->controller = new $filteredClass($this->dbContext);
                         View::$controllerName = $this->controllerName;
                         View::$actionName = $this->actionName;
                         call_user_func_array(array($this->controller, $this->actionName), $params);

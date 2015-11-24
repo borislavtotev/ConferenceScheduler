@@ -15,7 +15,8 @@ namespace SoftUni\Config;
  *    "newUser/CreateProfile/FromFacebook"
  * */
 
-class RouteConfig {
+class RouteConfig
+{
     const CustomRouteConfigs = array(
         '/^users\/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i',
     );

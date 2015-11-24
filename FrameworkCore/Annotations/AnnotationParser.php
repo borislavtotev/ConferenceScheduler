@@ -48,7 +48,7 @@ class AnnotationParser
                     $doc = $reflectionClass->getDocComment();
                     if ($doc) {
                         $classAnnotations = self::extractAnnotations($doc, $classAnnotations);
-                        echo "<br/><br/>".json_encode($classAnnotations, JSON_PRETTY_PRINT)."<br/>";
+                        //echo "<br/><br/>".json_encode($classAnnotations, JSON_PRETTY_PRINT)."<br/>";
                     }
 
                     // Get Method Annotations
@@ -60,7 +60,7 @@ class AnnotationParser
 
                         if ($methodDoc) {
                             $methodAnnotations = self::extractAnnotations($methodDoc, $classAnnotations);
-                            echo $methodName.": ".json_encode($methodAnnotations, JSON_PRETTY_PRINT)."<br/>";
+                            //echo $methodName.": ".json_encode($methodAnnotations, JSON_PRETTY_PRINT)."<br/>";
                         } else {
                             $methodAnnotations = $classAnnotations;
                         }
@@ -75,7 +75,7 @@ class AnnotationParser
                             $annotations['byController'][$className][$methodName][$methodAnnotationType] = $methodAnnotationProperty;
                         }
 
-                        echo "<br/>All Annotations:<br/>".json_encode($annotations, JSON_PRETTY_PRINT)."<br/>";
+                        //echo "<br/>All Annotations:<br/>".json_encode($annotations, JSON_PRETTY_PRINT)."<br/>";
                     }
 //                        if (preg_match_all('#@(.*?)\n#s', $methodDoc, $newMethodAnnotations)) {
 //                            foreach ($newMethodAnnotations[1] as $newMethodAnnotation) {
@@ -122,20 +122,20 @@ class AnnotationParser
 
     private static function extractAnnotations(string $comments, $classAnnotations) :array {
         $extractedAnnotations = [];
-        echo "test:".json_encode($comments, JSON_PRETTY_PRINT);
+        //echo "test:".json_encode($comments, JSON_PRETTY_PRINT);
         $annotationRows = explode("\n", $comments);
 
         foreach ($annotationRows as $annotationRow) {
-            echo $annotationRow."<br/>";
+            //echo $annotationRow."<br/>";
             if (preg_match_all("#@([^\\(\\)]*)\((.*)\)?#", $annotationRow, $newAnnotation)) {
-                echo "machna class annotation:" . json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br/>";
-                echo "new class with:".$newAnnotation[1][0]."with parameters".$newAnnotation[2][0]."<br/>";
+                //echo "machna class annotation:" . json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br/>";
+                //echo "new class with:".$newAnnotation[1][0]."with parameters".$newAnnotation[2][0]."<br/>";
                 $annotationType = $newAnnotation[1][0]; // Route, Authorization, etc.
                 $annotationParams = $newAnnotation[0][0];
             } else if (preg_match("#@(\\w*)#", $annotationRow, $annotationMatch)) {
                 $annotationType = $annotationMatch[1]; // Route, Authorization, etc.
                 $annotationParams = null;
-                echo "new class with:".$annotationMatch[1]."<br/>";
+                //echo "new class with:".$annotationMatch[1]."<br/>";
             } else {
                 continue;
             }
@@ -151,9 +151,9 @@ class AnnotationParser
                 }
 
                 $extractedAnnotations[$annotationType] = $fullAnnotation;
-                echo "full annotation:".$fullAnnotation."<br/>";
+                //echo "full annotation:".$fullAnnotation."<br/>";
             } else {
-                echo "There is no annotation class with this name: ".$annotationType."<br/>";
+                //echo "There is no annotation class with this name: ".$annotationType."<br/>";
             }
         }
 

@@ -1,5 +1,4 @@
 <?php
-echo "alalaa";
 session_start();
 
 error_reporting(E_ALL);
@@ -7,6 +6,7 @@ ini_set('display_errors', 1);
 
 include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Autoloader.php');
 include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Application.php');
+include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Database.php');
 include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_SEPARATOR . 'AnnotationParser.php');
 
 \SoftUni\FrameworkCore\Autoloader::init();
@@ -21,5 +21,8 @@ include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_S
     \SoftUni\Config\DatabaseConfig::DB_HOST
 );
 
-$app = new \SoftUni\FrameworkCore\Application();
+$identityUsersRepository = \SoftUni\FrameworkCore\Repositories\IdentityUsersRepository::create();
+$dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository);
+
+$app = new \SoftUni\FrameworkCore\Application($dbContext);
 $app->start();

@@ -8,7 +8,7 @@ class UserRoles
 {
     public static function getAllRoles() {
         if (self::checkUserRoleFile()) {
-            return array_keys(unserialize(ROLES));
+            return array_keys(Config\UserConfig::Roles);
         }
 
         throw new \Exception("Undefined user roles. Please define ROLES constant in Application Configuration.");
@@ -16,7 +16,7 @@ class UserRoles
 
     public static function getRoleNumber($roleName) {
         if (self::checkUserRoleFile()) {
-                $roles = unserialize(ROLES);
+                $roles = Config\UserConfig::Roles;
                 return $roles[$roleName];
         }
 
@@ -24,12 +24,12 @@ class UserRoles
     }
 
     private function checkUserRoleFile() {
-        $filePath = 'Config'.DIRECTORY_SEPARATOR.'UserRolesConfig.php';
+        $filePath = 'Config'.DIRECTORY_SEPARATOR.'UserConfig.php';
 
         if (file_exists($filePath)) {
             require_once $filePath;
 
-            if (!is_null(ROLES)) {
+            if (!is_null(Config\UserConfig::Roles)) {
                 return true;
             }
         }

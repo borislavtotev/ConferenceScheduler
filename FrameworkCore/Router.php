@@ -87,7 +87,7 @@ class Router
             $controller = $properties['controller'];
             $action = $properties['action'];
             $route = $properties['property'];
-            echo "<br/>$route<br/>";
+            //echo "<br/>$route<br/>";
 
             // check whether the current uri match the route
             if (preg_match('#'.$route.'#', self::$uri, $match)) {
