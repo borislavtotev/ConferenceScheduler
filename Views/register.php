@@ -1,7 +1,52 @@
-<?= $model->error ? $model->error : '' ;?>
+<?=
+//define page title
+$title = 'Register';
+//include header template
+require('Shared/header.php');
+?>
+<div class="container hero-unit">
+    <form class="form-horizontal" action='register.php' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Register</legend>
+            </div>
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label"  for="username">Username</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge" value="<?= $model ? $model->username : '' ;?>">
+                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                </div>
+            </div>
 
-<form action="" method="post">
-    <input type="text" name="username" />
-    <input type="password" name="password" />
-    <input type="submit" value="Register" />
-</form>
+            <div class="control-group">
+                <!-- Password-->
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge" value="<?= $model ? $model->password : '' ;?>">
+                    <p class="help-block">Password should be at least 4 characters</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Confirm Password-->
+                <label class="control-label" for="password">Confirm Password</label>
+                <div class="controls">
+                    <input type="password" id="confirm" name="confirm" placeholder="" class="input-xlarge" value="<?= $model ? $model->confirm : '' ;?>">
+                    <p class="help-block">Password should be at least 4 characters</p>
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<?php
+require('Shared/footer.php');
+?>

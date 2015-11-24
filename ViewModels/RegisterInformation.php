@@ -4,6 +4,7 @@ namespace SoftUni\ViewModels;
 
 class RegisterInformation
 {
-    public $error = false;
-    public $success = false;
+    public $username = '';
+    public $password = '';
+    public $confirm = '';
 }

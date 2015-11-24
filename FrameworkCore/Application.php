@@ -55,8 +55,8 @@ class Application
             //var_dump($pattern);
             $filteredClasses = array_filter($classes, function ($class) use ($pattern) {
                 if (preg_match($pattern, $class, $match)) {
-                   return $class;
-               }
+                    return $class;
+                }
             });
 
             //var_dump($filteredClasses);

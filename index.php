@@ -26,3 +26,7 @@ $dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository
 
 $app = new \SoftUni\FrameworkCore\Application($dbContext);
 $app->start();
+
+?>
+
+

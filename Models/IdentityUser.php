@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\Models;
 
 class IdentityUser
@@ -45,9 +47,15 @@ class IdentityUser
      * @param mixed $username
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
-        $this->username = $username;
+        if (preg_match("#^[a-zA-Z\\d]*$#", $username)) {
+            $this->username = $username;
+        }
+        else {
+            throw new \Exception("The user can contain any letters or numbers, without spaces.");
+        }
+
         return $this;
     }
 
@@ -63,9 +71,14 @@ class IdentityUser
      * @param mixed $password
      * @return $this
      */
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
-        $this->password = $password;
+        if (strlen($password) >=4 ) {
+            $this->password = password_hash($password, PASSWORD_DEFAULT);
+        } else {
+            throw new \Exception("The password should be at least 4 characters.");
+        }
+
         return $this;
     }
 }

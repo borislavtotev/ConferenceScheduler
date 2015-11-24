@@ -29,9 +29,12 @@ class UsersController extends Controller
                 $user = $_POST['username'];
                 $pass = $_POST['password'];
 
+                $viewModel->username = $user;
+                $viewModel->password = $pass;
+
                 $this->initLogin($user, $pass);
             } catch (\Exception $e) {
-                $viewModel->error = $e->getMessage();
+                $_SESSION['error'] = $e->getMessage();
                 return new View($viewModel);
             }
         }
@@ -59,24 +62,35 @@ class UsersController extends Controller
     {
         $viewModel = new RegisterInformation();
 
-        if (isset($_POST['username'], $_POST['password'])) {
-            try {
+        try
+        {
+            if (isset($_POST['username'], $_POST['password'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
+                $confirm = $_POST['confirm'];
+                $viewModel->username = $_POST['username'];
+                $viewModel->password = $_POST['password'];
+                $viewModel->confirm = $_POST['confirm'];
 
-                $userModel = new IdentityUser($username, password_hash($password, PASSWORD_DEFAULT));
-                try {
-                    $this->dbContext->getIdentityUsersRepository()->add($userModel);
-                    $this->dbContext->getIdentityUsersRepository()->save();
-                } catch (\Exception $e1) {
-                    throw new \Exception('Cannot register user');
+                if ($password != $confirm) {
+                    throw new \Exception("Password and Confirm password are different");
                 }
 
+                $dbUserModel = $this->dbContext->getIdentityUsersRepository()->filterByUsername($username)->findOne();
+                if ($dbUserModel == null) {
+                    $userModel = new IdentityUser($username, $password);
+                } else {
+                    throw new \Exception("User with this username already exist!");
+                }
+
+                $this->dbContext->getIdentityUsersRepository()->add($userModel);
+                $this->dbContext->getIdentityUsersRepository()->save();
+
                 $this->initLogin($username, $password);
-            } catch (\Exception $e) {
-                $viewModel->error = $e->getMessage();
-                return new View($viewModel);
             }
+        } catch (\Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
+            return new View($viewModel);
         }
 
         return new View();
@@ -88,37 +102,40 @@ class UsersController extends Controller
      */
     public function profile()
     {
-        if (!$this->isLogged()) {
+        if (!$_SESSION['isLogged']) {
             header("Location: /user/login");
         }
 
-        $userModel = $this->dbContext->getIdentityUsersRepository()->filterById($_SESSION['id'])->findOne();
+        $userViewModel = new UserViewModel("");
 
-        $userViewModel = new UserViewModel(
-            $userModel->getUsername(),
-            $userModel->getPassword(),
-            $userModel->getId()
-        );
+        try {
+            $userModel = $this->dbContext->getIdentityUsersRepository()->filterById($_SESSION['id'])->findOne();
 
-        if (isset($_POST['edit'])) {
-            if ($_POST['password'] != $_POST['confirm'] || empty($_POST['password'])) {
-                $userViewModel->error = 1;
-                return new View($userViewModel);
-            }
+            $userViewModel->setUsername($userModel->getUsername());
 
-            try {
-                $userModel->setUsername($_POST['username']);
-                $userModel->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
-                $this->dbContext->getIdentityUsersRepository()->save();
-
-                $userViewModel->success = 1;
+            if (!empty($_POST)) {
                 $userViewModel->setUsername($_POST['username']);
-                $userViewModel->setPass($_POST['password']);
-            } catch (\Exception $e) {
-                var_dump($e);
-                $userViewModel->error = 1;
-            }
+                $userViewModel->setPassword($_POST['password']);
 
+//                var_dump($userModel->getPassword());
+//                var_dump($_SESSION);
+//                var_dump($_POST);
+
+                //if ('$2y$10$CqAZSHuDjPfSAc8WnU2hgunky6xe2ANbjOgJ0qI4mWOwM8PZT8Kqe' != $userModel->getPassword() ) {
+                if (!password_verify($_POST['currentPassword'], $userModel->getPassword())) {
+                    throw new \Exception('Current password is not valid.');
+                }
+
+                if ($_POST['password'] != $_POST['confirm']) {
+                    throw new \Exception('New password and Confirm password are not equal.');
+                }
+
+                $userModel->setUsername($_POST['username']);
+                $userModel->setPassword($_POST['password']);
+                $this->dbContext->getIdentityUsersRepository()->save();
+            }
+        } catch (\Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
             return new View($userViewModel);
         }
 
@@ -147,6 +164,7 @@ class UsersController extends Controller
 
         if (password_verify($password, $userRow['password'])) {
             $_SESSION['id'] = $userRow['id'];
+            $_SESSION['isLogged'] = true;
             header("Location: /user/profile");
         } else {
             throw new \Exception('Invalid credentials');

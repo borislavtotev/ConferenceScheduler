@@ -8,11 +8,10 @@ class UserViewModel
     private $username;
     private $password;
 
-    public function __construct($username, $password, $id = null)
+    public function __construct($username, $id = null)
     {
         $this->setId($id)
-            ->setUsername($username)
-            ->setPass($password);
+            ->setUsername($username);
     }
 
 
@@ -55,7 +54,7 @@ class UserViewModel
     /**
      * @return mixed
      */
-    public function getPass()
+    public function getPassword()
     {
         return $this->password;
     }
@@ -64,7 +63,7 @@ class UserViewModel
      * @param mixed $password
      * @return $this
      */
-    public function setPass($password)
+    public function setPassword($password)
     {
         $this->pass = $password;
         return $this;

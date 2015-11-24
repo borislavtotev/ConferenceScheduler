@@ -167,11 +167,15 @@ class IdentityUsersRepository
         $result = $db->prepare($this->query);
         $result->execute($this->placeholders);
         $entityInfo = $result->fetch();
-        $entity = new IdentityUser($entityInfo['username'],
-            $entityInfo['password'],
-            $entityInfo['id']);
-        self::$selectedObjectPool[] = $entity;
-        return $entity;
+        if ($result->rowCount() > 0) {
+            $entity = new IdentityUser($entityInfo['username'],
+                $entityInfo['password'],
+                $entityInfo['id']);
+            self::$selectedObjectPool[] = $entity;
+            return $entity;
+        }
+
+        return null;
     }
 
     /**

@@ -4,6 +4,6 @@ namespace SoftUni\ViewModels;
 
 class LoginInformation
 {
-    public $error = false;
-    public $success = false;
+    public $username = '';
+    public $password = '';
 }
