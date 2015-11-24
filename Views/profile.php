@@ -1,8 +1,5 @@
 <h1>Hello, <?= $model->getUsername(); ?></h1>
 <h3>
-    Resources:
-    <p>Gold: <?= $model->getGold(); ?></p>
-    <p>Food: <?= $model->getFood(); ?></p>
 </h3>
 
 <?php if(isset($model->error)): ?>
@@ -21,7 +18,4 @@
     </div>
 </form>
 
-Go to:
-<div class="menu">
-    <a href="buildings.php">Buildings</a>
-</div>
+<a href="/user/logout">Logout</a>

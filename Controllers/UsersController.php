@@ -40,6 +40,18 @@ class UsersController extends Controller
     }
 
     /**
+     * @Route("logout")
+     * @POST
+     */
+    public function logout()
+    {
+        session_unset();
+        session_destroy();
+
+        header("Location: /");
+    }
+
+    /**
      * @Route("register")
      * @POST
      */
@@ -73,20 +85,19 @@ class UsersController extends Controller
     /**
      * @User
      * @Route("profile")
-     * @GET
      */
     public function profile()
     {
         if (!$this->isLogged()) {
-            header("Location: login");
+            header("Location: /user/login");
         }
 
-        $userModel = $this->dbContext->getIdentityUsersRepository()->filterById($_SESSION['id']);
+        $userModel = $this->dbContext->getIdentityUsersRepository()->filterById($_SESSION['id'])->findOne();
 
         $userViewModel = new UserViewModel(
-            $userModel['username'],
-            $userModel['password'],
-            $userModel['id']
+            $userModel->getUsername(),
+            $userModel->getPassword(),
+            $userModel->getId()
         );
 
         if (isset($_POST['edit'])) {
@@ -95,20 +106,19 @@ class UsersController extends Controller
                 return new View($userViewModel);
             }
 
-            if ($userModel->edit(
-                $_POST['username'],
-                $_POST['password'],
-                $_SESSION['id']
-            )
-            ) {
+            try {
+                $userModel->setUsername($_POST['username']);
+                $userModel->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
+                $this->dbContext->getIdentityUsersRepository()->save();
+
                 $userViewModel->success = 1;
                 $userViewModel->setUsername($_POST['username']);
                 $userViewModel->setPass($_POST['password']);
-
-                return new View($userViewModel);
+            } catch (\Exception $e) {
+                var_dump($e);
+                $userViewModel->error = 1;
             }
 
-            $userViewModel->error = 1;
             return new View($userViewModel);
         }
 
@@ -137,7 +147,7 @@ class UsersController extends Controller
 
         if (password_verify($password, $userRow['password'])) {
             $_SESSION['id'] = $userRow['id'];
-            header("Location: profile");
+            header("Location: /user/profile");
         } else {
             throw new \Exception('Invalid credentials');
         }
