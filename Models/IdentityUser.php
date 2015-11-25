@@ -9,11 +9,14 @@ class IdentityUser
     private $username;
     private $password;
 
-    public function __construct($username, $password, $id = null)
+    public function __construct(string $username, string $password, int $id = null)
     {
-        $this->setId($id)
-            ->setUsername($username)
+        $this->setUsername($username)
             ->setPassword($password);
+
+        if ($id != null) {
+            $this->setId($id);
+        }
     }
 
 
@@ -29,16 +32,15 @@ class IdentityUser
      * @param mixed $id
      * @return $this
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
-        return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() : string
     {
         return $this->username;
     }
@@ -62,7 +64,7 @@ class IdentityUser
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword() : string
     {
         return $this->password;
     }
@@ -73,12 +75,6 @@ class IdentityUser
      */
     public function setPassword(string $password)
     {
-        if (strlen($password) >=4 ) {
-            $this->password = password_hash($password, PASSWORD_DEFAULT);
-        } else {
-            throw new \Exception("The password should be at least 4 characters.");
-        }
-
-        return $this;
+        $this->password = $password;
     }
 }

@@ -23,7 +23,7 @@ require('Shared/header.php');
 
             <div class="control-group">
                 <!-- Current Password-->
-                <label class="control-label" for="password">Current Password</label>
+                <label class="control-label" for="currentPassword">Current Password</label>
                 <div class="controls">
                     <input type="password" id="currentPassword" name="currentPassword" placeholder="" class="input-xlarge">
                     <p class="help-block">Password should be at least 4 characters</p>
@@ -41,7 +41,7 @@ require('Shared/header.php');
 
             <div class="control-group">
                 <!-- Confirm Password-->
-                <label class="control-label" for="password">Confirm Password</label>
+                <label class="control-label" for="confirm">Confirm Password</label>
                 <div class="controls">
                     <input type="password" id="confirm" name="confirm" placeholder="" class="input-xlarge">
                     <p class="help-block">Password should be at least 4 characters</p>

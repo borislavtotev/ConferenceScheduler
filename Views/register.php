@@ -5,7 +5,7 @@ $title = 'Register';
 require('Shared/header.php');
 ?>
 <div class="container hero-unit">
-    <form class="form-horizontal" action='register.php' method="POST">
+    <form class="form-horizontal" action='' method="POST">
         <fieldset>
             <div id="legend">
                 <legend class="">Register</legend>

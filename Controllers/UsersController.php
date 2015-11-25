@@ -9,6 +9,7 @@ use SoftUni\FrameworkCore\View;
 use SoftUni\ViewModels\LoginInformation;
 use SoftUni\ViewModels\RegisterInformation;
 use SoftUni\FrameworkCore\Database;
+use SoftUni\Config\UserConfig;
 
 /**
  * @Route("user")
@@ -78,7 +79,12 @@ class UsersController extends Controller
 
                 $dbUserModel = $this->dbContext->getIdentityUsersRepository()->filterByUsername($username)->findOne();
                 if ($dbUserModel == null) {
-                    $userModel = new IdentityUser($username, $password);
+                    if (strlen($password) >=4 ) {
+                        $userClassName = UserConfig::UserIdentityClassName;
+                        $userModel = new $userClassName($username, password_hash($password, PASSWORD_DEFAULT));
+                    } else {
+                        throw new \Exception("The password should be at least 4 characters.");
+                    }
                 } else {
                     throw new \Exception("User with this username already exist!");
                 }
@@ -117,11 +123,6 @@ class UsersController extends Controller
                 $userViewModel->setUsername($_POST['username']);
                 $userViewModel->setPassword($_POST['password']);
 
-//                var_dump($userModel->getPassword());
-//                var_dump($_SESSION);
-//                var_dump($_POST);
-
-                //if ('$2y$10$CqAZSHuDjPfSAc8WnU2hgunky6xe2ANbjOgJ0qI4mWOwM8PZT8Kqe' != $userModel->getPassword() ) {
                 if (!password_verify($_POST['currentPassword'], $userModel->getPassword())) {
                     throw new \Exception('Current password is not valid.');
                 }
@@ -131,7 +132,7 @@ class UsersController extends Controller
                 }
 
                 $userModel->setUsername($_POST['username']);
-                $userModel->setPassword($_POST['password']);
+                $userModel->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
                 $this->dbContext->getIdentityUsersRepository()->save();
             }
         } catch (\Exception $e) {

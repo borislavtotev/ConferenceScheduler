@@ -4,6 +4,7 @@ namespace SoftUni\FrameworkCore\Repositories;
 use SoftUni\FrameworkCore\Database;
 use SoftUni\Models\IdentityUser;
 use SoftUni\FrameworkCore\Collections\IdentityUserCollection;
+use SoftUni\Config\UserConfig;
 
 class IdentityUsersRepository
 {
@@ -146,7 +147,8 @@ class IdentityUsersRepository
         $entities = $result->fetchAll();
         $collection = [];
         foreach ($entities as $entityInfo) {
-            $entity = new IdentityUser($entityInfo['username'],
+            $userClassName = UserConfig::UserIdentityClassName;
+            $entity = new $userClassName($entityInfo['username'],
                 $entityInfo['password'],
                 $entityInfo['id']);
             $collection[] = $entity;
@@ -168,7 +170,8 @@ class IdentityUsersRepository
         $result->execute($this->placeholders);
         $entityInfo = $result->fetch();
         if ($result->rowCount() > 0) {
-            $entity = new IdentityUser($entityInfo['username'],
+            $userClassName = UserConfig::UserIdentityClassName;
+            $entity = new $userClassName($entityInfo['username'],
                 $entityInfo['password'],
                 $entityInfo['id']);
             self::$selectedObjectPool[] = $entity;
@@ -243,7 +246,8 @@ class IdentityUsersRepository
 
     private function isColumnAllowed($column)
     {
-        $refc = new \ReflectionClass('\SoftUni\Models\IdentityUser');
+        $userClassName = UserConfig::UserIdentityClassName;
+        $refc = new \ReflectionClass('\SoftUni\Models\\'.$userClassName);
         $consts = $refc->getConstants();
         return in_array($column, $consts);
     }

@@ -10,5 +10,6 @@ class UserConfig
         'Administrator' => 3
     );
 
-    const UserIdentityClassName = "IdentityUser";
+    // if you want to extend the class, you can choose here another class to store the information for the users
+    const UserIdentityClassName = 'SoftUni\Models\User';
 }
