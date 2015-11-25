@@ -8,8 +8,12 @@
 
 namespace SoftUni\Models;
 
+include 'IdentityUser.php';
 
-class User extends IdentityUser
+use SoftUni\Models;
+
+
+class User extends Models\IdentityUser
 {
 
 }

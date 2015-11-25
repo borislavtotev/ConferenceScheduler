@@ -90,12 +90,69 @@ class Database
     private function initializeDb($host, $user, $pass, $dbName) {
         $connection = mysqli_connect($host, $user, $pass);
         if (!mysqli_select_db($connection, $dbName)) {
-            echo("creating database!\n");
-            mysqli_query($connection, "CREATE DATABASE $dbName");
+            mysqli_query($connection, "CREATE DATABASE if not EXISTS $dbName");
             mysqli_close($connection);
         }
     }
 
+    public static function createUserTable() {
+        $db = self::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE if not EXISTS users  (
+                            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                            username VARCHAR(30) NOT NULL,
+                            password VARCHAR(255) NOT NULL,
+                            reg_date TIMESTAMP
+                            )
+                    ");
+
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+    }
+
+    public static function createRoleTable()
+    {
+        $db = self::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE if not EXISTS roles (
+                            id INT(6) NOT NULL,
+                            name VARCHAR(50) NOT NULL
+                            )
+                    ");
+
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function createUserRoleTable()
+    {
+        $db = self::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE if not EXISTS user_roles (
+                              user_id INT(6) NOT NULL,
+                              role_id INT(6) NOT NULL
+                            )
+                    ");
+
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 class Statement
