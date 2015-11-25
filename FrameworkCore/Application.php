@@ -37,10 +37,10 @@ class Application
 
     public function start()
     {
+        $this->CheckAnnotations();
+        $this->CheckUserConfiguration();
         Router::readAllRoutes();
-        Database::createUserTable();
-        Database::createRoleTable();
-        Database::createUserRoleTable();
+
 
         $uri = Router::make_uri();
         $params = Router::match_uri($uri);
@@ -73,6 +73,28 @@ class Application
         else
         {
             throw new \Exception("Route not found");
+        }
+    }
+
+    private function CheckAnnotations() {
+        if (\SoftUni\Config\ApplicationRunConfig::CheckAnnotations) {
+            \SoftUni\FrameworkCore\Annotations\AnnotationParser::getAnnotations();
+            $myFile = fopen('Logs\annotations.txt', "w");
+            $annotations = serialize(\SoftUni\FrameworkCore\Annotations\AnnotationParser::$allAnnotations);
+            fwrite($myFile, $annotations);
+            fclose($myFile);
+        } else {
+            $annotations = unserialize(file_get_contents('Logs\annotations.txt'));
+            \SoftUni\FrameworkCore\Annotations\AnnotationParser::$allAnnotations = $annotations;
+        }
+    }
+
+    private function CheckUserConfiguration() {
+        if (\SoftUni\Config\ApplicationRunConfig::UserConfig) {
+            Database::createUserTable();
+            Database::createRolesTable();
+            Database::updateRolesTable();
+            Database::createUserRolesTable();
         }
     }
 }

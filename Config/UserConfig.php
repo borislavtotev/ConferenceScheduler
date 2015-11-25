@@ -3,11 +3,11 @@ namespace SoftUni\Config;
 
 class UserConfig
 {
-    const Roles = array(
-        'User' => 0,
-        'ConferenceOwner' => 1,
-        'ConferenceAdministrator' => 2,
-        'Administrator' => 3
+    const roles = array(
+        'User' => 1,
+        'ConferenceOwner' => 2,
+        'ConferenceAdministrator' => 3,
+        'Administrator' => 4
     );
 
     // if you want to extend the class, you can choose here another class to store the information for the users

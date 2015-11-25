@@ -11,17 +11,6 @@ include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_S
 
 \SoftUni\FrameworkCore\Autoloader::init();
 
-if (\SoftUni\Config\ApplicationRunConfig::CheckAnnotations) {
-    \SoftUni\FrameworkCore\Annotations\AnnotationParser::getAnnotations();
-    $myFile = fopen('Logs\annotations.txt', "w");
-    $annotations = serialize(\SoftUni\FrameworkCore\Annotations\AnnotationParser::$allAnnotations);
-    fwrite($myFile, $annotations);
-    fclose($myFile);
-} else {
-    $annotations = unserialize(file_get_contents('Logs\annotations.txt'));
-    \SoftUni\FrameworkCore\Annotations\AnnotationParser::$allAnnotations = $annotations;
-}
-
 \SoftUni\FrameworkCore\Database::setInstance(
     \SoftUni\Config\DatabaseConfig::DB_INSTANCE,
     \SoftUni\Config\DatabaseConfig::DB_DRIVER,

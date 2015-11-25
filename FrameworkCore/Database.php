@@ -3,6 +3,7 @@
 namespace SoftUni\FrameworkCore;
 
 use SoftUni\FrameworkCore\Drivers;
+use SoftUni\Config;
 
 class Database
 {
@@ -114,8 +115,7 @@ class Database
         }
     }
 
-    public static function createRoleTable()
-    {
+    public static function createRolesTable() {
         $db = self::getInstance('app');
 
         $result = $db->prepare("
@@ -134,8 +134,7 @@ class Database
         return false;
     }
 
-    public static function createUserRoleTable()
-    {
+    public static function createUserRolesTable() {
         $db = self::getInstance('app');
 
         $result = $db->prepare("
@@ -145,6 +144,50 @@ class Database
                             )
                     ");
 
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function updateRolesTable() {
+        $db = self::getInstance('app');
+
+        //check whether the table roles exists
+        $result = $db->prepare("SELECT 1 FROM roles LIMIT 1");
+        $result->execute([]);
+
+        // truncate the table roles
+        if ($result->rowCount() > 0) {
+            $result = $db->prepare("
+                            TRUNCATE roles
+                    ");
+
+            $result->execute([]);
+        } else {
+            self::createRolesTable();
+        }
+
+        //insert the new roles
+        $roles = Config\UserConfig::roles;
+
+        foreach ($roles as $name => $id) {
+            $result = $db->prepare("Insert into roles (id, name) Values (:id, :name)");
+
+            $result->execute([
+                ':id' => $id,
+                ':name' => $name
+            ]);
+        }
+
+        //delete from users_roles all rows for which role_id doesn't exists
+        $roleIds = array_values($roles);
+        $roleIdsStr = implode(",",$roleIds);
+        $query = 'Delete from user_roles where role_id not in ('.$roleIdsStr.')';
+        $result = $db->prepare($query);
         $result->execute([]);
 
         if ($result->rowCount() > 0) {
