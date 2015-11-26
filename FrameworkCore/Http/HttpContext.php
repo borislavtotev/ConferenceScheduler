@@ -68,7 +68,7 @@ class HttpContext
         return $this->session;
     }
 
-    private function setLoggedUser(LoggedUser $loggedUser)
+    private function setLoggedUser(LoggedUser $loggedUser = null)
     {
         if ($loggedUser = null) {
             $this->loggedUser = new LoggedUser($_SESSION['userId'], $_SESSION['username']);
