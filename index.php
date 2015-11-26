@@ -23,7 +23,9 @@ include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_S
 $identityUsersRepository = \SoftUni\FrameworkCore\Repositories\IdentityUsersRepository::create();
 $dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository);
 
-$app = new \SoftUni\FrameworkCore\Application($dbContext);
+$httpContext = new \SoftUni\FrameworkCore\Http\HttpContext();
+
+$app = new \SoftUni\FrameworkCore\Application($dbContext, $httpContext);
 $app->start();
 
 ?>

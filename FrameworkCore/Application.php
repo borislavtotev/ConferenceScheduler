@@ -1,6 +1,7 @@
 <?php
 namespace SoftUni\FrameworkCore;
 
+use SoftUni\FrameworkCore\Http\HttpContext;
 use SoftUni\Models;
 
 class Application
@@ -11,10 +12,12 @@ class Application
     private $controller;
 
     private $dbContext;
+    private $httpContext;
 
-    public function __construct(DatabaseContext $dbContext)
+    public function __construct(DatabaseContext $dbContext, HttpContext $httpContext)
     {
         $this->dbContext = $dbContext;
+        $this->httpContext = $httpContext;
     }
 
     /**
@@ -57,7 +60,7 @@ class Application
             if (!class_exists($controller, true)) {
                 $fullController = 'Softuni\\Controllers\\'.$controller;
                 if (method_exists($fullController, $this->actionName)) {
-                    $this->controller = new $fullController($this->dbContext);
+                    $this->controller = new $fullController($this->dbContext, $this->httpContext);
                     View::$controllerName = $this->controllerName;
                     View::$actionName = $this->actionName;
                     call_user_func_array(array($this->controller, $this->actionName), $params);
