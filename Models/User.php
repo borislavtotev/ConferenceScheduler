@@ -15,5 +15,12 @@ use SoftUni\Models;
 
 class User extends Models\IdentityUser
 {
+    private $email;
+    private $cash;
+
+    public function getEmail() :string {
+        return $this->email;
+    }
+
 
 }

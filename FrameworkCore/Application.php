@@ -44,7 +44,7 @@ class Application
 
         $uri = Router::make_uri();
         $params = Router::match_uri($uri);
-        var_dump($params);
+        //var_dump($params);
         if ($params)
         {
             $controller = ucwords($params['controller']);
@@ -91,9 +91,8 @@ class Application
 
     private function CheckUserConfiguration() {
         if (\SoftUni\Config\ApplicationRunConfig::UserConfig) {
-            Database::createUserTable();
-            Database::createRolesTable();
             Database::updateRolesTable();
+            Database::updateUserTable();
             Database::createUserRolesTable();
         }
     }

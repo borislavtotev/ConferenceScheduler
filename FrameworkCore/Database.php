@@ -4,6 +4,7 @@ namespace SoftUni\FrameworkCore;
 
 use SoftUni\FrameworkCore\Drivers;
 use SoftUni\Config;
+use SoftUni\Config\UserConfig;
 
 class Database
 {
@@ -96,26 +97,57 @@ class Database
         }
     }
 
-    public static function createUserTable() {
+    private static function createUserTable() {
         $db = self::getInstance('app');
 
-        $result = $db->prepare("
-                            CREATE TABLE if not EXISTS users  (
-                            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                            username VARCHAR(30) NOT NULL,
-                            password VARCHAR(255) NOT NULL,
-                            reg_date TIMESTAMP
-                            )
-                    ");
+        $userProperties = self::getUserProperties();
 
-        $result->execute([]);
+        $propertySQL = [];
+
+        foreach ($userProperties as $property => $propertyType) {
+            switch ($propertyType) {
+                case 'string' :
+                    $dataType = 'VARCHAR(255)';
+                    break;
+                case 'int' :
+                    $dataType = 'INT(6)';
+                    break;
+                case 'float' :
+                    $dataType = 'FLOAT(28,8)';
+                    break;
+                case 'bool' :
+                    $dataType = 'BIT';
+                    break;
+                default :
+                    $dataType = 'VARCHAR(255)';
+            }
+
+            if ($property == 'Id') {
+                $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
+            }
+
+            $property = strtolower($property);
+            $propertySQL[] = "$property $dataType";
+        }
+
+        $propertyQuery = implode(', ', $propertySQL);
+
+        $query = "
+                            CREATE TABLE if not EXISTS users  (
+                           ".$propertyQuery."
+                            )
+                    ";
+
+        $result = $db->prepare($query);
+
+        $result->execute([':fields' => $propertyQuery]);
 
         if ($result->rowCount() > 0) {
             return true;
         }
     }
 
-    public static function createRolesTable() {
+    private static function createRolesTable() {
         $db = self::getInstance('app');
 
         $result = $db->prepare("
@@ -162,6 +194,7 @@ class Database
 
         // truncate the table roles
         if ($result->rowCount() > 0) {
+            $roleNames = self::getColumnNames('roles');
             $result = $db->prepare("
                             TRUNCATE roles
                     ");
@@ -195,6 +228,126 @@ class Database
         }
 
         return false;
+    }
+
+    public static function updateUserTable() {
+        $db = self::getInstance('app');
+
+        //check whether the table roles exists
+        $result = $db->prepare("SELECT 1 FROM users LIMIT 1");
+        $result->execute([]);
+
+        // truncate the table roles
+        if ($result->rowCount() > 0) {
+            $dbUserColumns = self::getColumnNames("users");
+            $userModelPropertiesWithTypes = self::getUserProperties();
+            $userModelProperties = array_keys($userModelPropertiesWithTypes);
+
+            $hasSameProperties = true;
+            foreach ($userModelProperties as $userModelProperty) {
+                if (!in_array(strtolower($userModelProperty), $dbUserColumns)) {
+                    $hasSameProperties = false;
+                    break;
+                }
+            }
+            foreach ($dbUserColumns as $dbUserColumn) {
+                  if (!in_array(ucfirst($dbUserColumn), $userModelProperties)) {
+                    $hasSameProperties = false;
+                    break;
+                }
+
+            }
+
+            if($hasSameProperties) {
+                return true;
+            } else {
+                $result = $db->prepare("Drop TABLE users");
+
+                $result->execute([]);
+
+                $result = $db->prepare("
+                            Truncate Table user_roles
+                    ");
+
+                $result->execute([]);
+
+                self::createUserTable();
+
+                return true;
+            }
+        } else {
+            self::createUserTable();
+
+            return true;
+        }
+    }
+
+    private static function getColumnNames(string $table) :array {
+        $sql = "SHOW columns FROM $table";
+        try {
+            $db = self::getInstance('app');
+            $stmt = $db->prepare($sql);
+            $stmt->execute([]);
+            $output = array();
+            while($row = $stmt->fetch()){
+                $output[] = $row['Field'];
+            }
+            return $output;
+        }
+        catch(\Exception $pe) {
+            throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
+        }
+    }
+
+    private static function getUserProperties() :array {
+        try {
+            $userClassName = UserConfig::UserIdentityClassName;
+            $identityUserProperties = self::getClassProperties('SoftUni\\Models\\IdentityUser');
+            if ($userClassName != 'IdentityUser') {
+                $customUserProperties = self::getClassProperties($userClassName);
+                //var_dump($customUserProperties);
+                $result = $identityUserProperties;
+                foreach ($customUserProperties as $customUserProperty => $type) {
+                    $result[$customUserProperty] = $type;
+                }
+
+                return $result;
+            }
+
+            return $identityUserProperties;
+        }
+        catch(PDOException $pe) {
+            throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
+        }
+    }
+
+    private static function getClassProperties(string $userClassName) :array {
+        if (preg_match_all('#[\\\\]([^\\\\]*?)$#', $userClassName, $match)) {
+            $className = $match[1][0];
+        }
+
+        $output = [];
+        $handle = fopen('Models'.DIRECTORY_SEPARATOR.$className.'.php', "r");
+        if ($handle) {
+            while (($line = fgets($handle)) !== false) {
+                if(preg_match("#function get([^\\s\\(\\)]*)#", $line, $match)) {
+                    $property = $match[1];
+                    if (preg_match("#:\\s*(string|bool|float|int)#", $line, $matchReturnTypes)) {
+                        $output[$property] = $matchReturnTypes[1];
+                    } else if ($property == "Id") {
+                        $output[$property] = 'int';
+                    } else {
+                        $output[$property] = 'string';
+                    }
+                }
+            }
+
+            fclose($handle);
+        } else {
+            throw new \Exception("Unable to find the class");
+        }
+
+        return $output;
     }
 }
 

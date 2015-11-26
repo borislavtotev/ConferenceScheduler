@@ -230,16 +230,10 @@ class IdentityUsersRepository
     private static function insert(IdentityUser $model)
     {
         $db = Database::getInstance('app');
-        $query = "INSERT INTO users (username,password) VALUES (:username, :password);";
-        echo "<br/>$query<br/>";
-        echo "<br/>".var_dump($model)."<br/>";
+        $query = "INSERT INTO users (username,password) VALUES ('". $model->getUsername() ."', '".$model->getPassword()."')";
+
         $result = $db->prepare($query);
-        $result->execute(
-            [
-                ':username' => $model->getUsername(),
-                ':password' => $model->getPassword(),
-            ]
-        );
+        $result->execute([]);
 
         $model->setId($db->lastId());
     }
