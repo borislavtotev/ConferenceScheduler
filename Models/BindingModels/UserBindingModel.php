@@ -3,44 +3,20 @@ declare(strict_types=1);
 
 namespace SoftUni\Models\BindingModels;
 
-class UserBindingModel
+include_once 'BindingModel.php';
+
+class UserBindingModel extends BindingModel
 {
-    private $username = '';
-    private $password = '';
-    private $confirm = '';
-    private $isValid = '';
+    protected $username = '';
+    protected $password = '';
+    protected $confirm = '';
+    protected $test = '';
 
     public function __construct(string $username = null, string $password = null, string $confirm = null)
     {
-        if ($username == null) {
-            if (isset($_POST['username'])) {
-                $this->setUsername($_POST['username']);
-            } else {
-                $this->setIsValid(false);
-            }
-        } else {
-            $this->setUsername($username);
-        }
-
-        if ($password == null) {
-            if (isset($_POST['password'])) {
-                $this->setPassword($_POST['password']);
-            } else {
-                $this->setIsValid(false);
-            }
-        } else {
-            $this->setPassword($password);
-        }
-
-        if ($confirm == null) {
-            if (isset($_POST['confirm'])) {
-                $this->setConfirm($_POST['confirm']);
-            } else {
-                $this->setIsValid(false);
-            }
-        } else {
-            $this->setConfirm($confirm);
-        }
+        $this->setUsername($username);
+        $this->setPassword($password);
+        $this->setConfirm($confirm);
     }
 
     public function setConfirm($confirm)
@@ -71,15 +47,5 @@ class UserBindingModel
     public function setUsername($username)
     {
         $this->username = $username;
-    }
-
-    public function getIsValid()
-    {
-        return $this->isValid;
-    }
-
-    public function setIsValid($isValid)
-    {
-        $this->isValid = $isValid;
     }
 }

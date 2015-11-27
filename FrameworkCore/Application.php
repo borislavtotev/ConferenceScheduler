@@ -85,13 +85,12 @@ class Application
                                 // the binding model should be always the first element
                                 $parameter = new \ReflectionParameter([$fullController, $this->actionName], 0);
                                 $bindingClassName = $parameter->getClass()->name;
-                                var_dump(get_class_methods($bindingClassName));
                                 try {
-                                    $bindingModel = new $bindingClassName;
-                                    $this->createBindingModel($bi)
+                                    $bindingModel = $this->createBindingModel($bindingClassName);
                                     call_user_func(array($this->controller, $this->actionName), $bindingModel);
                                 } catch (\Exception $e) {
-                                    call_user_func_array(array($this->controller, $this->actionName), $params);
+                                    $_SESSION['error'] = $e->getMessage();
+                                    header('Location: '.$_SERVER['REQUEST_URI']);
                                 }
                             } else {
                                 call_user_func_array(array($this->controller, $this->actionName), $params);
@@ -155,5 +154,21 @@ class Application
         }
 
         return $valid;
+    }
+
+    private function createBindingModel($bindingClassName) {
+        $model = new $bindingClassName;
+        $properties = Models\BindingModels\UserBindingModel::expose();
+        foreach ($properties as $property => $value) {
+            if (isset($_POST[$property])) {
+                var_dump($property);
+                $setterName = 'set'.$property;
+                $model->$setterName($_POST[$property]);
+            } else {
+                throw new \Exception("Can't build the binding model, because the $property is missing!");
+            }
+        }
+
+        return $model;
     }
 }
