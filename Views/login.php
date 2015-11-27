@@ -1,4 +1,4 @@
-<?=
+<?php
     //define page title
     $title = 'Login';
     //include header template

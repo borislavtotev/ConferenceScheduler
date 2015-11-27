@@ -1,4 +1,4 @@
-<?=
+<?php
 /** @var \SoftUni\Models\BindingModels\UserBindingModel $model */
 
 //define page title

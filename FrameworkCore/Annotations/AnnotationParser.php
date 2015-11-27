@@ -20,6 +20,8 @@ class AnnotationParser
         $annotations['byController'] = [];
 
         foreach ($controllersFilePaths as $controllersFilePath) {
+            //var_dump($controllersFilePath);
+            //var_dump($annotations);
             if (preg_match('/Controllers\\'.DIRECTORY_SEPARATOR.'(.*?).php/',
                             $controllersFilePath, $match)) {
 
@@ -43,7 +45,6 @@ class AnnotationParser
                     $methods = $reflectionClass->getMethods();
                     foreach ($methods as $method) {
                         $methodName = $method->getName();
-                        $methodAccessAnnotation = '';
                         $methodDoc = $method->getDocComment();
 
                         if ($methodDoc != null) {

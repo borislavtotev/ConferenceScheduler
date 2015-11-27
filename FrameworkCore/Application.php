@@ -107,7 +107,7 @@ class Application
                                     } else {
                                         $isRouteFound = true;
                                         //var_dump($params);
-                                        call_user_func_array(array($this->controller, $this->actionName), $params[0]['params']);
+                                        call_user_func_array(array($this->controller, $this->actionName), $params[0]['params'] ?? []);
                                     }
                                 }
                             }
@@ -118,7 +118,8 @@ class Application
         }
 
         if (!$isRouteFound) {
-            throw new \Exception("Route not found");
+            header("location: /errors/404");
+            $_SESSION['error'] = "Route not found";
         }
     }
 

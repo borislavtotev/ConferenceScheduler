@@ -62,6 +62,8 @@ class View
             . self::$actionName
             . self::VIEW_EXTENSION;
 
+
+
         $handle = fopen($viewPath, "r");
         if ($handle) {
             $countLines = 1;

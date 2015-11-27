@@ -1,4 +1,4 @@
-<?=
+<?php
 //define page title
 $title = 'Register';
 //include header template
