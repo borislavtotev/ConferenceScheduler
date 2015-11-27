@@ -18,10 +18,12 @@ namespace SoftUni\Config;
 class RouteConfig
 {
     const CustomRouteConfigs = array(
-        '/^users\/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i',
+        '#^\/users\/(?<controller>[^\/\\\]+?)\/(?<action>[^\/\\\]+?)\/(?<params>[^/\\\]+?)$#i',
+        '#^\/users\/(?<controller>[^\/\\\]+?)\/(?<action>[^\/\\\]+?)$#i'
     );
 
     const DefaultFrameworkRouteConfigs = array(
-        '/(?<controller>.*?)\/(?<action>.*?)\/(?<params>.*)$/i'
+        '#^\/(?<controller>[^\/\\\]+?)\/(?<action>[^\/\\\]+?)\/(?<params>[^\/\\\]+?)$#i',
+        '#^\/(?<controller>[^\/\\\]+?)\/(?<action>[^\/\\\]+?)$#i'
     );
 }

@@ -13,6 +13,7 @@ namespace SoftUni\FrameworkCore\Annotations;
 include_once 'Annotation.php';
 
 use \SoftUni\FrameworkCore\Annotations;
+use SoftUni\FrameworkCore\Http\HttpContext;
 
 class RouteAnnotation extends Annotations\Annotation
 {
@@ -36,7 +37,7 @@ class RouteAnnotation extends Annotations\Annotation
     }
 
 
-    public static function isValid(string $property) :bool {
+    public static function isValid(string $property, HttpContext $httpContext) :bool {
         //No additional checks are needed. The route annotation is checked by the router
         return true;
     }

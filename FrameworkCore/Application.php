@@ -58,58 +58,64 @@ class Application
         $uri = Router::make_uri();
         $allParams = Router::match_uri($uri);
         //var_dump($params);
+
+        $isRouteFound = false;
+
         if (count($allParams)>0) {
-            var_dump($allParams);
-            die;
-
             foreach ($allParams as $params) {
-                $controller = ucwords($params['controller']);
-                $this->actionName = $params['action'];
+                //var_dump($params);
+                foreach ($params as $param) {
+                    if (count($param) > 0) {
+                        //var_dump($param);
+                        $controller = ucwords($param['controller']);
+                        $this->actionName = $param['action'];
 
-                unset($params['controller'], $params['action']);
+                        unset($param['controller'], $param['action']);
 
-                $this->controllerName = $controller;
-
-                if (!class_exists($controller, true)) {
-                    $fullController = 'Softuni\\Controllers\\' . $controller;
-                    if (method_exists($fullController, $this->actionName)) {
-                        $this->controller = new $fullController($this->dbContext, $this->httpContext);
-                        View::$controllerName = $this->controllerName;
-                        View::$actionName = $this->actionName;
-                        $annotations = Annotations\AnnotationParser::$allAnnotations['byController'][$this->controllerName][$this->actionName];
-                        var_dump($annotations);
-                        $areValidAnnotations = $this->checkAnnotationsValidity($annotations);
-                        if ($areValidAnnotations) {
-                            var_dump($this->httpContext->getRequest()->getType());
-                            if ($this->httpContext->getRequest()->getType() == 'POST') {
-                                var_dump($this->actionName);
-                                // the binding model should be always the first element
-                                $parameter = new \ReflectionParameter([$fullController, $this->actionName], 0);
-                                $bindingClassName = $parameter->getClass()->name;
-                                try {
-                                    $bindingModel = $this->createBindingModel($bindingClassName);
-                                    call_user_func(array($this->controller, $this->actionName), $bindingModel);
-                                } catch (\Exception $e) {
-                                    $_SESSION['error'] = $e->getMessage();
-                                    header('Location: '.$_SERVER['REQUEST_URI']);
+                        $this->controllerName = $controller;
+                        //var_dump($controller);
+                        //var_dump($this->actionName);
+                        if (!class_exists($controller, true)) {
+                            $fullController = 'Softuni\\Controllers\\' . $controller;
+                            if (method_exists($fullController, $this->actionName)) {
+                                $this->controller = new $fullController($this->dbContext, $this->httpContext);
+                                View::$controllerName = $this->controllerName;
+                                View::$actionName = $this->actionName;
+                                $annotations = Annotations\AnnotationParser::$allAnnotations['byController'][$this->controllerName][$this->actionName];
+                                //var_dump($annotations);
+                                //var_dump($this->controllerName);
+                                //var_dump($this->actionName);
+                                $areValidAnnotations = $this->checkAnnotationsValidity($this->httpContext, $annotations);
+                                //var_dump($annotations);
+                                if ($areValidAnnotations) {
+                                    //var_dump($this->httpContext->getRequest()->getType());
+                                    if ($this->httpContext->getRequest()->getType() == 'POST') {
+                                        //var_dump($this->actionName);
+                                        // the binding model should be always the first element
+                                        $parameter = new \ReflectionParameter([$fullController, $this->actionName], 0);
+                                        $bindingClassName = $parameter->getClass()->name;
+                                        try {
+                                            $bindingModel = $this->createBindingModel($bindingClassName);
+                                            $isRouteFound = true;
+                                            call_user_func(array($this->controller, $this->actionName), $bindingModel);
+                                        } catch (\Exception $e) {
+                                            $_SESSION['error'] = $e->getMessage();
+                                            header('Location: ' . $_SERVER['REQUEST_URI']);
+                                        }
+                                    } else {
+                                        $isRouteFound = true;
+                                        call_user_func_array(array($this->controller, $this->actionName), $params);
+                                    }
                                 }
-                            } else {
-                                call_user_func_array(array($this->controller, $this->actionName), $params);
                             }
-                        } else {
-                            continue;
                         }
-                    } else {
-                        throw new \Exception("Method not found");
                     }
-                } else {
-                    throw new \Exception("Controller not found");
                 }
             }
         }
-        else
-        {
-            throw new \Exception("Route not found");
+
+        if (!$isRouteFound) {
+            //throw new \Exception("Route not found");
         }
     }
 
@@ -134,19 +140,19 @@ class Application
         }
     }
 
-    private function checkAnnotationsValidity(array $annotations = null) : bool {
+    private function checkAnnotationsValidity(HttpContext $httpContext, array $annotations = null) : bool {
         $valid = true;
         if ($annotations != null) {
-            foreach ($annotations as $annotationType => $annotaionProperty) {
+            foreach ($annotations as $annotationType => $annotationProperty) {
                 $annotationClassName = ucwords(strtolower($annotationType))."Annotation";
-                var_dump($annotationClassName);
+                //var_dump($annotationClassName);
 
                 $annotationFullClassName = 'SoftUni\\FrameworkCore\\Annotations\\'.$annotationClassName;
 
                 if (class_exists($annotationFullClassName)) {
                     $annotation = new $annotationFullClassName();
-                    $validAnnotation = $annotation->isValid($annotaionProperty);
-                    var_dump($validAnnotation);
+                    $validAnnotation = $annotation->isValid($annotationProperty, $httpContext);
+                    //var_dump($validAnnotation);
                     if (!$validAnnotation) {
                          return false;
                     }

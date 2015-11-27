@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace SoftUni\FrameworkCore\Annotations;
 
 
+use SoftUni\FrameworkCore\Http\HttpContext;
+
 class Annotation
 {
     public function __construct() {
@@ -21,6 +23,6 @@ class Annotation
         return $actionAnnotation;
     }
 
-    public static function isValid(string $property) :bool {
+    public static function isValid(string $property, HttpContext $httpContext) :bool {
     }
 }

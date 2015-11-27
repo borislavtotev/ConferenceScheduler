@@ -19,13 +19,6 @@ class AnnotationParser
 {
     public static $allAnnotations;
 
-    /**
-     * Returns array with annotations for controllers in Areas part of the project
-     * Each array for controller contains classAnnotations and methodAnnotations
-     * Method annotations contains annotations for all methods in the class
-     * All Route annotations are grouped under "Routes" in annotations. Route annotations can be set for the class and
-     * on methods. If there is annotation only on the class, it is ignored.
-    */
     public static function getAnnotations() {
         $controllersFilePaths = CommonFunction::getDirContents($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'Controllers');
         $annotations = [];
@@ -83,9 +76,9 @@ class AnnotationParser
 
                         // Add GET annotation if no Get, Post, Put or Delete annotation is available
                         if (isset($annotations['byController'][$className][$methodName])) {
-                            var_dump($annotations['byController'][$className][$methodName]);
+                            //var_dump($annotations['byController'][$className][$methodName]);
                             $httpRequestAnnotation = array_filter(array_keys($annotations['byController'][$className][$methodName]), function ($annotationType) {
-                                var_dump($annotationType);
+                                //var_dump($annotationType);
                                 if (preg_match('#(Get|Post|Delete|Put)#i', $annotationType)) {
                                     return true;
                                 }
@@ -101,44 +94,7 @@ class AnnotationParser
                             $getAnnotationProperty = $getAnnotation->onInitialize('GET');
                             $annotations['byController'][$className][$methodName]['GET'] = $getAnnotationProperty;
                         }
-
-                        //echo "<br/>All Annotations:<br/>".json_encode($annotations, JSON_PRETTY_PRINT)."<br/>";
                     }
-//                        if (preg_match_all('#@(.*?)\n#s', $methodDoc, $newMethodAnnotations)) {
-//                            foreach ($newMethodAnnotations[1] as $newMethodAnnotation) {
-//                                $annotations['Routes'][$fullRouteAnnotation] = [$className, $methodName];
-//
-//
-//
-//                                // Get Route Annotation
-//                                if (preg_match('/Route\((.*?)\)/', $newMethodAnnotation, $matches1)) {
-//                                    $fullRouteAnnotation = $classRouteAnnotation.'/'.$matches1[1];
-//                                    $fullRouteAnnotation = str_replace('"', '', $fullRouteAnnotation);
-//                                    $fullRouteAnnotation = str_replace("'", "", $fullRouteAnnotation);
-//                                    $annotations['Routes'][$fullRouteAnnotation] = [$className, $methodName];
-//                                }
-
-                                // Get Authorization Annotation
-//                                $userRoles = \SoftUni\Config\UserRoles::getAllRoles();
-//                                $pattern = join("|", $userRoles);
-//                                if (preg_match('/'.$pattern.'/', $newMethodAnnotation, $matches)) {
-//                                    if (UserRoles::getRoleNumber($classAccessAnnotation) > $matches[0]) {
-//                                        $methodAccessAnnotation = $classAccessAnnotation;
-//                                    } else {
-//                                        $methodAccessAnnotation = $matches[0];
-//                                    }
-//
-//                                    $annotations[$className][$methodName][] = array('Authorization' => $methodAccessAnnotation);
-//                                }
-//
-//                                // Get HTTP Request Annotation
-//                                $pattern = "/GET|POST|PUT|DELETE/";
-//                                if (preg_match($pattern, $newMethodAnnotation, $matches2)) {
-//                                    $annotations[$className][$methodName][] = array('HttpRequest' => $matches2[0]);
-//                                }
-//                            }
-//                        }
-//                    }
                 }
             }
         }
@@ -188,24 +144,3 @@ class AnnotationParser
         return $extractedAnnotations;
     }
 }
-
-
-//syzdai class s imeto i params
-
-
-//foreach ($newAnnotations[0] as $newAnnotation) {
-// echo (json_encode($newAnnotation, JSON_PRETTY_PRINT). "<br />");
-//                            if (preg_match('/Route\((.*?)\)/', $newAnnotation, $matches)) {
-//                                $classRouteAnnotation = $matches[1];
-//                            }
-//
-//                            $userRoles = UserRoles::getAllRoles();
-//                            $pattern = join("|", $userRoles);
-//                            if (preg_match('/'.$pattern.'/', $newAnnotation, $matches)) {
-//                                $classAccessAnnotation = $matches[0];
-//                            }
-//}
-?>
-
-
-

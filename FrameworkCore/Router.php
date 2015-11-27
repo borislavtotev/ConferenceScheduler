@@ -47,42 +47,41 @@ class Router
             throw new \Exception("Routes must not be empty", E_USER_ERROR);
         }
 
-        $findRoute = self::checkAnnotationRoutes();
-
-        if (is_null($findRoute)) {
-            $findRoute = self::checkConfigRoutes("CustomConfig");
-        }
-
-        if (is_null($findRoute)) {
-            $findRoute = self::checkConfigRoutes("DefaultConfig");
-        }
+        $findRoute[] = self::checkAnnotationRoutes();
+        $findRoute[] = self::checkConfigRoutes("CustomConfig");
+        $findRoute[] = self::checkConfigRoutes("DefaultConfig");
 
         return $findRoute;
     }
 
     private static function checkConfigRoutes($whatToCheck) {
         $routes = self::$routes[$whatToCheck];
-        $uriParams = [];
+        $allUriParams = [];
 
         If (isset($routes)) {
             foreach ($routes as $routePattern) {
+                $uriParams = [];
+                //var_dump($routePattern);
+                //var_dump(self::$uri);
                 if (preg_match($routePattern, self::$uri, $match)) {
-                    $uriParams['controller'] = $match['controller'];
+                    $uriParams['controller'] = ucwords(strtolower($match['controller']))."Controller";
                     $uriParams['action'] = $match['action'];
-                    $uriParams['params'] = $match['params'];
+                    if (isset($match['params'])) {
+                        $uriParams['params'] = $match['params'];
+                    };
 
-                    return $uriParams;
+                    $allUriParams[] = $uriParams;
                 }
             }
         }
 
-        return $uriParams;
+        return $allUriParams;
     }
 
     private static function checkAnnotationRoutes() {
         $annotationRoutes = self::$routes['Annotations'];
         $allUriParams = [];
-        var_dump($annotationRoutes);
+        //var_dump($annotationRoutes);
         foreach ($annotationRoutes as $route => $properties) {
             $uriParams = [];
             $controller = $properties['controller'];

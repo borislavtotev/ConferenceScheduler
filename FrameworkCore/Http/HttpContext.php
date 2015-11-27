@@ -77,7 +77,7 @@ class HttpContext
         }
     }
 
-    public function getLoggedUser() : LoggedUser {
+    public function getLoggedUser()  {
         return $this->loggedUser;
     }
 }

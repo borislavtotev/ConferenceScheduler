@@ -255,7 +255,6 @@ class Database
                     $hasSameProperties = false;
                     break;
                 }
-
             }
 
             if($hasSameProperties) {
@@ -279,6 +278,27 @@ class Database
             self::createUserTable();
 
             return true;
+        }
+    }
+
+    public static function getUserRoles (int $userId) {
+        $sql = "Select r.name
+                from user_roles as ur
+                join roles as r
+                on ur.role_id = r.id
+                where ur.user_id = $userId";
+        try {
+            $db = self::getInstance('app');
+            $stmt = $db->prepare($sql);
+            $stmt->execute([]);
+            $output = array();
+            while($row = $stmt->fetch()){
+                $output[] = $row['name'];
+            }
+            return $output;
+        }
+        catch(\Exception $pe) {
+            throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
         }
     }
 

@@ -7,8 +7,7 @@ class UserConfig
         'User' => 1,
         'ConferenceOwner' => 2,
         'ConferenceAdministrator' => 3,
-        'Administrator' => 4,
-        'Big Boss' => 5
+        'Admin' => 4
     );
 
     // if you want to extend the class, you can choose here another class to store the information for the users
