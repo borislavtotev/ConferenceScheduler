@@ -1,11 +1,12 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  * User: boris
  * Date: 10/2/2015
  * Time: 12:48 PM
  */
-declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore\Annotations;
 
@@ -58,7 +59,7 @@ class AnnotationParser
                         $methodAccessAnnotation = '';
                         $methodDoc = $method->getDocComment();
 
-                        if ($methodDoc) {
+                        if ($methodDoc != null) {
                             $methodAnnotations = self::extractAnnotations($methodDoc, $classAnnotations);
                             //echo $methodName.": ".json_encode($methodAnnotations, JSON_PRETTY_PRINT)."<br/>";
                         } else {
@@ -73,6 +74,25 @@ class AnnotationParser
                                 "action" => $methodName
                             );
                             $annotations['byController'][$className][$methodName][$methodAnnotationType] = $methodAnnotationProperty;
+                        }
+
+                        // Add GET annotation if no Get, Post, Put or Delete annotation is available
+                        if (isset($annotations['byController'][$className][$methodName])) {
+                            $httpRequestAnnotation = array_filter(array_keys($annotations['byController'][$className][$methodName]), function ($annotationType) {
+                                if (preg_match('#(Get|Post|Delete|Put)#i', $annotationType)) {
+                                    return true;
+                                }
+
+                                return false;
+                            });
+                        } else {
+                            $httpRequestAnnotation = [];
+                        }
+
+                        if (count($httpRequestAnnotation) == 0) {
+                            $getAnnotation = new GetAnnotation();
+                            $getAnnotationProperty = $getAnnotation->onInitialize('GET');
+                            $annotations['byController'][$className][$methodName]['GET'] = $getAnnotationProperty;
                         }
 
                         //echo "<br/>All Annotations:<br/>".json_encode($annotations, JSON_PRETTY_PRINT)."<br/>";
@@ -114,7 +134,6 @@ class AnnotationParser
 //                    }
                 }
             }
-            //echo(json_encode($annotations, JSON_PRETTY_PRINT));
         }
 
         self::$allAnnotations = $annotations;
@@ -134,16 +153,18 @@ class AnnotationParser
                 $annotationParams = $newAnnotation[0][0];
             } else if (preg_match("#@(\\w*)#", $annotationRow, $annotationMatch)) {
                 $annotationType = $annotationMatch[1]; // Route, Authorization, etc.
-                $annotationParams = null;
+                $annotationParams = $annotationType;
                 //echo "new class with:".$annotationMatch[1]."<br/>";
             } else {
                 continue;
             }
 
-            $annotationClassName = __NAMESPACE__."\\".$annotationType."Annotation";
+            $annotationClassName = ucwords(strtolower($annotationType))."Annotation";
 
-            if (class_exists($annotationClassName)) {
-                $annotation = new $annotationClassName();
+            $annotationFullClassName = __NAMESPACE__."\\".$annotationClassName;
+
+            if (class_exists($annotationFullClassName)) {
+                $annotation = new $annotationFullClassName();
                 if (array_key_exists($annotationType, $classAnnotations)) {
                     $fullAnnotation = $annotation->onInitialize($annotationParams, $classAnnotations[$annotationType]);
                 } else {

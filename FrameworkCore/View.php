@@ -5,7 +5,6 @@ class View
 {
     public static $controllerName;
     public static $actionName;
-    public static $area;
 
     const PARAMS_COUNT_MODEL_AND_VIEW = 2;
     const PARAMS_COUNT_MODEL_ONLY = 1;

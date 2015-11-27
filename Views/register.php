@@ -14,7 +14,7 @@ require('Shared/header.php');
                 <!-- Username -->
                 <label class="control-label"  for="username">Username</label>
                 <div class="controls">
-                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge" value="<?= $model ? $model->username : '' ;?>">
+                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge" value="<?= $model ? $model->getUsername() : '' ;?>">
                     <p class="help-block">Username can contain any letters or numbers, without spaces</p>
                 </div>
             </div>
@@ -23,7 +23,7 @@ require('Shared/header.php');
                 <!-- Password-->
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
-                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge" value="<?= $model ? $model->password : '' ;?>">
+                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge" value="<?= $model ? $model->getPassword() : '' ;?>">
                     <p class="help-block">Password should be at least 4 characters</p>
                 </div>
             </div>
@@ -32,7 +32,7 @@ require('Shared/header.php');
                 <!-- Confirm Password-->
                 <label class="control-label" for="password">Confirm Password</label>
                 <div class="controls">
-                    <input type="password" id="confirm" name="confirm" placeholder="" class="input-xlarge" value="<?= $model ? $model->confirm : '' ;?>">
+                    <input type="password" id="confirm" name="confirm" placeholder="" class="input-xlarge" value="<?= $model ? $model->getConfirm() : '' ;?>">
                     <p class="help-block">Password should be at least 4 characters</p>
                 </div>
             </div>

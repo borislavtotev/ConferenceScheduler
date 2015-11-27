@@ -4,10 +4,10 @@ namespace SoftUni\Controllers;
 include_once('Controller.php');
 
 use SoftUni\Models\IdentityUser;
-use SoftUni\ViewModels\UserViewModel;
+use SoftUni\Models\ViewModels\UserViewModel;
 use SoftUni\FrameworkCore\View;
-use SoftUni\ViewModels\LoginInformation;
-use SoftUni\ViewModels\RegisterInformation;
+use SoftUni\Models\BindingModels\UserLoginBindingModel;
+use SoftUni\Models\BindingModels\UserBindingModel;
 use SoftUni\FrameworkCore\Database;
 use SoftUni\Config\UserConfig;
 
@@ -23,7 +23,7 @@ class UsersController extends Controller
      */
     public function login()
     {
-        $viewModel = new LoginInformation();
+        $viewModel = new UserLoginBindingModel();
 
         if (isset($_POST['username'], $_POST['password'])) {
             try {
@@ -57,21 +57,28 @@ class UsersController extends Controller
 
     /**
      * @Route("register")
+     * @GET
+     */
+    public function getRegister() {
+        $model = new UserBindingModel();
+        return new View('register', $model);
+    }
+
+    /**
+     * @Route("register")
      * @POST
      */
-    public function register()
+    public function register(UserBindingModel $model)
     {
-        $viewModel = new RegisterInformation();
-
         try
         {
             if (isset($_POST['username'], $_POST['password'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $confirm = $_POST['confirm'];
-                $viewModel->username = $_POST['username'];
-                $viewModel->password = $_POST['password'];
-                $viewModel->confirm = $_POST['confirm'];
+                $model->setUsername($_POST['username']);
+                $model->setPassword($_POST['password']);
+                $model->setConfirm($_POST['confirm']);
 
                 if ($password != $confirm) {
                     throw new \Exception("Password and Confirm password are different");
@@ -96,7 +103,7 @@ class UsersController extends Controller
             }
         } catch (\Exception $e) {
             $_SESSION['error'] = $e->getMessage();
-            return new View($viewModel);
+            return new View($model);
         }
 
         return new View();

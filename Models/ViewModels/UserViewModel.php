@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace SoftUni\ViewModels;
+namespace SoftUni\Models\ViewModels;
 
 class UserViewModel
 {

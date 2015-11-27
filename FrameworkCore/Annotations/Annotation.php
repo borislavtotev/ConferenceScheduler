@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  * User: boris
@@ -15,8 +17,10 @@ class Annotation
     }
 
     public function onInitialize(string $actionAnnotation, string $classAnnotation = null) : string {
+        // be default return the name of the annotation
+        return $actionAnnotation;
     }
 
-    public static function onCall(array $annotation) {
+    public static function isValid(string $property) :bool {
     }
 }

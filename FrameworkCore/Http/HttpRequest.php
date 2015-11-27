@@ -53,7 +53,7 @@ class HttpRequest
         return $this->headers;
     }
 
-    private function setParameters(array $params) {
+    private function setParameters(\stdClass $params) {
         $this->parameters = $params;
     }
 
@@ -61,7 +61,7 @@ class HttpRequest
         return $this->parameters;
     }
 
-    private function parseParams() :array {
+    private function parseParams() :\stdClass {
         $method = $_SERVER['REQUEST_METHOD'];
         $params = array();
         if ($method == "PUT" || $method == "DELETE" || $method == "PATCH") {
@@ -75,6 +75,6 @@ class HttpRequest
             $params = $_POST;
         }
 
-        return $params;
+        return (object)$params;
     }
 }

@@ -38,39 +38,73 @@ class Application
         return $this;
     }
 
+    public function getHttpContext()
+    {
+        return $this->httpContext;
+    }
+
+    public function setHttpContext($httpContext)
+    {
+        $this->httpContext = $httpContext;
+        return $this;
+    }
+
     public function start()
     {
-        $this->CheckAnnotations();
-        $this->CheckUserConfiguration();
+        $this->checkAnnotations();
+        $this->checkUserConfiguration();
         Router::readAllRoutes();
 
-
         $uri = Router::make_uri();
-        $params = Router::match_uri($uri);
+        $allParams = Router::match_uri($uri);
         //var_dump($params);
-        if ($params)
-        {
-            $controller = ucwords($params['controller']);
-            $this->actionName = $params['action'];
+        if (count($allParams)>0) {
+            var_dump($allParams);
 
-            unset($params['controller'], $params['action']);
+            foreach ($allParams as $params) {
+                $controller = ucwords($params['controller']);
+                $this->actionName = $params['action'];
 
-            $this->controllerName = $controller;
+                unset($params['controller'], $params['action']);
 
-            if (!class_exists($controller, true)) {
-                $fullController = 'Softuni\\Controllers\\'.$controller;
-                if (method_exists($fullController, $this->actionName)) {
-                    $this->controller = new $fullController($this->dbContext, $this->httpContext);
-                    View::$controllerName = $this->controllerName;
-                    View::$actionName = $this->actionName;
-                    call_user_func_array(array($this->controller, $this->actionName), $params);
+                $this->controllerName = $controller;
+
+                if (!class_exists($controller, true)) {
+                    $fullController = 'Softuni\\Controllers\\' . $controller;
+                    if (method_exists($fullController, $this->actionName)) {
+                        $this->controller = new $fullController($this->dbContext, $this->httpContext);
+                        View::$controllerName = $this->controllerName;
+                        View::$actionName = $this->actionName;
+                        $annotations = Annotations\AnnotationParser::$allAnnotations['byController'][$this->controllerName][$this->actionName];
+                        var_dump($annotations);
+                        $areValidAnnotations = $this->checkAnnotationsValidity($annotations);
+                        if ($areValidAnnotations) {
+                            var_dump($this->httpContext->getRequest()->getType());
+                            if ($this->httpContext->getRequest()->getType() == 'POST') {
+                                var_dump($this->actionName);
+                                // the binding model should be always the first element
+                                $parameter = new \ReflectionParameter([$fullController, $this->actionName], 0);
+                                $bindingClassName = $parameter->getClass()->name;
+                                var_dump(get_class_methods($bindingClassName));
+                                try {
+                                    $bindingModel = new $bindingClassName;
+                                    $this->createBindingModel($bi)
+                                    call_user_func(array($this->controller, $this->actionName), $bindingModel);
+                                } catch (\Exception $e) {
+                                    call_user_func_array(array($this->controller, $this->actionName), $params);
+                                }
+                            } else {
+                                call_user_func_array(array($this->controller, $this->actionName), $params);
+                            }
+                        } else {
+                            continue;
+                        }
+                    } else {
+                        throw new \Exception("Method not found");
+                    }
                 } else {
-                    throw new \Exception("Method not found");
+                    throw new \Exception("Controller not found");
                 }
-            }
-            else
-            {
-                throw new \Exception("Controller not found");
             }
         }
         else
@@ -79,7 +113,7 @@ class Application
         }
     }
 
-    private function CheckAnnotations() {
+    private function checkAnnotations() {
         if (\SoftUni\Config\ApplicationRunConfig::CheckAnnotations) {
             \SoftUni\FrameworkCore\Annotations\AnnotationParser::getAnnotations();
             $myFile = fopen('Logs\annotations.txt', "w");
@@ -92,11 +126,34 @@ class Application
         }
     }
 
-    private function CheckUserConfiguration() {
+    private function checkUserConfiguration() {
         if (\SoftUni\Config\ApplicationRunConfig::UserConfig) {
             Database::updateRolesTable();
             Database::updateUserTable();
             Database::createUserRolesTable();
         }
+    }
+
+    private function checkAnnotationsValidity(array $annotations = null) : bool {
+        $valid = true;
+        if ($annotations != null) {
+            foreach ($annotations as $annotationType => $annotaionProperty) {
+                $annotationClassName = ucwords(strtolower($annotationType))."Annotation";
+                var_dump($annotationClassName);
+
+                $annotationFullClassName = 'SoftUni\\FrameworkCore\\Annotations\\'.$annotationClassName;
+
+                if (class_exists($annotationFullClassName)) {
+                    $annotation = new $annotationFullClassName();
+                    $validAnnotation = $annotation->isValid($annotaionProperty);
+                    var_dump($validAnnotation);
+                    if (!$validAnnotation) {
+                         return false;
+                    }
+                }
+            }
+        }
+
+        return $valid;
     }
 }

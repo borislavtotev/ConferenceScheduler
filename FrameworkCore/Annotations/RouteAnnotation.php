@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore\Annotations;
 
-include 'Annotation.php';
+include_once 'Annotation.php';
 
 use \SoftUni\FrameworkCore\Annotations;
 
@@ -36,9 +36,9 @@ class RouteAnnotation extends Annotations\Annotation
     }
 
 
-    public static function onCall(array $routeAnnotation) {
-            $controller = $routeAnnotation['controller'];
-            $action = $routeAnnotation['action'];
+    public static function isValid(string $property) :bool {
+        //No additional checks are needed. The route annotation is checked by the router
+        return true;
     }
 
     private static function createRouteRegex(string $fullRouteAnnotation) :string {
