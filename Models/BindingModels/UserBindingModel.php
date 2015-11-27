@@ -10,7 +10,6 @@ class UserBindingModel extends BindingModel
     protected $username = '';
     protected $password = '';
     protected $confirm = '';
-    protected $test = '';
 
     public function __construct(string $username = null, string $password = null, string $confirm = null)
     {

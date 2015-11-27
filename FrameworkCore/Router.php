@@ -82,7 +82,7 @@ class Router
     private static function checkAnnotationRoutes() {
         $annotationRoutes = self::$routes['Annotations'];
         $allUriParams = [];
-        //var_dump($annotationRoutes);
+        var_dump($annotationRoutes);
         foreach ($annotationRoutes as $route => $properties) {
             $uriParams = [];
             $controller = $properties['controller'];

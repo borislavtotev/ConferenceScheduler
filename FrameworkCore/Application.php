@@ -60,6 +60,7 @@ class Application
         //var_dump($params);
         if (count($allParams)>0) {
             var_dump($allParams);
+            die;
 
             foreach ($allParams as $params) {
                 $controller = ucwords($params['controller']);

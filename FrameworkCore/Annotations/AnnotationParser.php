@@ -63,7 +63,12 @@ class AnnotationParser
                             $methodAnnotations = self::extractAnnotations($methodDoc, $classAnnotations);
                             //echo $methodName.": ".json_encode($methodAnnotations, JSON_PRETTY_PRINT)."<br/>";
                         } else {
-                            $methodAnnotations = $classAnnotations;
+                            $methodAnnotations = [];
+                            foreach ($classAnnotations as $annotationType => $value) {
+                                if ($annotationType != 'Route') {
+                                    $methodAnnotations[$annotationType] = $value;
+                                }
+                            }
                         }
 
                         // Add extracted annotaions to all Annotations
@@ -78,7 +83,9 @@ class AnnotationParser
 
                         // Add GET annotation if no Get, Post, Put or Delete annotation is available
                         if (isset($annotations['byController'][$className][$methodName])) {
+                            var_dump($annotations['byController'][$className][$methodName]);
                             $httpRequestAnnotation = array_filter(array_keys($annotations['byController'][$className][$methodName]), function ($annotationType) {
+                                var_dump($annotationType);
                                 if (preg_match('#(Get|Post|Delete|Put)#i', $annotationType)) {
                                     return true;
                                 }

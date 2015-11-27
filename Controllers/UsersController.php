@@ -14,12 +14,12 @@ use SoftUni\Config\UserConfig;
 /**
  * @Route("user")
  * @Authorize(Roles="Administrator")
+ * @POST
  */
 class UsersController extends Controller
 {
     /**
      * @Route("login")
-     * @POST
      */
     public function login()
     {
