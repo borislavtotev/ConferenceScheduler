@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\FrameworkCore\Repositories;
 
 use SoftUni\FrameworkCore\Database;
@@ -21,9 +23,6 @@ class IdentityUsersRepository
     private static $inst = null;
 
     private function __construct() { }
-    /**
-     * @return IdentityUsersRepository
-     */
 
     public static function create()
     {
@@ -207,9 +206,11 @@ class IdentityUsersRepository
         foreach (self::$selectedObjectPool as $entity) {
             self::update($entity);
         }
+
         foreach (self::$insertObjectPool as $entity) {
             self::insert($entity);
         }
+
         return true;
     }
 

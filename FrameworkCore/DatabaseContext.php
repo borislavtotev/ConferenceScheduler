@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 11/24/2015
- * Time: 10:08 AM
- */
+declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore;
-
 
 class DatabaseContext
 {

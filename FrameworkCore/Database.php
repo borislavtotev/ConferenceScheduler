@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore;
 
@@ -25,7 +26,8 @@ class Database
      * @return Database
      * @throws \Exception
      */
-    public static function getInstance($instanceName = 'default') {
+    public static function getInstance($instanceName = 'default')
+    {
         if (!isset(self::$inst[$instanceName])) {
             throw new \Exception('Instance with that name was not set');
         }
@@ -40,7 +42,8 @@ class Database
         $pass,
         $dbName,
         $host = null
-    ) {
+    )
+    {
         $driver = Drivers\DriverFactory::create($driver, $user, $pass, $dbName, $host);
 
         try {
@@ -89,7 +92,8 @@ class Database
         return $this->db->lastInsertId($name);
     }
 
-    private function initializeDb($host, $user, $pass, $dbName) {
+    private function initializeDb($host, $user, $pass, $dbName)
+    {
         $connection = mysqli_connect($host, $user, $pass);
         if (!mysqli_select_db($connection, $dbName)) {
             mysqli_query($connection, "CREATE DATABASE if not EXISTS $dbName");
@@ -97,7 +101,8 @@ class Database
         }
     }
 
-    private static function createUserTable() {
+    private static function createUserTable()
+    {
         $db = self::getInstance('app');
 
         $userProperties = self::getUserProperties();
@@ -147,7 +152,8 @@ class Database
         }
     }
 
-    private static function createRolesTable() {
+    private static function createRolesTable()
+    {
         $db = self::getInstance('app');
 
         $result = $db->prepare("
@@ -166,7 +172,8 @@ class Database
         return false;
     }
 
-    public static function createUserRolesTable() {
+    public static function createUserRolesTable()
+    {
         $db = self::getInstance('app');
 
         $result = $db->prepare("
@@ -185,7 +192,8 @@ class Database
         return false;
     }
 
-    public static function updateRolesTable() {
+    public static function updateRolesTable()
+    {
         $db = self::getInstance('app');
 
         //check whether the table roles exists
@@ -230,7 +238,8 @@ class Database
         return false;
     }
 
-    public static function updateUserTable() {
+    public static function updateUserTable()
+    {
         $db = self::getInstance('app');
 
         //check whether the table roles exists
@@ -281,7 +290,8 @@ class Database
         }
     }
 
-    public static function getUserRoles (int $userId) {
+    public static function getUserRoles (int $userId)
+    {
         $sql = "Select r.name
                 from user_roles as ur
                 join roles as r
@@ -302,7 +312,8 @@ class Database
         }
     }
 
-    private static function getColumnNames(string $table) :array {
+    private static function getColumnNames(string $table) :array
+    {
         $sql = "SHOW columns FROM $table";
         try {
             $db = self::getInstance('app');
@@ -319,7 +330,8 @@ class Database
         }
     }
 
-    private static function getUserProperties() :array {
+    private static function getUserProperties() :array
+    {
         try {
             $userClassName = UserConfig::UserIdentityClassName;
             $identityUserProperties = self::getClassProperties('SoftUni\\Models\\IdentityUser');
@@ -341,7 +353,8 @@ class Database
         }
     }
 
-    private static function getClassProperties(string $userClassName) :array {
+    private static function getClassProperties(string $userClassName) :array
+    {
         if (preg_match_all('#[\\\\]([^\\\\]*?)$#', $userClassName, $match)) {
             $className = $match[1][0];
         }

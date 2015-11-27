@@ -16,9 +16,4 @@ class Controller
         $this->dbContext = $dbContext;
         $this->httpContext = $httpContext;
     }
-
-    public function isLogged()
-    {
-        return isset($_SESSION['id']);
-    }
 }

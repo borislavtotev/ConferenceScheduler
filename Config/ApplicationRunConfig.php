@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 11/25/2015
- * Time: 2:26 PM
- */
+declare(strict_types=1);
 
 namespace SoftUni\Config;
-
 
 class ApplicationRunConfig
 {

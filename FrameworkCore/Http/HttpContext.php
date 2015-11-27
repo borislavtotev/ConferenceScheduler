@@ -1,15 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 11/26/2015
- * Time: 3:21 PM
- */
-
 namespace SoftUni\FrameworkCore\Http;
-
 
 class HttpContext
 {
@@ -77,7 +69,8 @@ class HttpContext
         }
     }
 
-    public function getLoggedUser()  {
+    public function getLoggedUser()
+    {
         return $this->loggedUser;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace SoftUni\FrameworkCore;
 
@@ -54,11 +55,12 @@ class Router
         return $findRoute;
     }
 
-    private static function checkConfigRoutes($whatToCheck) {
+    private static function checkConfigRoutes($whatToCheck)
+    {
         $routes = self::$routes[$whatToCheck];
         $allUriParams = [];
 
-        If (isset($routes)) {
+        if (isset($routes)) {
             foreach ($routes as $routePattern) {
                 $uriParams = [];
                 //var_dump($routePattern);
@@ -78,7 +80,8 @@ class Router
         return $allUriParams;
     }
 
-    private static function checkAnnotationRoutes() {
+    private static function checkAnnotationRoutes()
+    {
         $annotationRoutes = self::$routes['Annotations'];
         $allUriParams = [];
         //var_dump($annotationRoutes);

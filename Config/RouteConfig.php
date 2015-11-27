@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\Config;
 
 /* Add custom routes
@@ -14,7 +16,6 @@ namespace SoftUni\Config;
  *    "newProduct/Create/Cake/With3Eggs"
  *    "newUser/CreateProfile/FromFacebook"
  * */
-
 class RouteConfig
 {
     const CustomRouteConfigs = array(

@@ -1,15 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 11/26/2015
- * Time: 3:28 PM
- */
-
 namespace SoftUni\FrameworkCore\Http;
-
 
 class HttpRequest
 {
@@ -17,7 +9,8 @@ class HttpRequest
     private $parameters;
     private $headers;
 
-    public function __construct($type = null, $params = null, $headers = null) {
+    public function __construct($type = null, $params = null, $headers = null)
+    {
         if (isset($type)) {
             $this->setType($type);
         } else {
@@ -37,31 +30,38 @@ class HttpRequest
         }
     }
 
-    private function setType(string $type) {
+    private function setType(string $type)
+    {
         $this->type = $type;
     }
 
-    public function getType() :string {
+    public function getType() :string
+    {
         return $this->type;
     }
 
-    private function setHeaders(array $headers) {
+    private function setHeaders(array $headers)
+    {
         $this->headers = $headers;
     }
 
-    public function getHeaders() :array {
+    public function getHeaders() :array
+    {
         return $this->headers;
     }
 
-    private function setParameters(\stdClass $params) {
+    private function setParameters(\stdClass $params)
+    {
         $this->parameters = $params;
     }
 
-    public function getParameters() :array {
+    public function getParameters() :array
+    {
         return $this->parameters;
     }
 
-    private function parseParams() :\stdClass {
+    private function parseParams() :\stdClass
+    {
         $method = $_SERVER['REQUEST_METHOD'];
         $params = array();
         if ($method == "PUT" || $method == "DELETE" || $method == "PATCH") {

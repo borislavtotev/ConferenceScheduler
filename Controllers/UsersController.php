@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\Controllers;
 
 include_once('Controller.php');
@@ -70,8 +72,7 @@ class UsersController extends Controller
      */
     public function register(UserBindingModel $model)
     {
-        try
-        {
+        try {
             if (isset($_POST['username'], $_POST['password'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];

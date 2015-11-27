@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\FrameworkCore;
 
 class View
@@ -47,15 +49,14 @@ class View
 
     private function initModelView($view, $model)
     {
-
-
         require 'Views'
                 . DIRECTORY_SEPARATOR
                 . $view
                 . self::VIEW_EXTENSION;
     }
 
-    private function checkModelType($model) {
+    private function checkModelType($model)
+    {
         $viewPath = 'Views'
             . DIRECTORY_SEPARATOR
             . self::$actionName
@@ -83,6 +84,4 @@ class View
 
         return true;
     }
-
-
 }

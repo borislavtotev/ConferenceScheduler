@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace SoftUni\FrameworkCore;
 
 use SoftUni\FrameworkCore\Http\HttpContext;
@@ -119,7 +121,8 @@ class Application
         }
     }
 
-    private function checkAnnotations() {
+    private function checkAnnotations()
+    {
         if (\SoftUni\Config\ApplicationRunConfig::CheckAnnotations) {
             \SoftUni\FrameworkCore\Annotations\AnnotationParser::getAnnotations();
             $myFile = fopen('Logs\annotations.txt', "w");
@@ -132,7 +135,8 @@ class Application
         }
     }
 
-    private function checkUserConfiguration() {
+    private function checkUserConfiguration()
+    {
         if (\SoftUni\Config\ApplicationRunConfig::UserConfig) {
             Database::updateRolesTable();
             Database::updateUserTable();
@@ -140,7 +144,8 @@ class Application
         }
     }
 
-    private function checkAnnotationsValidity(HttpContext $httpContext, array $annotations = null) : bool {
+    private function checkAnnotationsValidity(HttpContext $httpContext, array $annotations = null) :bool
+    {
         $valid = true;
         if ($annotations != null) {
             foreach ($annotations as $annotationType => $annotationProperty) {
@@ -163,7 +168,8 @@ class Application
         return $valid;
     }
 
-    private function createBindingModel($bindingClassName) {
+    private function createBindingModel($bindingClassName)
+    {
         $model = new $bindingClassName;
         $properties = Models\BindingModels\UserBindingModel::expose();
         foreach ($properties as $property => $value) {

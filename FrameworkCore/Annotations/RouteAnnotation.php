@@ -1,23 +1,17 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 11/21/2015
- * Time: 11:47 PM
- */
-
 namespace SoftUni\FrameworkCore\Annotations;
 
 include_once 'Annotation.php';
 
-use \SoftUni\FrameworkCore\Annotations;
+use SoftUni\FrameworkCore\Annotations;
 use SoftUni\FrameworkCore\Http\HttpContext;
 
 class RouteAnnotation extends Annotations\Annotation
 {
-    public function onInitialize(string $routeAnnotation, string $classRouteAnnotation = null) : string {
+    public function onInitialize(string $routeAnnotation, string $classRouteAnnotation = null) :string
+    {
         if (preg_match('/Route\((.*?)\)/', $routeAnnotation, $matches1)) {
             if ($classRouteAnnotation != null) {
                 $fullRouteAnnotation = $classRouteAnnotation.'/'.$matches1[1];
@@ -37,12 +31,14 @@ class RouteAnnotation extends Annotations\Annotation
     }
 
 
-    public static function isValid(string $property, HttpContext $httpContext) :bool {
+    public static function isValid(string $property, HttpContext $httpContext) :bool
+    {
         //No additional checks are needed. The route annotation is checked by the router
         return true;
     }
 
-    private static function createRouteRegex(string $fullRouteAnnotation) :string {
+    private static function createRouteRegex(string $fullRouteAnnotation) :string
+    {
         if (preg_match_all('#{(.*?):?(int|float|string|bool)}#',  $fullRouteAnnotation, $match)) {
             for ($i = 0; $i < count($match[0]); $i++) {
                 $parameter = $match[1][$i];

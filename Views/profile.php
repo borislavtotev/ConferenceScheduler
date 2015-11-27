@@ -1,5 +1,5 @@
 <?=
-/** @var \SoftUni\ViewModels\UserViewModel $model */
+/** @var \SoftUni\Models\BindingModels\UserBindingModel $model */
 
 //define page title
 $title = 'Edit Profile';

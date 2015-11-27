@@ -1,13 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Created by PhpStorm.
- * User: boris
- * Date: 10/2/2015
- * Time: 12:48 PM
- */
-
 namespace SoftUni\FrameworkCore\Annotations;
 
 use SoftUni\Config;
@@ -19,7 +12,8 @@ class AnnotationParser
 {
     public static $allAnnotations;
 
-    public static function getAnnotations() {
+    public static function getAnnotations()
+    {
         $controllersFilePaths = CommonFunction::getDirContents($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'Controllers');
         $annotations = [];
         $annotations['byType'] = [];
@@ -102,7 +96,8 @@ class AnnotationParser
         self::$allAnnotations = $annotations;
     }
 
-    private static function extractAnnotations(string $comments, $classAnnotations) :array {
+    private static function extractAnnotations(string $comments, $classAnnotations) :array
+    {
         $extractedAnnotations = [];
         //echo "test:".json_encode($comments, JSON_PRETTY_PRINT);
         $annotationRows = explode("\n", $comments);
