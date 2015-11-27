@@ -45,10 +45,10 @@ class RouteAnnotation extends Annotations\Annotation
                 $variableType = $match[2][$i];
                 switch ($variableType) {
                     case "int":
-                        $regex = '(?<' . $parameter . '>\d+)';
+                        $regex = '(?<' . $parameter . '>\d+?)';
                         break;
                     case "string":
-                        $regex = '(?<' . $parameter . '>[A-Za-z]+)';
+                        $regex = '(?<' . $parameter . '>[^\/\\\]+?)';
                         break;
                     case "float":
                         $regex = '(?<' . $parameter . '>\d+(\.\d+)?)';
@@ -63,7 +63,7 @@ class RouteAnnotation extends Annotations\Annotation
 
                 $fullRouteAnnotation = str_replace($match[0][$i], $regex, $fullRouteAnnotation);
 
-                //echo "$fullRouteAnnotation<br/>";
+                echo "$fullRouteAnnotation<br/>";
             }
         }
 

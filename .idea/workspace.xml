@@ -3,45 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5c4bc1-9349-4d48-91dd-bc643c7d8dfa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" afterPath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/DatabaseConfig.php" afterPath="$PROJECT_DIR$/Config/DatabaseConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/RouteConfig.php" afterPath="$PROJECT_DIR$/Config/RouteConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/UserConfig.php" afterPath="$PROJECT_DIR$/Config/UserConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/ConferenceController.php" afterPath="$PROJECT_DIR$/Controllers/ConferenceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/Controller.php" afterPath="$PROJECT_DIR$/Controllers/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/HelpController.php" afterPath="$PROJECT_DIR$/Controllers/HelpController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/UsersController.php" afterPath="$PROJECT_DIR$/Controllers/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/AdminAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/AdminAnnotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/DeleteAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/DeleteAnnotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/GetAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/GetAnnotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Application.php" afterPath="$PROJECT_DIR$/FrameworkCore/Application.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Autoloader.php" afterPath="$PROJECT_DIR$/FrameworkCore/Autoloader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" afterPath="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Database.php" afterPath="$PROJECT_DIR$/FrameworkCore/Database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" afterPath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Drivers/DriverAbstract.php" afterPath="$PROJECT_DIR$/FrameworkCore/Drivers/DriverAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Drivers/DriverFactory.php" afterPath="$PROJECT_DIR$/FrameworkCore/Drivers/DriverFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Drivers/MySQLDriver.php" afterPath="$PROJECT_DIR$/FrameworkCore/Drivers/MySQLDriver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Http/HttpContext.php" afterPath="$PROJECT_DIR$/FrameworkCore/Http/HttpContext.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Http/HttpCookie.php" afterPath="$PROJECT_DIR$/FrameworkCore/Http/HttpCookie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Http/HttpRequest.php" afterPath="$PROJECT_DIR$/FrameworkCore/Http/HttpRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Http/LoggedUser.php" afterPath="$PROJECT_DIR$/FrameworkCore/Http/LoggedUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Http/Session.php" afterPath="$PROJECT_DIR$/FrameworkCore/Http/Session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Router.php" afterPath="$PROJECT_DIR$/FrameworkCore/Router.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/UserRoles.php" afterPath="$PROJECT_DIR$/FrameworkCore/UserRoles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/View.php" afterPath="$PROJECT_DIR$/FrameworkCore/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/IdentityUserRole.php" afterPath="$PROJECT_DIR$/Models/IdentityUserRole.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/User.php" afterPath="$PROJECT_DIR$/Models/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/profile.php" afterPath="$PROJECT_DIR$/Views/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Logs/annotations.txt" afterPath="$PROJECT_DIR$/Logs/annotations.txt" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,103 +31,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IdentityUser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/IdentityUser.php">
+      <file leaf-file-name="AnnotationParser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IdentityUserRole.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/IdentityUserRole.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Shared/error.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Shared/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Shared/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.76923">
-              <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
+            <state vertical-scroll-proportion="-1.9818182">
+              <caret line="74" column="38" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="38" />
               <folding>
-                <element signature="e#1690#1709#0#PHP" expanded="true" />
+                <element signature="e#78#97#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/error.php">
+      <file leaf-file-name="ApplicationRunConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/login.php">
+      <file leaf-file-name="Router.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <state vertical-scroll-proportion="-3.8181818">
+              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/profile.php">
+      <file leaf-file-name="Application.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.38297874">
+              <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+              <folding>
+                <element signature="e#66#109#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteAnnotation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-34.0">
+              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+              <folding>
+                <element signature="e#110#148#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.6923077">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#64#106#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelpController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/HelpController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.576923">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Views/register.php">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75977653">
-              <caret line="16" column="146" selection-start-line="16" selection-start-column="146" selection-end-line="16" selection-end-column="146" />
+            <state vertical-scroll-proportion="56.23077">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#97#129#0#PHP" expanded="true" />
+                <marker date="1448643148747" expanded="true" signature="4763:4878" placeholder="SELECT id, u..users..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8846154">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+              <folding>
+                <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+                <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,16 +162,12 @@
         <option value="$PROJECT_DIR$/Views/register.php" />
         <option value="$PROJECT_DIR$/Views/profile.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Autoloader.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Application.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
         <option value="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
         <option value="$PROJECT_DIR$/Config/DatabaseConfig.php" />
-        <option value="$PROJECT_DIR$/Config/RouteConfig.php" />
         <option value="$PROJECT_DIR$/Config/UserConfig.php" />
         <option value="$PROJECT_DIR$/Controllers/ConferenceController.php" />
         <option value="$PROJECT_DIR$/Controllers/Controller.php" />
-        <option value="$PROJECT_DIR$/Controllers/HelpController.php" />
         <option value="$PROJECT_DIR$/Controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/AdminAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php" />
@@ -201,7 +177,6 @@
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/GetAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Drivers/DriverAbstract.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Drivers/DriverFactory.php" />
@@ -214,7 +189,6 @@
         <option value="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Router.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/UserRoles.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/View.php" />
         <option value="$PROJECT_DIR$/Models/BindingModels/BindingModel.php" />
@@ -224,6 +198,12 @@
         <option value="$PROJECT_DIR$/Models/IdentityUser.php" />
         <option value="$PROJECT_DIR$/Models/IdentityUserRole.php" />
         <option value="$PROJECT_DIR$/Models/User.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Autoloader.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php" />
+        <option value="$PROJECT_DIR$/Controllers/HelpController.php" />
+        <option value="$PROJECT_DIR$/Config/RouteConfig.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Router.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Application.php" />
       </list>
     </option>
   </component>
@@ -641,7 +621,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5121029" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32569557" sideWeight="0.5121029" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
@@ -689,7 +669,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpLocalRunConfigurationType">
@@ -717,75 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#129#0#PHP" expanded="true" />
-            <marker date="1448643148747" expanded="true" signature="4763:4878" placeholder="SELECT id, u..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/HelpController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#64#106#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/ConferenceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AdminAnnotation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
@@ -801,16 +712,6 @@
         <state vertical-scroll-proportion="-2.6153846">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#78#97#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -860,16 +761,6 @@
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#110#149#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#110#148#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -964,24 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-          <folding>
-            <element signature="e#66#109#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Autoloader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3461539">
@@ -1022,14 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3076923">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1158,9 +1023,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Views/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75977653">
+        <state vertical-scroll-proportion="-10.461538">
           <caret line="16" column="146" selection-start-line="16" selection-start-column="146" selection-end-line="16" selection-end-column="146" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Autoloader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/ConferenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6923077">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#64#106#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/HelpController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.576923">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="56.23077">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#97#129#0#PHP" expanded="true" />
+            <marker date="1448643148747" expanded="true" signature="4763:4878" placeholder="SELECT id, u..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding>
+            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.0">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+          <folding>
+            <element signature="e#110#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9818182">
+          <caret line="74" column="38" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="38" />
+          <folding>
+            <element signature="e#78#97#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8181818">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38297874">
+          <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+          <folding>
+            <element signature="e#66#109#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

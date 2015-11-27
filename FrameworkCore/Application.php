@@ -106,7 +106,8 @@ class Application
                                         }
                                     } else {
                                         $isRouteFound = true;
-                                        call_user_func_array(array($this->controller, $this->actionName), $params);
+                                        //var_dump($params);
+                                        call_user_func_array(array($this->controller, $this->actionName), $params[0]['params']);
                                     }
                                 }
                             }
@@ -117,7 +118,7 @@ class Application
         }
 
         if (!$isRouteFound) {
-            //throw new \Exception("Route not found");
+            throw new \Exception("Route not found");
         }
     }
 
@@ -174,7 +175,7 @@ class Application
         $properties = Models\BindingModels\UserBindingModel::expose();
         foreach ($properties as $property => $value) {
             if (isset($_POST[$property])) {
-                var_dump($property);
+                //var_dump($property);
                 $setterName = 'set'.$property;
                 $model->$setterName($_POST[$property]);
             } else {
