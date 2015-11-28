@@ -29,7 +29,8 @@ class View
             if ($this->checkModelType($model)) {
                 $this->initModelOnly($model);
             } else {
-                $_SESSION['error'] = "Inproper type model is assign to this view!";
+                $httpContext = $GLOBALS['httpContext'];
+                $httpContext->getSession()->error = "Inproper type model is assign to this view!";
 
                 require 'Views'
                     . DIRECTORY_SEPARATOR

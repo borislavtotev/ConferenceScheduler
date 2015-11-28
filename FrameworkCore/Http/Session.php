@@ -18,8 +18,9 @@ class Session
 
     public function __set($name, $value)
     {
-        $_SESSION[$name] = new stdClass();
-        $_SESSION[$name]->getValue = function () use ($value) {
+        $_SESSION[$name] =  new stdObject();
+
+        $_SESSION[$name]->value = function () use ($value) {
             return $value;
         };
 
@@ -30,7 +31,7 @@ class Session
 
     public function __get($name)
     {
-        return $_SESSION[$name]->getValue;
+        return $_SESSION[$name];
     }
 
     public function __isset($name)
@@ -41,5 +42,15 @@ class Session
     public function __unset($name)
     {
         unset($_SESSION[$name]);
+    }
+
+    public function __call($method, $args) {
+        return call_user_func_array(array($this->_instance, $method), $args);
+    }
+}
+
+class stdObject {
+    public function __call($method, $arguments) {
+        return call_user_func_array(\Closure::bind($this->$method, $this, get_called_class()), $arguments);
     }
 }

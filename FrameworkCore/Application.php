@@ -101,7 +101,9 @@ class Application
                                             $isRouteFound = true;
                                             call_user_func(array($this->controller, $this->actionName), $bindingModel);
                                         } catch (\Exception $e) {
-                                            $_SESSION['error'] = $e->getMessage();
+                                            $message = $e->getMessage();
+                                            $this->httpContext->getSession()->error = $message;
+
                                             header('Location: ' . $_SERVER['REQUEST_URI']);
                                         }
                                     } else {
@@ -118,8 +120,8 @@ class Application
         }
 
         if (!$isRouteFound) {
+            $this->httpContext->getSession()->error = "Route not found";
             header("location: /errors/404");
-            $_SESSION['error'] = "Route not found";
         }
     }
 

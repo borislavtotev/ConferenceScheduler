@@ -26,6 +26,8 @@ $dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository
 
 $httpContext = new \SoftUni\FrameworkCore\Http\HttpContext();
 
+$GLOBALS['httpContext'] = $httpContext;
+
 $app = new \SoftUni\FrameworkCore\Application($dbContext, $httpContext);
 $app->start();
 

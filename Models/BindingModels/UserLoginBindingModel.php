@@ -5,6 +5,32 @@ namespace SoftUni\Models\BindingModels;
 
 class UserLoginBindingModel
 {
-    public $username = '';
-    public $password = '';
+    protected $username = '';
+    protected $password = '';
+
+    public function __construct(string $username = null, string $password = null)
+    {
+        $this->setUsername($username);
+        $this->setPassword($password);
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
 }

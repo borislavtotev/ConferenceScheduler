@@ -48,19 +48,19 @@ class HttpContext
 
     private function setSession(Session $session = null)
     {
-        if ($session = null) {
+        if (!isset($session)) {
             $this->session = new Session();
         } else {
             $this->session = $session;
         }
     }
 
-    public function getSession() : HttpCookie
+    public function getSession() : Session
     {
         return $this->session;
     }
 
-    private function setLoggedUser(LoggedUser $loggedUser = null)
+    public function setLoggedUser(LoggedUser $loggedUser = null)
     {
         if ($loggedUser = null) {
             $this->loggedUser = new LoggedUser($_SESSION['userId'], $_SESSION['username']);

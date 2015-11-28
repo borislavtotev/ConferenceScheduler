@@ -172,7 +172,7 @@ class IdentityUsersRepository
             $userClassName = UserConfig::UserIdentityClassName;
             $entity = new $userClassName($entityInfo['username'],
                 $entityInfo['password'],
-                $entityInfo['id']);
+                (int)$entityInfo['id']);
             self::$selectedObjectPool[] = $entity;
             return $entity;
         }

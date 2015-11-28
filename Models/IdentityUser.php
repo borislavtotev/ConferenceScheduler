@@ -19,7 +19,6 @@ class IdentityUser
         }
     }
 
-
     /**
      * @return mixed
      */
@@ -51,6 +50,10 @@ class IdentityUser
      */
     public function setUsername(string $username)
     {
+        if (!isset($username)) {
+            throw new \Exception("The username can't be empty");
+        }
+
         if (preg_match("#^[a-zA-Z\\d]*$#", $username)) {
             $this->username = $username;
         }
