@@ -119,7 +119,7 @@ class UsersController extends Controller
             $this->dbContext->getIdentityUsersRepository()->add($userModel);
             $this->dbContext->getIdentityUsersRepository()->save();
 
-            $this->initLogin($userModel->getUsername(), $userModel->getPassword());
+            $this->initLogin($username, $password);
         } catch (\Exception $e) {
             $message = $e->getMessage();
             $this->httpContext->getSession()->error = $message;

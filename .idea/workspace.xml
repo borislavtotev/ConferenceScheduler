@@ -3,22 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5c4bc1-9349-4d48-91dd-bc643c7d8dfa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" afterPath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/UsersController.php" afterPath="$PROJECT_DIR$/Controllers/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Application.php" afterPath="$PROJECT_DIR$/FrameworkCore/Application.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Database.php" afterPath="$PROJECT_DIR$/FrameworkCore/Database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Router.php" afterPath="$PROJECT_DIR$/FrameworkCore/Router.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Logs/annotations.txt" afterPath="$PROJECT_DIR$/Logs/annotations.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/BindingModels/UserLoginBindingModel.php" afterPath="$PROJECT_DIR$/Models/BindingModels/UserLoginBindingModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/IdentityUser.php" afterPath="$PROJECT_DIR$/Models/IdentityUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/ViewModels/UserViewModel.php" afterPath="$PROJECT_DIR$/Models/ViewModels/UserViewModel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/Shared/error.php" afterPath="$PROJECT_DIR$/Views/Shared/error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/Shared/header.php" afterPath="$PROJECT_DIR$/Views/Shared/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/error.php" afterPath="$PROJECT_DIR$/Views/error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/login.php" afterPath="$PROJECT_DIR$/Views/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/profile.php" afterPath="$PROJECT_DIR$/Views/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.269231">
-              <caret line="183" column="10" selection-start-line="183" selection-start-column="10" selection-end-line="183" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.7786667">
+              <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
               <folding>
                 <element signature="e#97#139#0#PHP" expanded="true" />
               </folding>
@@ -114,13 +100,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="error.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/Shared/error.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52533334">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state vertical-scroll-proportion="-12.423077">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
               <folding>
-                <marker date="1448720273773" expanded="true" signature="595:712" placeholder="..." />
+                <marker date="1448720471549" expanded="true" signature="575:692" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -202,9 +188,9 @@
         <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Application.php" />
         <option value="$PROJECT_DIR$/Views/Shared/header.php" />
-        <option value="$PROJECT_DIR$/Controllers/UsersController.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/Session.php" />
         <option value="$PROJECT_DIR$/Views/Shared/error.php" />
+        <option value="$PROJECT_DIR$/Controllers/UsersController.php" />
       </list>
     </option>
   </component>
@@ -1012,16 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.269231">
-          <caret line="183" column="10" selection-start-line="183" selection-start-column="10" selection-end-line="183" selection-end-column="10" />
-          <folding>
-            <element signature="e#97#139#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5">
@@ -1048,10 +1024,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Views/Shared/error.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52533334">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <marker date="1448720273773" expanded="true" signature="595:712" placeholder="..." />
+            <marker date="1448720471549" expanded="true" signature="575:692" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7786667">
+          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
+          <folding>
+            <element signature="e#97#139#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

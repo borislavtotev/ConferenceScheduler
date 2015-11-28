@@ -9,7 +9,7 @@
                 <h4 class="modal-title">Error</h4>
             </div>
             <div class="modal-body">
-                <p><?php if (isset($GLOBALS['httpContext'])) { $httpContext = $error = $_SESSION['error']->value(); echo $error; } ?></p>
+                <p><?php if (isset($_SESSION['error'])) { $error = $_SESSION['error']->value(); echo $error; } ?></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
