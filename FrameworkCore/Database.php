@@ -5,7 +5,6 @@ namespace SoftUni\FrameworkCore;
 
 use SoftUni\FrameworkCore\Drivers;
 use SoftUni\Config;
-use SoftUni\Config\UserConfig;
 
 class Database
 {
@@ -105,7 +104,7 @@ class Database
     {
         $db = self::getInstance('app');
 
-        $userProperties = self::getUserProperties();
+        $userProperties = CommonFunction::getUserProperties();
 
         $propertySQL = [];
 
@@ -227,9 +226,11 @@ class Database
         //delete from users_roles all rows for which role_id doesn't exists
         $roleIds = array_values($roles);
         $roleIdsStr = implode(",",$roleIds);
-        $query = 'Delete from user_roles where role_id not in ('.$roleIdsStr.')';
+        $query = 'Delete from user_roles where role_id not in (:roleIdsStr)';
         $result = $db->prepare($query);
-        $result->execute([]);
+        $result->execute([
+            ':roleIdsStr' => $roleIdsStr
+        ]);
 
         if ($result->rowCount() > 0) {
             return true;
@@ -249,7 +250,7 @@ class Database
         // truncate the table roles
         if ($result->rowCount() > 0) {
             $dbUserColumns = self::getColumnNames("users");
-            $userModelPropertiesWithTypes = self::getUserProperties();
+            $userModelPropertiesWithTypes = CommonFunction::getUserProperties();
             $userModelProperties = array_keys($userModelPropertiesWithTypes);
 
             $hasSameProperties = true;
@@ -296,11 +297,13 @@ class Database
                 from user_roles as ur
                 join roles as r
                 on ur.role_id = r.id
-                where ur.user_id = $userId";
+                where ur.user_id = :userId";
         try {
             $db = self::getInstance('app');
             $stmt = $db->prepare($sql);
-            $stmt->execute([]);
+            $stmt->execute([
+                ':userId' => $userId
+            ]);
             $output = array();
             while($row = $stmt->fetch()){
                 $output[] = $row['name'];
@@ -336,11 +339,13 @@ class Database
 
     private static function getColumnNames(string $table) :array
     {
-        $sql = "SHOW columns FROM $table";
+        $sql = "SHOW columns FROM :table";
         try {
             $db = self::getInstance('app');
             $stmt = $db->prepare($sql);
-            $stmt->execute([]);
+            $stmt->execute([
+                ':table' => $table
+            ]);
             $output = array();
             while($row = $stmt->fetch()){
                 $output[] = $row['Field'];
@@ -350,59 +355,6 @@ class Database
         catch(\Exception $pe) {
             throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
         }
-    }
-
-    private static function getUserProperties() :array
-    {
-        try {
-            $userClassName = UserConfig::UserIdentityClassName;
-            $identityUserProperties = self::getClassProperties('SoftUni\\Models\\IdentityUser');
-            if ($userClassName != 'IdentityUser') {
-                $customUserProperties = self::getClassProperties($userClassName);
-                //var_dump($customUserProperties);
-                $result = $identityUserProperties;
-                foreach ($customUserProperties as $customUserProperty => $type) {
-                    $result[$customUserProperty] = $type;
-                }
-
-                return $result;
-            }
-
-            return $identityUserProperties;
-        }
-        catch(PDOException $pe) {
-            throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
-        }
-    }
-
-    private static function getClassProperties(string $userClassName) :array
-    {
-        if (preg_match_all('#[\\\\]([^\\\\]*?)$#', $userClassName, $match)) {
-            $className = $match[1][0];
-        }
-
-        $output = [];
-        $handle = fopen('Models'.DIRECTORY_SEPARATOR.$className.'.php', "r");
-        if ($handle) {
-            while (($line = fgets($handle)) !== false) {
-                if(preg_match("#function get([^\\s\\(\\)]*)#", $line, $match)) {
-                    $property = $match[1];
-                    if (preg_match("#:\\s*(string|bool|float|int)#", $line, $matchReturnTypes)) {
-                        $output[$property] = $matchReturnTypes[1];
-                    } else if ($property == "Id") {
-                        $output[$property] = 'int';
-                    } else {
-                        $output[$property] = 'string';
-                    }
-                }
-            }
-
-            fclose($handle);
-        } else {
-            throw new \Exception("Unable to find the class");
-        }
-
-        return $output;
     }
 }
 

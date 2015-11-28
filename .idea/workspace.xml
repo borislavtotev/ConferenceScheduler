@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd5c4bc1-9349-4d48-91dd-bc643c7d8dfa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/Shared/error.php" afterPath="$PROJECT_DIR$/Views/Shared/error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/login.php" afterPath="$PROJECT_DIR$/Views/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/profile.php" afterPath="$PROJECT_DIR$/Views/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/register.php" afterPath="$PROJECT_DIR$/Views/register.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" afterPath="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Database.php" afterPath="$PROJECT_DIR$/FrameworkCore/Database.php" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,23 +25,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="229" column="13" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
-              <folding>
-                <element signature="e#97#139#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="error.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/Shared/error.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-7.1923075">
               <caret line="11" column="85" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Database.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.27345845">
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <folding>
+                <element signature="e#66#100#0#PHP" expanded="true" />
+                <marker date="1448747455172" expanded="true" signature="3442:3553" placeholder="CREATE TABLE..if..." />
+                <marker date="1448747455172" expanded="true" signature="3913:4079" placeholder="CREATE TABLE..if..." />
+                <marker date="1448747455172" expanded="true" signature="4398:4576" placeholder="CREATE TABLE..if..." />
+                <marker date="1448747455172" expanded="true" signature="4909:4936" placeholder="SELECT 1 FRO..roles..." />
+                <marker date="1448747455172" expanded="true" signature="5461:5509" placeholder="Insert into roles..." />
+                <marker date="1448747455172" expanded="true" signature="5815:5872" placeholder="Delete from ..." />
+                <marker date="1448747455172" expanded="true" signature="6271:6298" placeholder="SELECT 1 FRO..users..." />
+                <marker date="1448747455172" expanded="true" signature="7294:7310" placeholder="Drop TABLE u..." />
+                <marker date="1448747455172" expanded="true" signature="7771:7927" placeholder="Select r.nam..user_roles..." />
+                <marker date="1448747455172" expanded="true" signature="7771:7934" placeholder="Select r.nam..user_roles..." />
+                <marker date="1448747455172" expanded="true" signature="8611:8705" placeholder="SELECT id, u..users..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+              <folding>
+                <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+                <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommonFunction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8461537">
+              <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdentityUsersRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.1153846">
+              <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -60,28 +111,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Shared/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5769231">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-              <folding>
-                <element signature="e#1961#1980#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/error.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/login.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,42 +121,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/Shared/footer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IdentityUsersRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-              <folding>
-                <element signature="e#79#114#0#PHP" expanded="true" />
-                <element signature="e#818#959#0#PHP" expanded="false" />
-                <marker date="1448743410557" expanded="true" signature="3503:3522" placeholder="SELECT * FRO..users$..." />
-                <marker date="1448743410557" expanded="true" signature="4303:4365" placeholder="SELECT * FRO..users$..." />
-                <marker date="1448743410557" expanded="true" signature="5035:5052" placeholder="DELETE FROM ..." />
-                <marker date="1448743410557" expanded="true" signature="5816:5888" placeholder="UPDATE users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6322" placeholder="INSERT INTO users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6353" placeholder="INSERT INTO users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6377" placeholder="INSERT INTO users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6381" placeholder="INSERT INTO users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6382" placeholder="INSERT INTO users..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/profile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45576409">
+            <state vertical-scroll-proportion="-6.5384617">
               <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding />
             </state>
@@ -167,7 +164,6 @@
         <option value="$PROJECT_DIR$/FrameworkCore/Drivers/MySQLDriver.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpCookie.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpRequest.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/UserRoles.php" />
         <option value="$PROJECT_DIR$/Models/IdentityUserRole.php" />
@@ -184,7 +180,6 @@
         <option value="$PROJECT_DIR$/Models/BindingModels/UserBindingModel.php" />
         <option value="$PROJECT_DIR$/Views/error.php" />
         <option value="$PROJECT_DIR$/Models/BindingModels/UserLoginBindingModel.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/Session.php" />
         <option value="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
         <option value="$PROJECT_DIR$/Models/ViewModels/UserViewModel.php" />
@@ -203,6 +198,8 @@
         <option value="$PROJECT_DIR$/Views/login.php" />
         <option value="$PROJECT_DIR$/Views/register.php" />
         <option value="$PROJECT_DIR$/Views/profile.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/CommonFunction.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
       </list>
     </option>
   </component>
@@ -389,42 +386,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FrameworkCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrameworkCore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Annotations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConferenceScheduler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -452,7 +413,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="C:/wamp/php/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../5. Lab - Web Security &amp; State Management/3.1. State-Management-WebSecurity-Exercise-Solution" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
@@ -579,19 +540,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30114567" sideWeight="0.5453858" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30114567" sideWeight="0.5544629" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30114567" sideWeight="0.45461422" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30114567" sideWeight="0.44553706" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26841244" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
@@ -639,51 +600,9 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#110#149#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Drivers/DriverAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Drivers/DriverFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Drivers/MySQLDriver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Http/HttpCookie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3461539">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -803,25 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="336" column="0" selection-start-line="336" selection-start-column="0" selection-end-line="352" selection-end-column="5" />
-          <folding>
-            <marker date="1448716636101" expanded="true" signature="3463:3574" placeholder="CREATE TABLE..if..." />
-            <marker date="1448716636101" expanded="true" signature="3934:4100" placeholder="CREATE TABLE..if..." />
-            <marker date="1448716636101" expanded="true" signature="4419:4597" placeholder="CREATE TABLE..if..." />
-            <marker date="1448716636101" expanded="true" signature="4930:4957" placeholder="SELECT 1 FRO..roles..." />
-            <marker date="1448716636101" expanded="true" signature="5482:5530" placeholder="Insert into roles..." />
-            <marker date="1448716636101" expanded="true" signature="5836:5897" placeholder="Delete from ..." />
-            <marker date="1448716636101" expanded="true" signature="6246:6273" placeholder="SELECT 1 FRO..users..." />
-            <marker date="1448716636101" expanded="true" signature="7259:7275" placeholder="Drop TABLE u..." />
-            <marker date="1448716636101" expanded="true" signature="7736:7892" placeholder="Select r.nam..user_roles..." />
-            <marker date="1448716636101" expanded="true" signature="8526:8620" placeholder="SELECT id, u..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
@@ -878,30 +778,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.1153846">
           <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8076925">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
-            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,26 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-          <folding>
-            <element signature="e#79#114#0#PHP" expanded="true" />
-            <element signature="e#818#959#0#PHP" expanded="false" />
-            <marker date="1448743410557" expanded="true" signature="3503:3522" placeholder="SELECT * FRO..users$..." />
-            <marker date="1448743410557" expanded="true" signature="4303:4365" placeholder="SELECT * FRO..users$..." />
-            <marker date="1448743410557" expanded="true" signature="5035:5052" placeholder="DELETE FROM ..." />
-            <marker date="1448743410557" expanded="true" signature="5816:5888" placeholder="UPDATE users..." />
-            <marker date="1448743410557" expanded="true" signature="6276:6322" placeholder="INSERT INTO users..." />
-            <marker date="1448743410557" expanded="true" signature="6276:6353" placeholder="INSERT INTO users..." />
-            <marker date="1448743410557" expanded="true" signature="6276:6377" placeholder="INSERT INTO users..." />
-            <marker date="1448743410557" expanded="true" signature="6276:6381" placeholder="INSERT INTO users..." />
-            <marker date="1448743410557" expanded="true" signature="6276:6382" placeholder="INSERT INTO users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5">
@@ -1073,11 +934,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.230563">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1429798231709" expanded="true" signature="344:419" placeholder="SELECT * FRO..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/auth_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/5. Login-Bcrypt/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1429795244879" expanded="true" signature="220:303" placeholder="SELECT Id, U..Users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1429805663451" expanded="true" signature="256:363" placeholder="INSERT INTO users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Views/profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45576409">
+        <state vertical-scroll-proportion="-6.5384617">
           <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1153846">
+          <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8461537">
+          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27345845">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <element signature="e#66#100#0#PHP" expanded="true" />
+            <marker date="1448747455172" expanded="true" signature="3442:3553" placeholder="CREATE TABLE..if..." />
+            <marker date="1448747455172" expanded="true" signature="3913:4079" placeholder="CREATE TABLE..if..." />
+            <marker date="1448747455172" expanded="true" signature="4398:4576" placeholder="CREATE TABLE..if..." />
+            <marker date="1448747455172" expanded="true" signature="4909:4936" placeholder="SELECT 1 FRO..roles..." />
+            <marker date="1448747455172" expanded="true" signature="5461:5509" placeholder="Insert into roles..." />
+            <marker date="1448747455172" expanded="true" signature="5815:5872" placeholder="Delete from ..." />
+            <marker date="1448747455172" expanded="true" signature="6271:6298" placeholder="SELECT 1 FRO..users..." />
+            <marker date="1448747455172" expanded="true" signature="7294:7310" placeholder="Drop TABLE u..." />
+            <marker date="1448747455172" expanded="true" signature="7771:7927" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448747455172" expanded="true" signature="7771:7934" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448747455172" expanded="true" signature="8611:8705" placeholder="SELECT id, u..users..." />
+          </folding>
         </state>
       </provider>
     </entry>
