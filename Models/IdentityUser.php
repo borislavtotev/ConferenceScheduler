@@ -11,43 +11,29 @@ class IdentityUser
 
     public function __construct(string $username, string $password, int $id = null)
     {
-        $this->setUsername($username)
-            ->setPassword($password);
+        $this->setUsername($username);
+        $this->setPassword($password);
 
         if ($id != null) {
             $this->setId($id);
         }
     }
 
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     * @return $this
-     */
     public function setId(int $id)
     {
         $this->id = $id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getUsername() : string
     {
         return $this->username;
     }
 
-    /**
-     * @param mixed $username
-     * @return $this
-     */
     public function setUsername(string $username)
     {
         if (!isset($username)) {
@@ -64,18 +50,11 @@ class IdentityUser
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPassword() : string
     {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     * @return $this
-     */
     public function setPassword(string $password)
     {
         $this->password = $password;

@@ -21,6 +21,16 @@ class UsersController extends Controller
 {
     /**
      * @Route("login")
+     * @GET
+     */
+    public function getLogin() {
+        $model = new UserLoginBindingModel();
+        return new View('login', $model);
+    }
+
+    /**
+     * @Route("login")
+     * @POST
      */
     public function login(UserLoginBindingModel $model)
     {
@@ -36,7 +46,7 @@ class UsersController extends Controller
             return new View($model);
         }
 
-        return new View($model);
+        return new View();
     }
 
     /**
@@ -109,7 +119,7 @@ class UsersController extends Controller
             $this->dbContext->getIdentityUsersRepository()->add($userModel);
             $this->dbContext->getIdentityUsersRepository()->save();
 
-            $this->initLogin($dbUserModel->getUsername(), $dbUserModel->getPassword());
+            $this->initLogin($userModel->getUsername(), $userModel->getPassword());
         } catch (\Exception $e) {
             $message = $e->getMessage();
             $this->httpContext->getSession()->error = $message;
@@ -161,30 +171,17 @@ class UsersController extends Controller
 
     private function initLogin($username, $password)
     {
-        $db = Database::getInstance('app');
-
-        $result = $db->prepare("
-            SELECT
-                id, username, password
-            FROM
-                users
-            WHERE username = ?
-        ");
-
-        $result->execute([$username]);
-
-        if ($result->rowCount() <= 0) {
-            throw new \Exception('Invalid username');
+        $user = $this->dbContext->getIdentityUsersRepository()->filterByUsername($username)->findOne();
+        if (!isset($user)) {
+            throw new \Exception('Invalid credentials');
         }
 
-        $userRow = $result->fetch();
-
-        if (password_verify($password, $userRow['password'])) {
-            $this->httpContext->setLoggedUser(new LoggedUser($username, $password));
+        if (password_verify($password, $user->getPassword())) {
+            $this->httpContext->setLoggedUser(new LoggedUser($user->getId(), $username));
             header("Location: /user/profile");
         } else {
             throw new \Exception('Invalid credentials');
-        }
+        };
     }
 }
 

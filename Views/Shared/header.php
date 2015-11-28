@@ -32,7 +32,7 @@
                     <li class="divider-vertical"></li>
                     <li><a href="/user/login">Login</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="/user/logout"><?php if(isset($_SESSION) && isset($_SESSION['isLogged'])) { echo "Logout"; }?></a></li>
+                    <li><a href="/user/logout"><?php if (isset($GLOBALS['httpContext'])) { $httpContext = $GLOBALS['httpContext']; if ($httpContext->getLoggedUser() != null) { echo "Logout"; }; } ?></a></li>
                 </ul>
             </div>
         </div>

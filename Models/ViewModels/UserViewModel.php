@@ -11,10 +11,9 @@ class UserViewModel
 
     public function __construct($username, $id = null)
     {
-        $this->setId($id)
-            ->setUsername($username);
+        $this->setId($id);
+        $this->setUsername($username);
     }
-
 
     /**
      * @return mixed
@@ -37,7 +36,7 @@ class UserViewModel
     /**
      * @return mixed
      */
-    public function getUsername()
+    public function getUsername() :string
     {
         return $this->username;
     }
@@ -46,7 +45,7 @@ class UserViewModel
      * @param mixed $username
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username)
     {
         $this->username = $username;
         return $this;
@@ -55,7 +54,7 @@ class UserViewModel
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPassword() :string
     {
         return $this->password;
     }
@@ -64,7 +63,7 @@ class UserViewModel
      * @param mixed $password
      * @return $this
      */
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
         $this->pass = $password;
         return $this;

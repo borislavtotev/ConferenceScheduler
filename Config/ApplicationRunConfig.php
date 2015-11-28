@@ -5,6 +5,6 @@ namespace SoftUni\Config;
 
 class ApplicationRunConfig
 {
-    const CheckAnnotations = false;
+    const CheckAnnotations = true;
     const UserConfig = false;
 }

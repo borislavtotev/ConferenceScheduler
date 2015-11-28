@@ -68,7 +68,9 @@ class Router
 
                 // check whether the routePattern is defined as regex
                 if (substr($routePattern, 0,1) == '#') {
-                    if (preg_match($routePattern, self::$uri, $match)) {
+                    if (preg_match_all($routePattern, self::$uri, $match)) {
+                        //echo "machna<br/>";
+                        //var_dump($routePattern);
                         $uriParams = self::getUriParams($match);
                         $allUriParams[] = $uriParams;
                     }
@@ -129,6 +131,7 @@ class Router
     {
         $annotationRoutes = self::$routes['Annotations'];
         $allUriParams = [];
+        //echo "annotationRoutes:<br/>";
         //var_dump($annotationRoutes);
         foreach ($annotationRoutes as $route => $properties) {
             $uriParams = [];

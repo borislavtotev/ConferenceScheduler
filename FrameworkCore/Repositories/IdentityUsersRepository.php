@@ -236,7 +236,7 @@ class IdentityUsersRepository
         $result = $db->prepare($query);
         $result->execute([]);
 
-        $model->setId($db->lastId());
+        $model->setId((int)$db->lastId());
     }
 
     private function isColumnAllowed($column)

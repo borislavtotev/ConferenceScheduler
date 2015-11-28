@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace SoftUni\Models\BindingModels;
 
-class UserLoginBindingModel
+include_once 'BindingModel.php';
+
+class UserLoginBindingModel extends BindingModel
 {
     protected $username = '';
     protected $password = '';

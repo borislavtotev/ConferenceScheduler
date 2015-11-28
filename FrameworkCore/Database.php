@@ -312,6 +312,28 @@ class Database
         }
     }
 
+    public static function getUserByUsernameAndPassword(string $username,string $password) {
+        $db = Database::getInstance('app');
+
+        $result = $db->prepare("
+            SELECT
+                *
+            FROM
+                users
+            WHERE username = ?
+        ");
+
+        $result->execute([$username]);
+
+        if ($result->rowCount() <= 0) {
+            throw new \Exception('Invalid username');
+        }
+
+        $userRow = $result->fetch();
+
+        return $userRow;
+    }
+
     private static function getColumnNames(string $table) :array
     {
         $sql = "SHOW columns FROM $table";

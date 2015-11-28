@@ -57,3 +57,6 @@ require('Shared/header.php');
         </fieldset>
     </form>
 </div>
+<?php
+require('Shared/footer.php');
+?>

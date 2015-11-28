@@ -59,15 +59,16 @@ class Application
 
         $uri = Router::make_uri();
         $allParams = Router::match_uri($uri);
-        //var_dump($params);
-
+        //var_dump($allParams);
+        //die;
         $isRouteFound = false;
 
         if (count($allParams)>0) {
             foreach ($allParams as $params) {
+                //echo "params:<br/>";
                 //var_dump($params);
                 foreach ($params as $param) {
-                    if (count($param) > 0) {
+                    if (count($param) > 0 && !$isRouteFound) {
                         //var_dump($param);
                         $controller = ucwords($param['controller']);
                         $this->actionName = $param['action'];
@@ -84,11 +85,11 @@ class Application
                                 View::$controllerName = $this->controllerName;
                                 View::$actionName = $this->actionName;
                                 $annotations = Annotations\AnnotationParser::$allAnnotations['byController'][$this->controllerName][$this->actionName];
+                                //echo "annotations:<br/>";
                                 //var_dump($annotations);
                                 //var_dump($this->controllerName);
                                 //var_dump($this->actionName);
                                 $areValidAnnotations = $this->checkAnnotationsValidity($this->httpContext, $annotations);
-                                //var_dump($annotations);
                                 if ($areValidAnnotations) {
                                     //var_dump($this->httpContext->getRequest()->getType());
                                     if ($this->httpContext->getRequest()->getType() == 'POST') {
@@ -96,6 +97,7 @@ class Application
                                         // the binding model should be always the first element
                                         $parameter = new \ReflectionParameter([$fullController, $this->actionName], 0);
                                         $bindingClassName = $parameter->getClass()->name;
+                                        //var_dump($bindingClassName);
                                         try {
                                             $bindingModel = $this->createBindingModel($bindingClassName);
                                             $isRouteFound = true;
@@ -103,6 +105,7 @@ class Application
                                         } catch (\Exception $e) {
                                             $message = $e->getMessage();
                                             $this->httpContext->getSession()->error = $message;
+                                            //var_dump($e);
 
                                             header('Location: ' . $_SERVER['REQUEST_URI']);
                                         }
@@ -120,8 +123,8 @@ class Application
         }
 
         if (!$isRouteFound) {
-            $this->httpContext->getSession()->error = "Route not found";
-            header("location: /errors/404");
+            //$this->httpContext->getSession()->error = "Route not found";
+            //header("location: /errors/404");
         }
     }
 
@@ -175,7 +178,7 @@ class Application
     private function createBindingModel($bindingClassName)
     {
         $model = new $bindingClassName;
-        $properties = Models\BindingModels\UserBindingModel::expose();
+        $properties = $bindingClassName::expose();
         foreach ($properties as $property => $value) {
             if (isset($_POST[$property])) {
                 //var_dump($property);
