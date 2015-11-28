@@ -13,6 +13,9 @@ class AuthorizeAnnotation extends Annotations\Annotation
 {
     public static function isValid(string $property, HttpContext $httpContext) :bool
     {
+        //var_dump($httpContext);
+        //echo "<br/>logged User:</br>";
+        //var_dump($httpContext->getLoggedUser());
         $loggedUser = $httpContext->getLoggedUser();
         if ($loggedUser != null) {
             $loggedUserId = $httpContext->getLoggedUser()->getId();

@@ -10,12 +10,16 @@ class LoggedUser
 
     public function __construct(int $id = null, string $username = null)
     {
-        if ($id = null) {
+        if ($id != null) {
             $this->setId($id);
+        } else if (isset($_SESSION['userId'])) {
+            $this->setId($_SESSION['userId']);
         }
 
-        if ($username = null) {
+        if ($username != null) {
             $this->setUsername($username);
+        } else if (isset($_SESSION['username'])) {
+            $this->setUsername($_SESSION['username']);
         }
     }
 
@@ -27,6 +31,8 @@ class LoggedUser
     public function setId(int $id = null)
     {
         $this->id = $id;
+        $_SESSION['userId'] = $id;
+
     }
 
     public function getUsername() : string
@@ -36,6 +42,7 @@ class LoggedUser
 
     public function setUsername(string $username)
     {
-        return $this->username = $username;
+        $this->username = $username;
+        $_SESSION['username'] = $username;
     }
 }

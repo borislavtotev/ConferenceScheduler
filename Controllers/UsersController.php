@@ -6,6 +6,7 @@ namespace SoftUni\Controllers;
 include_once('Controller.php');
 
 use SoftUni\FrameworkCore\Http\LoggedUser;
+use SoftUni\Models\BindingModels\UserChangeProfileBindingModel;
 use SoftUni\Models\IdentityUser;
 use SoftUni\Models\ViewModels\UserViewModel;
 use SoftUni\FrameworkCore\View;
@@ -15,7 +16,7 @@ use SoftUni\FrameworkCore\Database;
 use SoftUni\Config\UserConfig;
 
 /**
- * @Route("user")
+ * @Route("users")
  */
 class UsersController extends Controller
 {
@@ -24,6 +25,10 @@ class UsersController extends Controller
      * @GET
      */
     public function getLogin() {
+        if ($this->httpContext->getLoggedUser()->getId() != null) {
+            header("Location: /users/profile/my");
+        }
+
         $model = new UserLoginBindingModel();
         return new View('login', $model);
     }
@@ -50,10 +55,11 @@ class UsersController extends Controller
     }
 
     /**
-     * @POST
+     * @GET
      */
     public function logout()
     {
+        session_start();
         session_unset();
         session_destroy();
 
@@ -65,6 +71,10 @@ class UsersController extends Controller
      * @GET
      */
     public function getRegister() {
+        if ($this->httpContext->getLoggedUser()->getId() != null) {
+            header("Location: /users/profile/my");
+        }
+
         $model = new UserBindingModel();
         return new View('register', $model);
     }
@@ -132,41 +142,100 @@ class UsersController extends Controller
 
     /**
      * @Authorize
-     * @Route("profile")
+     * @Route("profile/my")
+     * @GET
      */
-    public function profile()
+    public function getMyProfile() {
+        $username = $this->httpContext->getLoggedUser()->getUsername();
+        $userId = $this->httpContext->getLoggedUser()->getId();
+        $model = new UserViewModel($username, $userId);
+
+        return new View('profile', $model);
+    }
+
+    /**
+     * @Authorize
+     * @Route("profile/my")
+     * @POST
+     */
+    public function myProfileUpdate(UserChangeProfileBindingModel $model)
     {
         $userViewModel = new UserViewModel("");
 
         try {
-            $userModel = $this->dbContext->getIdentityUsersRepository()->filterById($_SESSION['id'])->findOne();
+            $errorMsgs = '';
 
-            $userViewModel->setUsername($userModel->getUsername());
+            if ($model->getUsername() == null) {
+                $errorMsgs = "Missing username. ";
+            };
 
-            if (!empty($_POST)) {
-                $userViewModel->setUsername($_POST['username']);
-                $userViewModel->setPassword($_POST['password']);
+            $username = $model->getUsername();
+            $userViewModel->setUsername($username);
 
-                if (!password_verify($_POST['currentPassword'], $userModel->getPassword())) {
-                    throw new \Exception('Current password is not valid.');
-                }
+            if ($model->getPassword() == null) {
+                $errorMsgs .= "Missing password. ";
+            };
 
-                if ($_POST['password'] != $_POST['confirm']) {
-                    throw new \Exception('New password and Confirm password are not equal.');
-                }
+            $password = $model->getPassword();
 
-                $userModel->setUsername($_POST['username']);
-                $userModel->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
-                $this->dbContext->getIdentityUsersRepository()->save();
+            if ($model->getNewpass() == null) {
+                $errorMsgs .= "Missing new password. ";
+            };
+
+            $newpass = $model->getNewpass();
+
+            if (strlen($newpass) < 4 ) {
+                $errorMsgs .= "The password should be at least 4 characters. ";
             }
+
+            if ($model->getConfirm() == null) {
+                $errorMsgs .= "Missing confirm password. ";
+            };
+
+            $confirm = $model->getConfirm();
+
+            if ($newpass !== $confirm) {
+                $errorMsgs .= "New Password and Confirm password are different. ";
+            }
+
+            $loggedUserId = $this->httpContext->getLoggedUser()->getId();
+            $loggedUsername = $this->httpContext->getLoggedUser()->getUsername();
+
+            if ($username != $loggedUsername) {
+                $dbUserWithTheNewUserName = $this->dbContext->getIdentityUsersRepository()->filterByUsername($username)->findOne();
+                if ($dbUserWithTheNewUserName != null) {
+                    $errorMsgs .= 'User with this username already exists';
+                }
+            }
+
+            $this->dbContext->getIdentityUsersRepository()->clearFilters();
+            $dbUserModel = $this->dbContext->getIdentityUsersRepository()->filterById($loggedUserId)->findOne();
+            if ($dbUserModel != null) {
+                if (!password_verify($password, $dbUserModel->getPassword())) {
+                    $errorMsgs .= 'Current password is not valid.';
+                }
+            } else {
+                $errorMsgs .= "Unable to find this user! ";
+            }
+
+            if ($errorMsgs != '') {
+                throw new \Exception($errorMsgs);
+            }
+
+            $dbUserModel->setPassword(password_hash($newpass, PASSWORD_DEFAULT));
+            $dbUserModel->setUsername($username);
+
+            $this->dbContext->getIdentityUsersRepository()->save();
+
+            $this->httpContext->getLoggedUser()->setUsername($username);
         } catch (\Exception $e) {
             $message = $e->getMessage();
             $this->httpContext->getSession()->error = $message;
 
-            return new View($userViewModel);
+            return new View('profile', $userViewModel);
         }
 
-        return new View($userViewModel);
+        return new View('profile', $userViewModel);
     }
 
     private function initLogin($username, $password)
@@ -178,7 +247,7 @@ class UsersController extends Controller
 
         if (password_verify($password, $user->getPassword())) {
             $this->httpContext->setLoggedUser(new LoggedUser($user->getId(), $username));
-            header("Location: /user/profile");
+            header("Location: /users/profile/my");
         } else {
             throw new \Exception('Invalid credentials');
         };

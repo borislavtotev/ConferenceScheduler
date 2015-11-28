@@ -65,11 +65,11 @@ class IdentityUsersRepository
         return $this;
     }
 
-    /**
-     * @param $column
-     * @return $this
-     * @throws \Exception
-     */
+    public function clearFilters() {
+        $this->where = " WHERE 1";
+        $this->placeholders = [];
+    }
+
     public function orderBy($column)
     {
         if (!$this->isColumnAllowed($column)) {

@@ -1,5 +1,5 @@
 <?php
-/** @var \SoftUni\Models\BindingModels\UserBindingModel $model */
+/** @var \SoftUni\Models\ViewModels\UserViewModel $model */
 
 //define page title
 $title = 'Edit Profile';
@@ -23,18 +23,18 @@ require('Shared/header.php');
 
             <div class="control-group">
                 <!-- Current Password-->
-                <label class="control-label" for="currentPassword">Current Password</label>
+                <label class="control-label" for="password">Current Password</label>
                 <div class="controls">
-                    <input type="password" id="currentPassword" name="currentPassword" placeholder="" class="input-xlarge">
+                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
                     <p class="help-block">Password should be at least 4 characters</p>
                 </div>
             </div>
 
             <div class="control-group">
                 <!-- Password-->
-                <label class="control-label" for="password">New Password</label>
+                <label class="control-label" for="newpass">New Password</label>
                 <div class="controls">
-                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                    <input type="password" id="newpass" name="newpass" placeholder="" class="input-xlarge">
                     <p class="help-block">Password should be at least 4 characters</p>
                 </div>
             </div>
@@ -51,7 +51,7 @@ require('Shared/header.php');
             <div class="control-group">
                 <!-- Button -->
                 <div class="controls">
-                    <button class="btn btn-success" value="Edit">Edit Profile</button>
+                    <button class="btn btn-success">Save</button>
                 </div>
             </div>
         </fieldset>

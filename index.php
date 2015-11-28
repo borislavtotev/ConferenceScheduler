@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -27,7 +25,7 @@ $dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository
 
 $httpContext = new \SoftUni\FrameworkCore\Http\HttpContext();
 
-$GLOBALS['httpContext'] = $httpContext;
+$test = $httpContext->getLoggedUser()->getId();
 
 $app = new \SoftUni\FrameworkCore\Application($dbContext, $httpContext);
 $app->start();

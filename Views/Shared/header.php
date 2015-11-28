@@ -28,11 +28,13 @@
             <a class="brand">Conference Scheduler</a>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
-                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/users/register"><?php if (!isset($_SESSION['userId'])) { echo "Register"; } ?></a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/users/login"><?php if (!isset($_SESSION['userId'])) { echo "Login"; } ?></a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="/user/logout"><?php if (isset($GLOBALS['httpContext'])) { $httpContext = $GLOBALS['httpContext']; if ($httpContext->getLoggedUser() != null) { echo "Logout"; }; } ?></a></li>
+                    <li><a href="/users/profile/my"><?php if (isset($_SESSION['userId'])) { echo "My Profile"; } ?></a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="/users/logout"><?php if (isset($_SESSION['userId'])) { echo "Logout"; } ?></a></li>
                 </ul>
             </div>
         </div>

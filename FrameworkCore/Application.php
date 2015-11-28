@@ -59,6 +59,7 @@ class Application
 
         $uri = Router::make_uri();
         $allParams = Router::match_uri($uri);
+        //echo "all matched params:<br/>";
         //var_dump($allParams);
         //die;
         $isRouteFound = false;
