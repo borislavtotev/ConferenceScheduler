@@ -10,13 +10,13 @@ require('Shared/header.php');
     <form class="form-horizontal" action='' method="POST">
         <fieldset>
             <div id="legend">
-                <legend class=""><?= $model->getUsername(); ?>'s Profile</legend>
+                <legend class=""><?= htmlspecialchars($_SESSION['username']); ?>'s Profile</legend>
             </div>
             <div class="control-group">
                 <!-- Username -->
                 <label class="control-label"  for="username">Username</label>
                 <div class="controls">
-                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge" value="<?= $model->getUsername(); ?>">
+                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge" value="<?= htmlspecialchars($model->getUsername()); ?>">
                     <p class="help-block">Username can contain any letters or numbers, without spaces</p>
                 </div>
             </div>
