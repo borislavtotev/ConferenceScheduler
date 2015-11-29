@@ -22,7 +22,7 @@ require('Shared/header.php');
             </div>
 
             <div class="control-group">
-                <!-- Current Password-->
+                        <!-- Current Password-->
                 <label class="control-label" for="password">Current Password</label>
                 <div class="controls">
                     <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
@@ -31,6 +31,7 @@ require('Shared/header.php');
             </div>
 
             <div class="control-group">
+                <input type="hidden" name="formToken" value="<?php if ($_SESSION['formToken'] != null) { $token = $_SESSION['formToken']; echo $token;}?>"/>
                 <!-- Password-->
                 <label class="control-label" for="newpass">New Password</label>
                 <div class="controls">

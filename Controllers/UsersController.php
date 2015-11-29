@@ -29,6 +29,8 @@ class UsersController extends Controller
             header("Location: /users/profile/my");
         }
 
+        $this->addCSRF();
+
         $model = new UserLoginBindingModel();
         return new View('login', $model);
     }
@@ -40,6 +42,12 @@ class UsersController extends Controller
     public function login(UserLoginBindingModel $model)
     {
         try {
+            $isOkCSRF = $this->checkCSRF();
+
+            if (!$isOkCSRF) {
+                throw new \Exception("Invalid Request!");
+            }
+
             $user = $model->getUsername();
             $pass = $model->getPassword();
 
@@ -60,6 +68,19 @@ class UsersController extends Controller
     public function logout()
     {
         session_start();
+        // Unset all of the session variables.
+        $_SESSION = array();
+
+        // If it's desired to kill the session, also delete the session cookie.
+        // Note: This will destroy the session, and not just the session data!
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+
         session_unset();
         session_destroy();
 
@@ -75,6 +96,8 @@ class UsersController extends Controller
             header("Location: /users/profile/my");
         }
 
+        $this->addCSRF();
+
         $model = new UserBindingModel();
         return new View('register', $model);
     }
@@ -86,6 +109,12 @@ class UsersController extends Controller
     public function register(UserBindingModel $model)
     {
         try {
+            $isOkCSRF = $this->checkCSRF();
+
+            if (!$isOkCSRF) {
+                throw new \Exception("Invalid Request!");
+            }
+
             $errorMsgs = '';
 
             if ($model->getUsername() == null) {
@@ -146,6 +175,8 @@ class UsersController extends Controller
      * @GET
      */
     public function getMyProfile() {
+        $this->addCSRF();
+
         $username = $this->httpContext->getLoggedUser()->getUsername();
         $userId = $this->httpContext->getLoggedUser()->getId();
         $model = new UserViewModel($username, $userId);
@@ -163,6 +194,12 @@ class UsersController extends Controller
         $userViewModel = new UserViewModel("");
 
         try {
+            $isOkCSRF = $this->checkCSRF();
+
+            if (!$isOkCSRF) {
+                throw new \Exception("Invalid Request!");
+            }
+
             $errorMsgs = '';
 
             if ($model->getUsername() == null) {

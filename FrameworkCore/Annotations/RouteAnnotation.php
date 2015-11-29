@@ -63,7 +63,7 @@ class RouteAnnotation extends Annotations\Annotation
 
                 $fullRouteAnnotation = str_replace($match[0][$i], $regex, $fullRouteAnnotation);
 
-                echo "$fullRouteAnnotation<br/>";
+                //echo "$fullRouteAnnotation<br/>";
             }
         }
 

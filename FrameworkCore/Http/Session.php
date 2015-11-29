@@ -7,17 +7,30 @@ class Session
 {
     public function __construct(array $arguments = array())
     {
-        if (!empty($arguments)) {
+        if (count($arguments) == 0) {
             $arguments = $_SESSION;
+            //var_dump($_SESSION);
+            //var_dump($arguments);
         }
 
+//        var_dump(array_keys($arguments));
+//        var_dump($_SESSION);
+        //die;
         foreach ($arguments as $property => $argument) {
+//           echo "arguments<br/>";
+//            var_dump($property);
+//            var_dump($argument);
             $this->{$property} = $argument;
         }
     }
 
     public function __set($name, $value)
     {
+        if ($name == 'formToken' || $name == 'userId' || $name == 'username') {
+            $_SESSION[$name] = $value;
+            return;
+        }
+
         $_SESSION[$name] =  new stdObject();
 
         $_SESSION[$name]->value = function () use ($value) {

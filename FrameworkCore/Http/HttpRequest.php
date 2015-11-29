@@ -55,7 +55,7 @@ class HttpRequest
         $this->parameters = $params;
     }
 
-    public function getParameters() :array
+    public function getParameters() : \stdClass
     {
         return $this->parameters;
     }

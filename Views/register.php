@@ -22,6 +22,7 @@ require('Shared/header.php');
             </div>
 
             <div class="control-group">
+                <input type="hidden" name="formToken" value="<?php if ($_SESSION['formToken'] != null) { $token = $_SESSION['formToken']; echo $token;}?>" />
                 <!-- Password-->
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
