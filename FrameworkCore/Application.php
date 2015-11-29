@@ -150,6 +150,11 @@ class Application
             Database::updateUserTable();
             Database::createUserRolesTable();
         }
+
+        Database::createModelTable('\SoftUni\Models\Conference');
+        Database::createModelTable('\SoftUni\Models\Venue');
+        Database::createModelTable('\SoftUni\Models\Hall');
+        Database::createModelTable('\SoftUni\Models\Lecture');
     }
 
     private function checkAnnotationsValidity(HttpContext $httpContext, array $annotations = null) :bool

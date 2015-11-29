@@ -330,6 +330,64 @@ class Database
         }
     }
 
+    public static function createModelTable($className)
+    {
+        $db = self::getInstance('app');
+
+        $modelProperties = CommonFunction::getClassProperties($className);
+
+        if (preg_match_all("#\\\(\\w+?)$#", $className, $match)) {
+            $table = $match[1][0];
+            $table = strtolower($table);
+
+            $propertySQL = [];
+
+            foreach ($modelProperties as $property => $propertyType) {
+                switch ($propertyType) {
+                    case 'string' :
+                        $dataType = 'VARCHAR(255)';
+                        break;
+                    case 'int' :
+                        $dataType = 'INT(6)';
+                        break;
+                    case 'float' :
+                        $dataType = 'FLOAT(28,8)';
+                        break;
+                    case 'bool' :
+                        $dataType = 'BIT';
+                        break;
+                    default :
+                        $dataType = 'VARCHAR(255)';
+                }
+
+                if ($property == 'Id') {
+                    $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
+                }
+
+                $property = strtolower($property);
+                $propertySQL[] = "$property $dataType";
+            }
+
+            $propertyQuery = implode(', ', $propertySQL);
+
+            $query = "CREATE TABLE if not EXISTS ".$table." (".$propertyQuery.")";
+
+            $result = $db->prepare($query);
+
+            $result->execute([
+                ':propertyQuery' => $propertyQuery,
+                ':table' => $table
+            ]);
+//
+//            echo "CREATE TABLE if not EXISTS ".$table."  (".$propertyQuery.")";
+//            die;
+
+            if ($result->rowCount() > 0) {
+                return true;
+            }
+        }
+    }
+
     private static function createRolesTable()
     {
         $db = self::getInstance('app');
