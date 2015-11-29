@@ -91,86 +91,6 @@ class Database
         return $this->db->lastInsertId($name);
     }
 
-    private function initializeDb($host, $user, $pass, $dbName)
-    {
-        $connection = mysqli_connect($host, $user, $pass);
-        if (!mysqli_select_db($connection, $dbName)) {
-            mysqli_query($connection, "CREATE DATABASE if not EXISTS $dbName");
-            mysqli_close($connection);
-        }
-    }
-
-    private static function createUserTable()
-    {
-        $db = self::getInstance('app');
-
-        $userProperties = CommonFunction::getUserProperties();
-
-        $propertySQL = [];
-
-        foreach ($userProperties as $property => $propertyType) {
-            switch ($propertyType) {
-                case 'string' :
-                    $dataType = 'VARCHAR(255)';
-                    break;
-                case 'int' :
-                    $dataType = 'INT(6)';
-                    break;
-                case 'float' :
-                    $dataType = 'FLOAT(28,8)';
-                    break;
-                case 'bool' :
-                    $dataType = 'BIT';
-                    break;
-                default :
-                    $dataType = 'VARCHAR(255)';
-            }
-
-            if ($property == 'Id') {
-                $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
-            }
-
-            $property = strtolower($property);
-            $propertySQL[] = "$property $dataType";
-        }
-
-        $propertyQuery = implode(', ', $propertySQL);
-
-        $query = "
-                            CREATE TABLE if not EXISTS users  (
-                           ".$propertyQuery."
-                            )
-                    ";
-
-        $result = $db->prepare($query);
-
-        $result->execute([':fields' => $propertyQuery]);
-
-        if ($result->rowCount() > 0) {
-            return true;
-        }
-    }
-
-    private static function createRolesTable()
-    {
-        $db = self::getInstance('app');
-
-        $result = $db->prepare("
-                            CREATE TABLE if not EXISTS roles (
-                            id INT(6) NOT NULL,
-                            name VARCHAR(50) NOT NULL
-                            )
-                    ");
-
-        $result->execute([]);
-
-        if ($result->rowCount() > 0) {
-            return true;
-        }
-
-        return false;
-    }
-
     public static function createUserRolesTable()
     {
         $db = self::getInstance('app');
@@ -337,6 +257,99 @@ class Database
         return $userRow;
     }
 
+    public static function addRoleToUser (int $userId, int $roleId) {
+        $db = Database::getInstance('app');
+
+        $result = $db->prepare("
+            insert into user_roles values(:userId, :roleId);
+        ");
+
+        $result->execute([
+            ':userId' => $userId,
+            ':roleId' => $roleId
+        ]);
+    }
+
+    private function initializeDb($host, $user, $pass, $dbName)
+    {
+        $connection = mysqli_connect($host, $user, $pass);
+        if (!mysqli_select_db($connection, $dbName)) {
+            mysqli_query($connection, "CREATE DATABASE if not EXISTS $dbName");
+            mysqli_close($connection);
+        }
+    }
+
+    private static function createUserTable()
+    {
+        $db = self::getInstance('app');
+
+        $userProperties = CommonFunction::getUserProperties();
+
+        $propertySQL = [];
+
+        foreach ($userProperties as $property => $propertyType) {
+            switch ($propertyType) {
+                case 'string' :
+                    $dataType = 'VARCHAR(255)';
+                    break;
+                case 'int' :
+                    $dataType = 'INT(6)';
+                    break;
+                case 'float' :
+                    $dataType = 'FLOAT(28,8)';
+                    break;
+                case 'bool' :
+                    $dataType = 'BIT';
+                    break;
+                default :
+                    $dataType = 'VARCHAR(255)';
+            }
+
+            if ($property == 'Id') {
+                $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
+            }
+
+            $property = strtolower($property);
+            $propertySQL[] = "$property $dataType";
+        }
+
+        $propertyQuery = implode(', ', $propertySQL);
+
+        $query = "
+                            CREATE TABLE if not EXISTS users  (
+                           ".$propertyQuery."
+                            )
+                    ";
+
+        $result = $db->prepare($query);
+
+        $result->execute([':fields' => $propertyQuery]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+    }
+
+    private static function createRolesTable()
+    {
+        $db = self::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE if not EXISTS roles (
+                            id INT(6) NOT NULL,
+                            name VARCHAR(50) NOT NULL
+                            )
+                    ");
+
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
     private static function getColumnNames(string $table) :array
     {
         $sql = "SHOW columns FROM :table";
@@ -356,6 +369,7 @@ class Database
             throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
         }
     }
+
 }
 
 class Statement

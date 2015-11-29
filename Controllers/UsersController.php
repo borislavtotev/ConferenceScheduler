@@ -158,6 +158,10 @@ class UsersController extends Controller
             $this->dbContext->getIdentityUsersRepository()->add($userModel);
             $this->dbContext->getIdentityUsersRepository()->save();
 
+            $userId = $this->dbContext->getIdentityUsersRepository()->filterByUsername($username)->findOne()->getId();
+            $roleId = 1;
+            Database::addRoleToUser($userId, $roleId);
+
             $this->initLogin($username, $password);
         } catch (\Exception $e) {
             $message = $e->getMessage();
