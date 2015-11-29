@@ -15,7 +15,9 @@ class HelpController extends Controller
 
     }
 
+
     /**
+     * @Authorize
      * @param int $id
      */
     public function test(int $id)

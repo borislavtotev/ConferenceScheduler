@@ -23,8 +23,9 @@ class AuthorizeAnnotation extends Annotations\Annotation
                 if (preg_match("#Roles=['\"](.*?)['\"]#", $property, $match)) {
                     $roles = explode(",", strtolower($match[1]));
                     //var_dump($roles);
-                    $dbRoles = Database::getUserRoles(1);
+                    $dbRoles = Database::getUserRoles($loggedUserId);
                     //var_dump($dbRoles);
+                    //die;
                     foreach ($dbRoles as $dbRole) {
                         $del_val = strtolower($dbRole);
                         // remove from roles if the role is available in the db

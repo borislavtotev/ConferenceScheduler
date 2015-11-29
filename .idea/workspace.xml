@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd5c4bc1-9349-4d48-91dd-bc643c7d8dfa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Controllers/LecturesController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/ConferencesCollection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/HallsCollection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/LecturesCollection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/VenuesCollection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/ConferencesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/HallRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/LecturesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/VenuesRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Views/lectures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" afterPath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/UserConfig.php" afterPath="$PROJECT_DIR$/Config/UserConfig.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Application.php" afterPath="$PROJECT_DIR$/FrameworkCore/Application.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/HelpController.php" afterPath="$PROJECT_DIR$/Controllers/HelpController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" afterPath="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Database.php" afterPath="$PROJECT_DIR$/FrameworkCore/Database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" afterPath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Logs/annotations.txt" afterPath="$PROJECT_DIR$/Logs/annotations.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Conference.php" afterPath="$PROJECT_DIR$/Models/Conference.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Hall.php" afterPath="$PROJECT_DIR$/Models/Hall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Lecture.php" afterPath="$PROJECT_DIR$/Models/Lecture.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/Shared/header.php" afterPath="$PROJECT_DIR$/Views/Shared/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,100 +28,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
+      <file leaf-file-name="Annotation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.615385">
-              <caret line="308" column="29" selection-start-line="308" selection-start-column="29" selection-end-line="308" selection-end-column="29" />
-              <folding>
-                <element signature="e#66#100#0#PHP" expanded="true" />
-                <element signature="e#1636#1822#0#PHP" expanded="false" />
-                <element signature="e#1828#1903#0#PHP" expanded="false" />
-                <element signature="e#1909#2004#0#PHP" expanded="false" />
-                <element signature="e#2507#3098#0#PHP" expanded="false" />
-                <element signature="e#3104#4461#0#PHP" expanded="false" />
-                <marker date="1448787911484" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="2730:2756" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="2730:2757" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="2730:2805" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="2730:2873" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="2730:2939" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="3272:3299" placeholder="SELECT 1 FRO..roles..." />
-                <marker date="1448787911484" expanded="true" signature="3824:3872" placeholder="Insert into roles..." />
-                <marker date="1448787911484" expanded="true" signature="4178:4235" placeholder="Delete from ..." />
-                <marker date="1448787911484" expanded="true" signature="4634:4661" placeholder="SELECT 1 FRO..users..." />
-                <marker date="1448787911484" expanded="true" signature="5657:5673" placeholder="Drop TABLE u..." />
-                <marker date="1448787911484" expanded="true" signature="6623:6624" placeholder="SELECT 1 FRO..${users}..." />
-                <marker date="1448787911484" expanded="true" signature="6623:6645" placeholder="SELECT 1 FRO..users..." />
-                <marker date="1448787911484" expanded="true" signature="6623:6655" placeholder="SELECT 1 FRO..${$table}..." />
-                <marker date="1448787911484" expanded="true" signature="7977:7988" placeholder="Drop TABLE $..." />
-                <marker date="1448787911484" expanded="true" signature="7977:7996" placeholder="Drop TABLE $..." />
-                <marker date="1448787911484" expanded="true" signature="8361:8517" placeholder="Select r.nam..user_roles..." />
-                <marker date="1448787911484" expanded="true" signature="8361:8524" placeholder="Select r.nam..user_roles..." />
-                <marker date="1448787911484" expanded="true" signature="9097:9544" placeholder="Select l.nam..user_lectures..." />
-                <marker date="1448787911484" expanded="true" signature="10140:10234" placeholder="SELECT id, u..users..." />
-                <marker date="1448787911484" expanded="true" signature="10623:10670" placeholder="insert into user_roles..." />
-                <marker date="1448787911484" expanded="true" signature="12234:12345" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14141:14167" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14141:14168" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14141:14180" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14141:14199" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14405:14431" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14405:14432" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14405:14445" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14405:14464" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14405:14485" placeholder="CREATE TABLE..if..." />
-                <marker date="1448787911484" expanded="true" signature="14745:14911" placeholder="CREATE TABLE..if..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controllers/LecturesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.703504">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRoles.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/UserRoles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="17.115385">
+            <state vertical-scroll-proportion="4.0384617">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LectureViewModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php">
+      <file leaf-file-name="AnnotationParser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state vertical-scroll-proportion="7.8461537">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Conference.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Conference.php">
+      <file leaf-file-name="PostAnnotation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
+      <file leaf-file-name="DatabaseConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="57" />
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -158,8 +81,8 @@
       <file leaf-file-name="RouteConfig.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.692307">
-              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
               <folding>
                 <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
                 <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
@@ -168,21 +91,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserConfig.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+      <file leaf-file-name="AuthorizeAnnotation.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.045822103">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lectures.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Views/lectures.php">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="-23.538462">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#97#139#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PutAnnotation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -197,7 +142,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/FrameworkCore/Autoloader.php" />
-        <option value="$PROJECT_DIR$/Controllers/HelpController.php" />
         <option value="$PROJECT_DIR$/Config/RouteConfig.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php" />
         <option value="$PROJECT_DIR$/Controllers/ErrorsController.php" />
@@ -209,7 +153,6 @@
         <option value="$PROJECT_DIR$/Models/BindingModels/UserLoginBindingModel.php" />
         <option value="$PROJECT_DIR$/Models/ViewModels/UserViewModel.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpContext.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Router.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/LoggedUser.php" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.php" />
@@ -244,9 +187,11 @@
         <option value="$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php" />
         <option value="$PROJECT_DIR$/Config/UserConfig.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Application.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
         <option value="$PROJECT_DIR$/Controllers/LecturesController.php" />
         <option value="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" />
+        <option value="$PROJECT_DIR$/Controllers/HelpController.php" />
       </list>
     </option>
   </component>
@@ -383,6 +328,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BindingModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="FrameworkCore" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -419,7 +382,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrameworkCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Drivers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrameworkCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Collections" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrameworkCore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Annotations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -647,60 +664,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Views/error.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.230563">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1429798231709" expanded="true" signature="344:419" placeholder="SELECT * FRO..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/auth_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/5. Login-Bcrypt/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1429795244879" expanded="true" signature="220:303" placeholder="SELECT Id, U..Users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../3. Web Security/3. Web-Security-Demos/1. SQL-Injection/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1429805663451" expanded="true" signature="256:363" placeholder="INSERT INTO users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/BindingModels/UserBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6153846">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Http/HttpContext.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.6923075">
@@ -769,14 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.115385">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -912,24 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="9" />
-          <folding>
-            <element signature="e#97#139#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
@@ -1037,17 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.692307">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-          <folding>
-            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
-            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/Conference.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
@@ -1072,18 +998,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+    <entry file="file://$PROJECT_DIR$/Controllers/LecturesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state vertical-scroll-proportion="-8.730769">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/HelpController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.076923">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="157" column="27" selection-start-line="157" selection-start-column="27" selection-end-line="157" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.615385">
-          <caret line="308" column="29" selection-start-line="308" selection-start-column="29" selection-end-line="308" selection-end-column="29" />
+        <state vertical-scroll-proportion="1.1538461">
+          <caret line="257" column="95" selection-start-line="257" selection-start-column="48" selection-end-line="257" selection-end-column="95" />
           <folding>
             <element signature="e#66#100#0#PHP" expanded="true" />
             <element signature="e#1636#1822#0#PHP" expanded="false" />
@@ -1091,46 +1033,88 @@
             <element signature="e#1909#2004#0#PHP" expanded="false" />
             <element signature="e#2507#3098#0#PHP" expanded="false" />
             <element signature="e#3104#4461#0#PHP" expanded="false" />
-            <marker date="1448787911484" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="2730:2756" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="2730:2757" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="2730:2805" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="2730:2873" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="2730:2939" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="3272:3299" placeholder="SELECT 1 FRO..roles..." />
-            <marker date="1448787911484" expanded="true" signature="3824:3872" placeholder="Insert into roles..." />
-            <marker date="1448787911484" expanded="true" signature="4178:4235" placeholder="Delete from ..." />
-            <marker date="1448787911484" expanded="true" signature="4634:4661" placeholder="SELECT 1 FRO..users..." />
-            <marker date="1448787911484" expanded="true" signature="5657:5673" placeholder="Drop TABLE u..." />
-            <marker date="1448787911484" expanded="true" signature="6623:6624" placeholder="SELECT 1 FRO..${users}..." />
-            <marker date="1448787911484" expanded="true" signature="6623:6645" placeholder="SELECT 1 FRO..users..." />
-            <marker date="1448787911484" expanded="true" signature="6623:6655" placeholder="SELECT 1 FRO..${$table}..." />
-            <marker date="1448787911484" expanded="true" signature="7977:7988" placeholder="Drop TABLE $..." />
-            <marker date="1448787911484" expanded="true" signature="7977:7996" placeholder="Drop TABLE $..." />
-            <marker date="1448787911484" expanded="true" signature="8361:8517" placeholder="Select r.nam..user_roles..." />
-            <marker date="1448787911484" expanded="true" signature="8361:8524" placeholder="Select r.nam..user_roles..." />
-            <marker date="1448787911484" expanded="true" signature="9097:9544" placeholder="Select l.nam..user_lectures..." />
-            <marker date="1448787911484" expanded="true" signature="10140:10234" placeholder="SELECT id, u..users..." />
-            <marker date="1448787911484" expanded="true" signature="10623:10670" placeholder="insert into user_roles..." />
-            <marker date="1448787911484" expanded="true" signature="12234:12345" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14141:14167" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14141:14168" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14141:14180" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14141:14199" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14405:14431" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14405:14432" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14405:14445" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14405:14464" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14405:14485" placeholder="CREATE TABLE..if..." />
-            <marker date="1448787911484" expanded="true" signature="14745:14911" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2730:2756" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2730:2757" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2730:2805" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2730:2873" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="2730:2939" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="3272:3299" placeholder="SELECT 1 FRO..roles..." />
+            <marker date="1448788774663" expanded="true" signature="3824:3872" placeholder="Insert into roles..." />
+            <marker date="1448788774663" expanded="true" signature="4178:4235" placeholder="Delete from ..." />
+            <marker date="1448788774663" expanded="true" signature="4634:4661" placeholder="SELECT 1 FRO..users..." />
+            <marker date="1448788774663" expanded="true" signature="5657:5673" placeholder="Drop TABLE u..." />
+            <marker date="1448788774663" expanded="true" signature="6623:6624" placeholder="SELECT 1 FRO..${users}..." />
+            <marker date="1448788774663" expanded="true" signature="6623:6645" placeholder="SELECT 1 FRO..users..." />
+            <marker date="1448788774663" expanded="true" signature="6623:6655" placeholder="SELECT 1 FRO..${$table}..." />
+            <marker date="1448788774663" expanded="true" signature="7977:7988" placeholder="Drop TABLE $..." />
+            <marker date="1448788774663" expanded="true" signature="7977:7996" placeholder="Drop TABLE $..." />
+            <marker date="1448788774663" expanded="true" signature="8361:8517" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448788774663" expanded="true" signature="8361:8524" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448788774663" expanded="true" signature="9097:9288" placeholder="Select l.nam..user_lectures..." />
+            <marker date="1448788774663" expanded="true" signature="9884:9978" placeholder="SELECT id, u..users..." />
+            <marker date="1448788774663" expanded="true" signature="10367:10414" placeholder="insert into user_roles..." />
+            <marker date="1448788774663" expanded="true" signature="11978:12089" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="13885:13911" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="13885:13912" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="13885:13924" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="13885:13943" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14149:14175" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14149:14176" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14149:14189" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14149:14208" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14149:14229" placeholder="CREATE TABLE..if..." />
+            <marker date="1448788774663" expanded="true" signature="14489:14655" placeholder="CREATE TABLE..if..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
+    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="57" />
+        <state vertical-scroll-proportion="-5.4615383">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.538462">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#97#139#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.8461537">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.0384617">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1143,10 +1127,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/LecturesController.php">
+    <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.703504">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding>
+            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.045822103">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
