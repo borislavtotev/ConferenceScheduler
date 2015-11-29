@@ -11,8 +11,11 @@ class Conference
     private $id;
     private $venueId;
     private $name;
+    private $startDateTime;
+    private $endDateTime;
 
-    public function __construct(int $ownerId = null, int $administratorId = null, int $id = null, int $venueId = null, string $name = null )
+    public function __construct(int $ownerId = null, int $administratorId = null, int $id = null,
+                                int $venueId = null, string $name = null, string $startDateTime = null, string $endDataTime = null )
     {
         if ($id != null) {
             $this->setId($id);
@@ -32,6 +35,14 @@ class Conference
 
         if ($administratorId != null) {
             $this->setAdministratorId($administratorId);
+        }
+
+        if ($startDateTime != null) {
+            $this->setStartDateTime($startDateTime);
+        }
+
+        if ($endDataTime != null) {
+            $this->setEndDateTime($endDataTime);
         }
     }
 
@@ -83,5 +94,25 @@ class Conference
     public function getAdministratorId() :int
     {
         return $this->administratorId;
+    }
+
+    public function setStartDateTime(string $startDateTime)
+    {
+        $this->startDateTime = $startDateTime;
+    }
+
+    public function getStartDateTime() :string
+    {
+        return $this->startDateTime;
+    }
+
+    public function setEndDateTime(string $endDateTime)
+    {
+        $this->endDateTime = $endDateTime;
+    }
+
+    public function getEndDateTime() :string
+    {
+        return $this->endDateTime;
     }
 }

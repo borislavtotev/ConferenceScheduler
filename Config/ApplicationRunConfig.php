@@ -7,4 +7,5 @@ class ApplicationRunConfig
 {
     const CheckAnnotations = true;
     const UserConfig = false;
+    const BuildDB = false;
 }

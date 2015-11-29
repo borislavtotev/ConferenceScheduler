@@ -21,7 +21,15 @@ include_once('FrameworkCore' . DIRECTORY_SEPARATOR . 'Annotations' . DIRECTORY_S
 );
 
 $identityUsersRepository = \SoftUni\FrameworkCore\Repositories\IdentityUsersRepository::create();
-$dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository);
+$conferecesRepository = \SoftUni\FrameworkCore\Repositories\ConferencesRepository::create();
+$hallsRepository = \SoftUni\FrameworkCore\Repositories\HallRepository::create();
+$lecturesRepository = \SoftUni\FrameworkCore\Repositories\LecturesRepository::create();
+$venuesRepository = \SoftUni\FrameworkCore\Repositories\VenuesRepository::create();
+$dbContext = new \SoftUni\FrameworkCore\DatabaseContext($identityUsersRepository,
+                                                        $conferecesRepository,
+                                                        $hallsRepository,
+                                                        $lecturesRepository,
+                                                        $venuesRepository);
 
 $httpContext = new \SoftUni\FrameworkCore\Http\HttpContext();
 

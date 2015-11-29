@@ -9,8 +9,9 @@ class Hall
     private $id;
     private $venueId;
     private $name;
+    private $userLimit;
 
-    public function __construct(int $id = null, int $venueId = null, string $name = null)
+    public function __construct(int $id = null, int $venueId = null, string $name = null, int $userLimit)
     {
         if ($id != null) {
             $this->setId($id);
@@ -23,6 +24,10 @@ class Hall
         if ($name != null) {
             $this->setName($name);
         }
+
+        if ($userLimit != null) {
+            $this->setUserLimit($userLimit);
+        }
     }
 
     public function setId($id)
@@ -30,7 +35,7 @@ class Hall
         $this->id = $id;
     }
 
-    public function getId()
+    public function getId() :int
     {
         return $this->id;
     }
@@ -40,7 +45,7 @@ class Hall
         $this->venueId = $venueId;
     }
 
-    public function getVenueId()
+    public function getVenueId() :int
     {
         return $this->venueId;
     }
@@ -50,8 +55,18 @@ class Hall
         $this->name = $name;
     }
 
-    public function getName()
+    public function getName() :string
     {
         return $this->name;
+    }
+
+    public function setUserLimit(int $userLimit)
+    {
+        $this->userLimit = $userLimit;
+    }
+
+    public function getUserLimit() :int
+    {
+        return $this->userLimit;
     }
 }

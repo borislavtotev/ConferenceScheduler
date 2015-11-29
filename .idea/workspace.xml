@@ -2,9 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd5c4bc1-9349-4d48-91dd-bc643c7d8dfa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Controllers/LecturesController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/ConferencesCollection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/HallsCollection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/LecturesCollection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Collections/VenuesCollection.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/ConferencesRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/HallRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/LecturesRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FrameworkCore/Repositories/VenuesRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Views/lectures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" afterPath="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/UserConfig.php" afterPath="$PROJECT_DIR$/Config/UserConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Application.php" afterPath="$PROJECT_DIR$/FrameworkCore/Application.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/Database.php" afterPath="$PROJECT_DIR$/FrameworkCore/Database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" afterPath="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Logs/annotations.txt" afterPath="$PROJECT_DIR$/Logs/annotations.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Conference.php" afterPath="$PROJECT_DIR$/Models/Conference.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Hall.php" afterPath="$PROJECT_DIR$/Models/Hall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Lecture.php" afterPath="$PROJECT_DIR$/Models/Lecture.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/Shared/header.php" afterPath="$PROJECT_DIR$/Views/Shared/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="ConferenceScheduler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,80 +49,77 @@
       <file leaf-file-name="Database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2692307">
-              <caret line="332" column="33" selection-start-line="332" selection-start-column="33" selection-end-line="332" selection-end-column="33" />
+            <state vertical-scroll-proportion="-10.615385">
+              <caret line="308" column="29" selection-start-line="308" selection-start-column="29" selection-end-line="308" selection-end-column="29" />
               <folding>
                 <element signature="e#66#100#0#PHP" expanded="true" />
                 <element signature="e#1636#1822#0#PHP" expanded="false" />
                 <element signature="e#1828#1903#0#PHP" expanded="false" />
                 <element signature="e#1909#2004#0#PHP" expanded="false" />
-                <element signature="e#2010#2501#0#PHP" expanded="false" />
-                <element signature="e#2507#3864#0#PHP" expanded="false" />
-                <element signature="e#3870#5459#0#PHP" expanded="false" />
-                <element signature="e#5465#6192#0#PHP" expanded="false" />
-                <element signature="e#6198#6698#0#PHP" expanded="false" />
-                <element signature="e#6704#7033#0#PHP" expanded="false" />
-                <element signature="e#7039#7353#0#PHP" expanded="false" />
-                <element signature="e#10598#11074#0#PHP" expanded="false" />
-                <marker date="1448768716192" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="2675:2702" placeholder="SELECT 1 FRO..roles..." />
-                <marker date="1448768716192" expanded="true" signature="3227:3275" placeholder="Insert into roles..." />
-                <marker date="1448768716192" expanded="true" signature="3581:3638" placeholder="Delete from ..." />
-                <marker date="1448768716192" expanded="true" signature="4037:4064" placeholder="SELECT 1 FRO..users..." />
-                <marker date="1448768716192" expanded="true" signature="5060:5076" placeholder="Drop TABLE u..." />
-                <marker date="1448768716192" expanded="true" signature="5537:5693" placeholder="Select r.nam..user_roles..." />
-                <marker date="1448768716192" expanded="true" signature="5537:5700" placeholder="Select r.nam..user_roles..." />
-                <marker date="1448768716192" expanded="true" signature="6377:6471" placeholder="SELECT id, u..users..." />
-                <marker date="1448768716192" expanded="true" signature="6860:6907" placeholder="insert into user_roles..." />
-                <marker date="1448768716192" expanded="true" signature="8471:8582" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10145:10171" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10145:10172" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10145:10184" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10145:10203" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10409:10435" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10409:10436" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10409:10449" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10409:10468" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10409:10489" placeholder="CREATE TABLE..if..." />
-                <marker date="1448768716192" expanded="true" signature="10749:10915" placeholder="CREATE TABLE..if..." />
+                <element signature="e#2507#3098#0#PHP" expanded="false" />
+                <element signature="e#3104#4461#0#PHP" expanded="false" />
+                <marker date="1448787911484" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="2730:2756" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="2730:2757" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="2730:2805" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="2730:2873" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="2730:2939" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="3272:3299" placeholder="SELECT 1 FRO..roles..." />
+                <marker date="1448787911484" expanded="true" signature="3824:3872" placeholder="Insert into roles..." />
+                <marker date="1448787911484" expanded="true" signature="4178:4235" placeholder="Delete from ..." />
+                <marker date="1448787911484" expanded="true" signature="4634:4661" placeholder="SELECT 1 FRO..users..." />
+                <marker date="1448787911484" expanded="true" signature="5657:5673" placeholder="Drop TABLE u..." />
+                <marker date="1448787911484" expanded="true" signature="6623:6624" placeholder="SELECT 1 FRO..${users}..." />
+                <marker date="1448787911484" expanded="true" signature="6623:6645" placeholder="SELECT 1 FRO..users..." />
+                <marker date="1448787911484" expanded="true" signature="6623:6655" placeholder="SELECT 1 FRO..${$table}..." />
+                <marker date="1448787911484" expanded="true" signature="7977:7988" placeholder="Drop TABLE $..." />
+                <marker date="1448787911484" expanded="true" signature="7977:7996" placeholder="Drop TABLE $..." />
+                <marker date="1448787911484" expanded="true" signature="8361:8517" placeholder="Select r.nam..user_roles..." />
+                <marker date="1448787911484" expanded="true" signature="8361:8524" placeholder="Select r.nam..user_roles..." />
+                <marker date="1448787911484" expanded="true" signature="9097:9544" placeholder="Select l.nam..user_lectures..." />
+                <marker date="1448787911484" expanded="true" signature="10140:10234" placeholder="SELECT id, u..users..." />
+                <marker date="1448787911484" expanded="true" signature="10623:10670" placeholder="insert into user_roles..." />
+                <marker date="1448787911484" expanded="true" signature="12234:12345" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14141:14167" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14141:14168" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14141:14180" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14141:14199" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14405:14431" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14405:14432" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14405:14445" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14405:14464" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14405:14485" placeholder="CREATE TABLE..if..." />
+                <marker date="1448787911484" expanded="true" signature="14745:14911" placeholder="CREATE TABLE..if..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IdentityUsersRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
+      <file leaf-file-name="LecturesController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Controllers/LecturesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.461538">
-              <caret line="238" column="42" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="42" />
-              <folding>
-                <element signature="e#3403#4127#0#PHP" expanded="false" />
-                <element signature="e#4203#4868#0#PHP" expanded="false" />
-                <marker date="1448743410557" expanded="true" signature="3503:3522" placeholder="SELECT * FRO..users$..." />
-                <marker date="1448743410557" expanded="true" signature="4303:4365" placeholder="SELECT * FRO..users$..." />
-                <marker date="1448743410557" expanded="true" signature="5035:5052" placeholder="DELETE FROM ..." />
-                <marker date="1448743410557" expanded="true" signature="5816:5888" placeholder="UPDATE users..." />
-                <marker date="1448743410557" expanded="true" signature="6276:6381" placeholder="INSERT INTO users..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommonFunction.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="57" column="79" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.703504">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+      <file leaf-file-name="UserRoles.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrameworkCore/UserRoles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state vertical-scroll-proportion="17.115385">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LectureViewModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -111,19 +128,42 @@
       <file leaf-file-name="Conference.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Conference.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Application.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Application.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74594593">
-              <caret line="156" column="59" selection-start-line="156" selection-start-column="59" selection-end-line="156" selection-end-column="59" />
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="57" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationRunConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RouteConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.692307">
+              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+              <folding>
+                <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+                <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,37 +172,17 @@
         <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-9.807693">
-              <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Venue.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Venue.php">
+      <file leaf-file-name="lectures.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/lectures.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hall.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Hall.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lecture.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Lecture.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state vertical-scroll-proportion="-1.3076923">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,18 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/GetAnnotation.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/PostAnnotation.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Annotations/PutAnnotation.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Drivers/DriverAbstract.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Drivers/DriverFactory.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Drivers/MySQLDriver.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpCookie.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/UserRoles.php" />
-        <option value="$PROJECT_DIR$/Models/IdentityUserRole.php" />
-        <option value="$PROJECT_DIR$/Models/User.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Autoloader.php" />
         <option value="$PROJECT_DIR$/Controllers/HelpController.php" />
         <option value="$PROJECT_DIR$/Config/RouteConfig.php" />
@@ -199,13 +207,11 @@
         <option value="$PROJECT_DIR$/Models/BindingModels/UserBindingModel.php" />
         <option value="$PROJECT_DIR$/Views/error.php" />
         <option value="$PROJECT_DIR$/Models/BindingModels/UserLoginBindingModel.php" />
-        <option value="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
         <option value="$PROJECT_DIR$/Models/ViewModels/UserViewModel.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpContext.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Router.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/LoggedUser.php" />
-        <option value="$PROJECT_DIR$/Views/Shared/header.php" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/Models/BindingModels/UserChangeProfileBindingModel.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php" />
@@ -214,19 +220,33 @@
         <option value="$PROJECT_DIR$/FrameworkCore/Http/HttpRequest.php" />
         <option value="$PROJECT_DIR$/Views/register.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Annotations/RouteAnnotation.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Views/login.php" />
         <option value="$PROJECT_DIR$/Views/profile.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Http/Session.php" />
         <option value="$PROJECT_DIR$/Controllers/Controller.php" />
-        <option value="$PROJECT_DIR$/Config/UserConfig.php" />
         <option value="$PROJECT_DIR$/Controllers/UsersController.php" />
-        <option value="$PROJECT_DIR$/Models/Venue.php" />
         <option value="$PROJECT_DIR$/Models/Hall.php" />
-        <option value="$PROJECT_DIR$/Models/Lecture.php" />
+        <option value="$PROJECT_DIR$/Models/Venue.php" />
         <option value="$PROJECT_DIR$/Models/Conference.php" />
-        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Collections/VenuesCollection.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Collections/ConferencesCollection.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Repositories/VenuesRepository.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Repositories/ConferencesRepository.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Repositories/HallRepository.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Collections/HallsCollection.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Collections/LecturesCollection.php" />
+        <option value="$PROJECT_DIR$/Models/Lecture.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/DatabaseContext.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Views/Shared/header.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Repositories/LecturesRepository.php" />
+        <option value="$PROJECT_DIR$/Views/lectures.php" />
+        <option value="$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php" />
+        <option value="$PROJECT_DIR$/Config/UserConfig.php" />
         <option value="$PROJECT_DIR$/FrameworkCore/Application.php" />
+        <option value="$PROJECT_DIR$/FrameworkCore/Database.php" />
+        <option value="$PROJECT_DIR$/Controllers/LecturesController.php" />
+        <option value="$PROJECT_DIR$/Config/ApplicationRunConfig.php" />
       </list>
     </option>
   </component>
@@ -345,6 +365,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ViewModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConferenceScheduler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="FrameworkCore" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -381,7 +419,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
+              <option name="myItemId" value="Collections" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -554,14 +592,14 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30605564" sideWeight="0.57488656" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28725037" sideWeight="0.57488656" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30605564" sideWeight="0.42511347" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30441898" sideWeight="0.42511347" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26841244" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
@@ -597,7 +635,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="27" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpLocalRunConfigurationType">
@@ -609,150 +647,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AdminAnnotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AnnotationParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/View.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.269231">
-          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/BindingModels/BindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/IdentityUserRole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/Annotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0384614">
-          <caret line="133" column="10" selection-start-line="133" selection-start-column="10" selection-end-line="133" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/Annotations/AuthorizeAnnotation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.1153846">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/ConferenceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/ErrorsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/HelpController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/BindingModels/UserChangeProfileBindingModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/ViewModels/UserViewModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="26.115385">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Shared/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/error.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384">
@@ -795,27 +689,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1429805663451" expanded="true" signature="256:363" placeholder="INSERT INTO users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
-            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Shared/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.346154">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding>
-            <element signature="e#1961#1980#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -868,14 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="33" column="156" selection-start-line="33" selection-start-column="156" selection-end-line="33" selection-end-column="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Http/LoggedUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.5">
@@ -900,27 +765,222 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/login.php">
+    <entry file="file://$PROJECT_DIR$/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.423077">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <marker date="1448760722369" expanded="true" signature="1137:1309" placeholder="..." />
-            <marker date="1448760722369" expanded="true" signature="1399:1579" placeholder="..." />
-            <marker date="1448760722369" expanded="true" signature="1470:1560" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.653846">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Config/DatabaseConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Venue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.576923">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/ConferencesCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/HallRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.230769">
+          <caret line="268" column="1" selection-start-line="268" selection-start-column="1" selection-end-line="268" selection-end-column="1" />
+          <folding>
+            <element signature="e#79#114#0#PHP" expanded="true" />
+            <marker date="1448780179397" expanded="true" signature="3494:3513" placeholder="SELECT * FRO..halls$..." />
+            <marker date="1448780179397" expanded="true" signature="4309:4371" placeholder="SELECT * FRO..halls$..." />
+            <marker date="1448780179397" expanded="true" signature="5050:5067" placeholder="DELETE FROM ..." />
+            <marker date="1448780179397" expanded="true" signature="5815:6016" placeholder="UPDATE halls..." />
+            <marker date="1448780179397" expanded="true" signature="6442:6555" placeholder="INSERT INTO halls..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/VenuesCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1153846">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/VenuesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4615383">
+          <caret line="230" column="39" selection-start-line="230" selection-start-column="39" selection-end-line="230" selection-end-column="39" />
+          <folding>
+            <element signature="e#79#114#0#PHP" expanded="true" />
+            <marker date="1448779974113" expanded="true" signature="3514:3534" placeholder="SELECT * FRO..venues$..." />
+            <marker date="1448779974113" expanded="true" signature="4297:4360" placeholder="SELECT * FRO..venues$..." />
+            <marker date="1448779974113" expanded="true" signature="4998:5016" placeholder="DELETE FROM ..." />
+            <marker date="1448779974113" expanded="true" signature="5766:5922" placeholder="UPDATE venue..." />
+            <marker date="1448779974113" expanded="true" signature="6293:6385" placeholder="INSERT INTO conferences..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/DatabaseContext.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-72.42308">
+          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/HallsCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/ConferencesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.018182">
+          <caret line="234" column="52" selection-start-line="234" selection-start-column="52" selection-end-line="234" selection-end-column="52" />
+          <folding>
+            <element signature="e#79#114#0#PHP" expanded="true" />
+            <marker date="1448779988333" expanded="true" signature="4212:4226" placeholder="SELECT * FRO..users$..." />
+            <marker date="1448779988333" expanded="true" signature="4212:4237" placeholder="SELECT * FRO..conferences$..." />
+            <marker date="1448779988333" expanded="true" signature="5238:5306" placeholder="SELECT * FRO..users$..." />
+            <marker date="1448779988333" expanded="true" signature="6142:6154" placeholder="DELETE FROM ..." />
+            <marker date="1448779988333" expanded="true" signature="6142:6165" placeholder="DELETE FROM ..." />
+            <marker date="1448779988333" expanded="true" signature="6925:7255" placeholder="UPDATE users..." />
+            <marker date="1448779988333" expanded="true" signature="7875:7964" placeholder="INSERT INTO users..." />
+            <marker date="1448779988333" expanded="true" signature="7875:8078" placeholder="INSERT INTO conferences..." />
+            <marker date="1448779988333" expanded="true" signature="7875:8120" placeholder="INSERT INTO conferences..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Lecture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.923077">
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.346153">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/ConferenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.653846">
+          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="e#2146#2165#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/LecturesCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="e#97#139#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ViewModels/UserViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/LecturesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.730769">
+          <caret line="256" column="46" selection-start-line="256" selection-start-column="46" selection-end-line="256" selection-end-column="46" />
+          <folding>
+            <element signature="e#79#114#0#PHP" expanded="true" />
+            <marker date="1448782972194" expanded="true" signature="3986:4008" placeholder="SELECT * FRO..lectures$..." />
+            <marker date="1448782972194" expanded="true" signature="4951:5016" placeholder="SELECT * FRO..conferences$..." />
+            <marker date="1448782972194" expanded="true" signature="5800:5812" placeholder="DELETE FROM ..." />
+            <marker date="1448782972194" expanded="true" signature="5800:5820" placeholder="DELETE FROM ..." />
+            <marker date="1448782972194" expanded="true" signature="6577:6880" placeholder="UPDATE confe..." />
+            <marker date="1448782972194" expanded="true" signature="7428:7604" placeholder="INSERT INTO conferences..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <marker date="1448760722369" expanded="true" signature="1137:1309" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/IdentityUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.423077">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/IdentityUserRole.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
@@ -928,93 +988,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/UsersController.php">
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/Collections/IdentityUserCollection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="73.88461">
-          <caret line="163" column="0" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#139#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/IdentityUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.23077">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Hall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Venue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Lecture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="57" column="79" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Conference.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Repositories/IdentityUsersRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.461538">
-          <caret line="238" column="42" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="42" />
+        <state vertical-scroll-proportion="52.307693">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
           <folding>
+            <element signature="e#79#114#0#PHP" expanded="true" />
             <element signature="e#3403#4127#0#PHP" expanded="false" />
             <element signature="e#4203#4868#0#PHP" expanded="false" />
             <marker date="1448743410557" expanded="true" signature="3503:3522" placeholder="SELECT * FRO..users$..." />
@@ -1026,52 +1013,140 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Hall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.346154">
+          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/CommonFunction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4615386">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrameworkCore/UserRoles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="17.115385">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/RouteConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.692307">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+          <folding>
+            <marker date="1448660092896" expanded="true" signature="721:754" placeholder="..." />
+            <marker date="1448660092896" expanded="true" signature="739:754" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Conference.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/ViewModels/LectureViewModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/lectures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/UserConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2692307">
-          <caret line="332" column="33" selection-start-line="332" selection-start-column="33" selection-end-line="332" selection-end-column="33" />
+        <state vertical-scroll-proportion="-10.615385">
+          <caret line="308" column="29" selection-start-line="308" selection-start-column="29" selection-end-line="308" selection-end-column="29" />
           <folding>
             <element signature="e#66#100#0#PHP" expanded="true" />
             <element signature="e#1636#1822#0#PHP" expanded="false" />
             <element signature="e#1828#1903#0#PHP" expanded="false" />
             <element signature="e#1909#2004#0#PHP" expanded="false" />
-            <element signature="e#2010#2501#0#PHP" expanded="false" />
-            <element signature="e#2507#3864#0#PHP" expanded="false" />
-            <element signature="e#3870#5459#0#PHP" expanded="false" />
-            <element signature="e#5465#6192#0#PHP" expanded="false" />
-            <element signature="e#6198#6698#0#PHP" expanded="false" />
-            <element signature="e#6704#7033#0#PHP" expanded="false" />
-            <element signature="e#7039#7353#0#PHP" expanded="false" />
-            <element signature="e#10598#11074#0#PHP" expanded="false" />
-            <marker date="1448768716192" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="2675:2702" placeholder="SELECT 1 FRO..roles..." />
-            <marker date="1448768716192" expanded="true" signature="3227:3275" placeholder="Insert into roles..." />
-            <marker date="1448768716192" expanded="true" signature="3581:3638" placeholder="Delete from ..." />
-            <marker date="1448768716192" expanded="true" signature="4037:4064" placeholder="SELECT 1 FRO..users..." />
-            <marker date="1448768716192" expanded="true" signature="5060:5076" placeholder="Drop TABLE u..." />
-            <marker date="1448768716192" expanded="true" signature="5537:5693" placeholder="Select r.nam..user_roles..." />
-            <marker date="1448768716192" expanded="true" signature="5537:5700" placeholder="Select r.nam..user_roles..." />
-            <marker date="1448768716192" expanded="true" signature="6377:6471" placeholder="SELECT id, u..users..." />
-            <marker date="1448768716192" expanded="true" signature="6860:6907" placeholder="insert into user_roles..." />
-            <marker date="1448768716192" expanded="true" signature="8471:8582" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10145:10171" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10145:10172" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10145:10184" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10145:10203" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10409:10435" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10409:10436" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10409:10449" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10409:10468" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10409:10489" placeholder="CREATE TABLE..if..." />
-            <marker date="1448768716192" expanded="true" signature="10749:10915" placeholder="CREATE TABLE..if..." />
+            <element signature="e#2507#3098#0#PHP" expanded="false" />
+            <element signature="e#3104#4461#0#PHP" expanded="false" />
+            <marker date="1448787911484" expanded="true" signature="2164:2342" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="2730:2756" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="2730:2757" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="2730:2805" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="2730:2873" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="2730:2939" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="3272:3299" placeholder="SELECT 1 FRO..roles..." />
+            <marker date="1448787911484" expanded="true" signature="3824:3872" placeholder="Insert into roles..." />
+            <marker date="1448787911484" expanded="true" signature="4178:4235" placeholder="Delete from ..." />
+            <marker date="1448787911484" expanded="true" signature="4634:4661" placeholder="SELECT 1 FRO..users..." />
+            <marker date="1448787911484" expanded="true" signature="5657:5673" placeholder="Drop TABLE u..." />
+            <marker date="1448787911484" expanded="true" signature="6623:6624" placeholder="SELECT 1 FRO..${users}..." />
+            <marker date="1448787911484" expanded="true" signature="6623:6645" placeholder="SELECT 1 FRO..users..." />
+            <marker date="1448787911484" expanded="true" signature="6623:6655" placeholder="SELECT 1 FRO..${$table}..." />
+            <marker date="1448787911484" expanded="true" signature="7977:7988" placeholder="Drop TABLE $..." />
+            <marker date="1448787911484" expanded="true" signature="7977:7996" placeholder="Drop TABLE $..." />
+            <marker date="1448787911484" expanded="true" signature="8361:8517" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448787911484" expanded="true" signature="8361:8524" placeholder="Select r.nam..user_roles..." />
+            <marker date="1448787911484" expanded="true" signature="9097:9544" placeholder="Select l.nam..user_lectures..." />
+            <marker date="1448787911484" expanded="true" signature="10140:10234" placeholder="SELECT id, u..users..." />
+            <marker date="1448787911484" expanded="true" signature="10623:10670" placeholder="insert into user_roles..." />
+            <marker date="1448787911484" expanded="true" signature="12234:12345" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14141:14167" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14141:14168" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14141:14180" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14141:14199" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14405:14431" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14405:14432" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14405:14445" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14405:14464" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14405:14485" placeholder="CREATE TABLE..if..." />
+            <marker date="1448787911484" expanded="true" signature="14745:14911" placeholder="CREATE TABLE..if..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrameworkCore/Application.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74594593">
-          <caret line="156" column="59" selection-start-line="156" selection-start-column="59" selection-end-line="156" selection-end-column="59" />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Config/ApplicationRunConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/LecturesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.703504">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding />
         </state>
       </provider>

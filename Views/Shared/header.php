@@ -34,6 +34,8 @@
                     <li class="divider-vertical"></li>
                     <li><a href="/users/profile/my"><?php if (isset($_SESSION['userId'])) { echo "My Profile"; } ?></a></li>
                     <li class="divider-vertical"></li>
+                    <li><a href="/lectures/my-schedule"><?php if (isset($_SESSION['userId'])) { echo "My Schedule"; } ?></a></li>
+                    <li class="divider-vertical"></li>
                     <li><a href="/users/logout"><?php if (isset($_SESSION['userId'])) { echo "Logout"; } ?></a></li>
                 </ul>
             </div>

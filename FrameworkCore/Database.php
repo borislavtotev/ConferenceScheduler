@@ -91,7 +91,7 @@ class Database
         return $this->db->lastInsertId($name);
     }
 
-    public static function createUserRolesTable()
+    public static function updateUserRolesTable()
     {
         $db = self::getInstance('app');
 
@@ -99,6 +99,26 @@ class Database
                             CREATE TABLE if not EXISTS user_roles (
                               user_id INT(6) NOT NULL,
                               role_id INT(6) NOT NULL
+                            )
+                    ");
+
+        $result->execute([]);
+
+        if ($result->rowCount() > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function updateManyToManyTable(string $table_name, string $column_one_name, string $column_two_name)
+    {
+        $db = self::getInstance('app');
+
+        $result = $db->prepare("
+                            CREATE TABLE if not EXISTS ".$table_name." (
+                              ".$column_one_name." INT(6) NOT NULL,
+                              ".$column_two_name." INT(6) NOT NULL
                             )
                     ");
 
@@ -200,6 +220,12 @@ class Database
 
                 $result->execute([]);
 
+                $result = $db->prepare("
+                            Truncate Table user_lectures
+                    ");
+
+                $result->execute([]);
+
                 self::createUserTable();
 
                 return true;
@@ -208,6 +234,64 @@ class Database
             self::createUserTable();
 
             return true;
+        }
+    }
+
+    public static function updateModelTable($className)
+    {
+        $db = self::getInstance('app');
+        //var_dump($className);
+        if (preg_match_all("#\\\(\\w+?)$#", $className, $match)) {
+            $table = $match[1][0] . 's';
+            $table = strtolower($table);
+            //var_dump($table);
+
+            //check whether the table roles exists
+            $result = $db->prepare("SELECT 1 FROM ".$table." LIMIT 1");
+            $result->execute([]);
+
+            // truncate the table roles
+            if ($result->rowCount() > 0) {
+                $dbUserColumns = self::getColumnNames($table);
+                //var_dump($dbUserColumns);
+                //echo "<br/><br/>";
+                $userModelPropertiesWithTypes = CommonFunction::getClassProperties($className);
+                $userModelProperties = array_keys($userModelPropertiesWithTypes);
+                //var_dump($userModelProperties);
+                //die;
+
+                $hasSameProperties = true;
+                foreach ($userModelProperties as $userModelProperty) {
+                    if (!in_array(strtolower($userModelProperty), $dbUserColumns)) {
+                        $hasSameProperties = false;
+                        break;
+                    }
+                }
+                foreach ($dbUserColumns as $dbUserColumn) {
+                    if (!in_array(ucfirst($dbUserColumn), $userModelProperties)) {
+                        $hasSameProperties = false;
+                        break;
+                    }
+                }
+
+                //var_dump($hasSameProperties);
+                //die;
+                if ($hasSameProperties) {
+                    return true;
+                } else {
+                    $result = $db->prepare("Drop TABLE ".$table);
+
+                    $result->execute([]);
+
+                    self::createModelTable($className);
+
+                    return true;
+                }
+            } else {
+                self::createModelTable($className);
+
+                return true;
+            }
         }
     }
 
@@ -228,6 +312,32 @@ class Database
             while($row = $stmt->fetch()){
                 $output[] = $row['name'];
             }
+            return $output;
+        }
+        catch(\Exception $pe) {
+            throw new \Exception('Could not connect to MySQL database. ' . $pe->getMessage());
+        }
+    }
+
+    public static function getUserLectures (int $userId)
+    {
+        $sql = "Select l.name as Lecture,
+                        l.startdatetime as StartTime, l.enddatetime as EndTime, h.name as Hall, u.username as Speaker
+                from user_lectures as ul
+                join lectures as l
+                on ul.lecture_id = l.lecture_id
+                join halls as h
+                on h.id = l.hallid
+                join users as u
+                on u.id = l.speakerid
+                where ul.user_id = :userId";
+        try {
+            $db = self::getInstance('app');
+            $stmt = $db->prepare($sql);
+            $stmt->execute([
+                ':userId' => $userId
+            ]);
+            $output = $row = $stmt->fetchAll();
             return $output;
         }
         catch(\Exception $pe) {
@@ -330,38 +440,42 @@ class Database
         }
     }
 
-    public static function createModelTable($className)
+    private static function createModelTable($className)
     {
         $db = self::getInstance('app');
 
         $modelProperties = CommonFunction::getClassProperties($className);
 
         if (preg_match_all("#\\\(\\w+?)$#", $className, $match)) {
-            $table = $match[1][0];
+            $table = $match[1][0].'s';
             $table = strtolower($table);
 
             $propertySQL = [];
 
             foreach ($modelProperties as $property => $propertyType) {
-                switch ($propertyType) {
-                    case 'string' :
-                        $dataType = 'VARCHAR(255)';
-                        break;
-                    case 'int' :
-                        $dataType = 'INT(6)';
-                        break;
-                    case 'float' :
-                        $dataType = 'FLOAT(28,8)';
-                        break;
-                    case 'bool' :
-                        $dataType = 'BIT';
-                        break;
-                    default :
-                        $dataType = 'VARCHAR(255)';
-                }
+                if (strpos(strtolower($property), 'datetime')) {
+                    $dataType = 'DATETIME';
+                } else {
+                    switch ($propertyType) {
+                        case 'string' :
+                            $dataType = 'VARCHAR(255)';
+                            break;
+                        case 'int' :
+                            $dataType = 'INT(6)';
+                            break;
+                        case 'float' :
+                            $dataType = 'FLOAT(28,8)';
+                            break;
+                        case 'bool' :
+                            $dataType = 'BIT';
+                            break;
+                        default :
+                            $dataType = 'VARCHAR(255)';
+                    }
 
-                if ($property == 'Id') {
-                    $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
+                    if ($property == 'Id') {
+                        $dataType .= ' UNSIGNED AUTO_INCREMENT PRIMARY KEY';
+                    }
                 }
 
                 $property = strtolower($property);
@@ -411,6 +525,8 @@ class Database
     private static function getColumnNames(string $table) :array
     {
         $sql = "SHOW columns FROM :table";
+//        var_dump($table);
+//        var_dump($sql.$table);
         try {
             $db = self::getInstance('app');
             $stmt = $db->prepare($sql);
@@ -421,6 +537,10 @@ class Database
             while($row = $stmt->fetch()){
                 $output[] = $row['Field'];
             }
+//            var_dump($row);
+//            var_dump($output);
+//            die;
+
             return $output;
         }
         catch(\Exception $pe) {

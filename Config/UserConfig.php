@@ -14,4 +14,5 @@ class UserConfig
 
     // if you want to extend the class, you can choose here another class to store the information for the users
     const UserIdentityClassName = 'SoftUni\Models\User';
+    const BuildDB = false;
 }

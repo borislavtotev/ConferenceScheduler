@@ -55,6 +55,7 @@ class Application
     {
         $this->checkAnnotations();
         $this->checkUserConfiguration();
+        $this->checkBuildDb();
         Router::readAllRoutes();
 
         $uri = Router::make_uri();
@@ -124,8 +125,8 @@ class Application
         }
 
         if (!$isRouteFound) {
-            //$this->httpContext->getSession()->error = "Route not found";
-            //header("location: /errors/404");
+            $this->httpContext->getSession()->error = "Route not found";
+            header("location: /errors/404");
         }
     }
 
@@ -148,13 +149,18 @@ class Application
         if (\SoftUni\Config\ApplicationRunConfig::UserConfig) {
             Database::updateRolesTable();
             Database::updateUserTable();
-            Database::createUserRolesTable();
+            Database::updateUserRolesTable();
         }
+    }
 
-        Database::createModelTable('\SoftUni\Models\Conference');
-        Database::createModelTable('\SoftUni\Models\Venue');
-        Database::createModelTable('\SoftUni\Models\Hall');
-        Database::createModelTable('\SoftUni\Models\Lecture');
+    private function checkBuildDb() {
+        if (\SoftUni\Config\ApplicationRunConfig::BuildDB) {
+            Database::updateModelTable('\SoftUni\Models\Conference');
+            Database::updateModelTable('\SoftUni\Models\Venue');
+            Database::updateModelTable('\SoftUni\Models\Hall');
+            Database::updateModelTable('\SoftUni\Models\Lecture');
+            Database::updateManyToManyTable('user_lectures', 'user_id', 'lecture_id');
+        }
     }
 
     private function checkAnnotationsValidity(HttpContext $httpContext, array $annotations = null) :bool
