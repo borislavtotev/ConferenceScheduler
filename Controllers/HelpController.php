@@ -11,8 +11,9 @@ class HelpController extends Controller
 {
     public function routesMapping()
     {
-        $annotations = AnnotationParser::$allAnnotations['byController'];
+        $annotations = AnnotationParser::$allAnnotations;
 
+        echo json_encode($annotations);
     }
 
 

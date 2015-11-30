@@ -322,11 +322,16 @@ class Database
     public static function getUserLectures (int $userId)
     {
         $sql = "Select
-                *
-                from user_lectures as ul
-                join lectures as l
-                on ul.lecture_id = l.lecture_id
-                where ul.user_id = :userId";
+	l.name as Lecture,
+	l.startdatetime as StartTime, l.enddatetime as EndTime, h.name as Hall, u.username as Speaker
+	from user_lectures as ul
+	join lectures as l
+	on ul.lecture_id = l.id
+	join halls as h
+	on h.id = l.hallid
+	join users as u
+	on u.id = l.speakerid
+	where ul.user_id = :userId";
         try {
             $db = self::getInstance('app');
             $stmt = $db->prepare($sql);
